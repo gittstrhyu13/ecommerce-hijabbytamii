@@ -199,18 +199,19 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* --- PRODUCT GRID (DAPAT BERUBAH MENJADI LIST) --- */
+        /* --- PRODUCT GRID (BISA RE-LAYOUT KE BAWAH) --- */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Default 2 Kolom */
+            grid-template-columns: repeat(2, 1fr); /* Default awal: 2 kolom kanan-kiri */
             gap: 15px;
             margin-bottom: 30px;
             transition: all 0.3s ease;
+            align-items: stretch;
         }
 
-        /* Class khusus saat mode 1 kolom berurutan ke bawah aktif */
+        /* Class pemicu saat mode urut atas-bawah aktif */
         .product-grid.list-mode {
-            grid-template-columns: 1fr !important; /* Berubah jadi 1 Kolom penuh */
+            grid-template-columns: 1fr !important; /* Berubah total jadi 1 kolom penuh */
         }
 
         .product-card {
@@ -223,13 +224,15 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100%;
         }
 
-        /* Layout kartu saat berubah jadi mode list memanjang */
+        /* Desain kartu produk saat berubah ke mode memanjang ke bawah */
         .product-grid.list-mode .product-card {
-            flex-direction: row; /* Gambar di kiri, teks di kanan */
+            flex-direction: row !important; /* Gambar kiri, teks kanan */
             gap: 15px;
             align-items: center;
+            height: auto;
         }
 
         .img-container {
@@ -240,7 +243,7 @@
             transition: width 0.3s ease;
         }
 
-        /* Ukuran gambar mengecil rapi saat mode list */
+        /* Menyesuaikan ukuran gambar saat mode berurutan ke bawah aktif */
         .product-grid.list-mode .img-container {
             width: 100px;
             height: 100px;
@@ -274,6 +277,13 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            min-height: 2.6rem;
+        }
+
+        /* Khusus mode list, hapus jarak tinggi minimum judul agar lebih presisi */
+        .product-grid.list-mode .product-title {
+            min-height: auto;
+            margin-bottom: 2px;
         }
 
         .product-price {
@@ -282,6 +292,10 @@
             font-weight: 700;
             margin-top: 4px;
             margin-bottom: 12px;
+        }
+
+        .product-grid.list-mode .product-price {
+            margin-bottom: 8px;
         }
 
         /* --- TOMBOL PLUS MINUS (+ -) DI TIAP PRODUK --- */
@@ -293,7 +307,7 @@
             border-radius: 10px;
             padding: 4px;
             margin-top: auto;
-            max-width: 120px; /* Membatasi lebar agar tetap cantik di mode list */
+            max-width: 120px;
         }
 
         .btn-qty {
@@ -432,4 +446,52 @@
 
     <header>
         <div class="nav-top">
-            <i class="fa-solid fa-bars" onclick="ubahTampilanProduk()" style="font-size: 1.2rem; color: #4a3f35;" title="Ubah Tampilan">
+            <i class="fa-solid fa-bars" onclick="ubahTampilanProduk()" style="font-size: 1.2rem; color: #4a3f35;" title="Ubah Susunan"></i>
+            <div class="logo-container">
+                <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
+                <div class="brand-name">HijabByTami</div>
+            </div>
+            <div class="cart-box">
+                <i class="fa-solid fa-shopping-bag"></i> <span id="total-cart">0</span>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" onkeyup="cariProduk()" placeholder="Cari koleksi pashmini...">
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <div class="hero-banner">
+            <h1>Sentuhan Anggun Setiap Hari</h1>
+            <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
+            
+            <div class="tag-badge">
+                ✦ simple • effortless • elegant ✦
+            </div>
+            
+            <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
+        </div>
+
+        <div class="restock-notice">
+            <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
+        </div>
+
+        <div class="product-grid" id="product-container">
+            
+            <div class="product-card" data-order="1">
+                <div class="img-container">
+                    <img src="gambar1.jpeg" alt="Pashmina Mini 1" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Pashmina Mini - Soft Pink</div>
+                    <div class="product-price">Rp 50.000</div>
+                    <div class="qty-control">
+                        <button class="btn-qty" onclick="ubahJumlah(this, -1, 'Pashmina Mini - Soft Pink')">-</button>
+                        <span class="qty-number">0</span>
+                        <button class="btn-qty" onclick="ubahJumlah(this, 1, 'Pashmina Mini - Soft Pink')">+</button>
+                    </div>
+                </div>
+            </div>
