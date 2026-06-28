@@ -41,7 +41,6 @@
             margin-bottom: 15px;
         }
 
-        /* Membuat icon menu garis tiga memiliki pointer tangan */
         .fa-bars {
             cursor: pointer;
             padding: 5px;
@@ -80,6 +79,7 @@
             font-size: 0.85rem;
             color: #4a3f35;
             transition: transform 0.2s ease;
+            cursor: pointer; /* Membuat icon keranjang bisa diklik */
         }
 
         /* --- SEARCH BAR --- */
@@ -214,7 +214,7 @@
             border: 1px solid #f5ebe0;
             padding: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer; /* Tangan penunjuk saat disentuh */
+            cursor: pointer;
         }
 
         .product-card:hover {
@@ -295,6 +295,13 @@
             flex: 1;
             box-shadow: 0 2px 6px rgba(74, 63, 53, 0.04);
             color: #4a3f35;
+            cursor: pointer; /* Membuat tombol metode pembayaran bisa diklik */
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .payment-badge:hover {
+            background-color: #fdf6f0;
+            transform: scale(1.03);
         }
 
         .payment-badge i {
@@ -365,7 +372,7 @@
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
             </div>
-            <div class="cart-box">
+            <div class="cart-box" onclick="kurangiKeranjang()">
                 <i class="fa-solid fa-shopping-bag"></i> <span>0</span>
             </div>
         </div>
@@ -430,11 +437,11 @@
         <div class="transaction-section">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
-                <div class="payment-badge">
+                <div class="payment-badge" onclick="pilihMetode('COD (Bayar di Tempat)')">
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     <span>Bisa COD</span>
                 </div>
-                <div class="payment-badge">
+                <div class="payment-badge" onclick="pilihMetode('Transfer Bank')">
                     <i class="fa-solid fa-building-columns"></i>
                     <span>Transfer Bank</span>
                 </div>
@@ -459,30 +466,43 @@
     <script>
         let nilaiKeranjang = 0;
 
-        // Fungsi Menambah Angka Keranjang Belanja Berwarna Beige di Atas
+        // Fungsi 1: Menambah Angka Keranjang
         function tambahKeKeranjang(namaProduk) {
             nilaiKeranjang++;
-            
-            // Mengubah teks angka di dalam badge keranjang
+            updateTampilanKeranjang();
+            alert(namaProduk + ' sukses ditambahkan! Keranjang belanja kamu sekarang berisi: ' + nilaiKeranjang);
+        }
+
+        // Fungsi 2: Mengurangi Angka Keranjang saat ikon Keranjang Atas diklik
+        function kurangiKeranjang() {
+            if (nilaiKeranjang > 0) {
+                nilaiKeranjang--;
+                updateTampilanKeranjang();
+                alert('1 item dikeluarkan. Jumlah isi keranjang kamu sekarang: ' + nilaiKeranjang);
+            } else {
+                alert('Keranjang belanja kamu masih kosong, yuk pilih pashmina favoritmu terlebih dahulu!');
+            }
+        }
+
+        // Fungsi pembantu untuk memperbarui teks angka di layar
+        function updateTampilanKeranjang() {
             const elemenAngka = document.querySelector('.cart-box span');
             if (elemenAngka) {
                 elemenAngka.textContent = nilaiKeranjang;
             }
-
-            // Animasi kejutan kecil pada tombol keranjang di atas saat produk masuk
             const kotakKeranjang = document.querySelector('.cart-box');
             if (kotakKeranjang) {
                 kotakKeranjang.style.transform = 'scale(1.25)';
-                setTimeout(() => {
-                    kotakKeranjang.style.transform = 'scale(1)';
-                }, 200);
+                setTimeout(() => { kotakKeranjang.style.transform = 'scale(1)'; }, 200);
             }
-
-            // Menampilkan pesan pemberitahuan sukses
-            alert(namaProduk + ' sukses ditambahkan! Keranjang belanja kamu sekarang berisi: ' + nilaiKeranjang);
         }
 
-        // Fungsi Klik Tombol Menu Samping Garis 3
+        // Fungsi 3: Klik Metode Pembayaran
+        function pilihMetode(namaMetode) {
+            alert('Kamu memilih metode pembayaran via ' + namaMetode + '. Silakan konfirmasi pesananmu lewat tombol WhatsApp di bawah ya, Sis! ✨');
+        }
+
+        // Fungsi 4: Klik Tombol Menu Garis 3
         function bukaMenu() {
             alert('Menu navigasi akan segera hadir! Sementara waktu, Anda dapat menjelajahi koleksi kami dengan menggeser halaman ke bawah atau langsung menghubungi kontak di bagian bawah.');
         }
