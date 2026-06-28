@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HijabByTami - Pashmina Mini Premium</title>
+    <!-- Google Font Poppins agar tampilan teks modern dan bersih -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon menu, search, bag, sosmed, dan metode pembayaran -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fcfaf7; /* Latar luar broken white hangat */
+            color: #4a3f35; /* Teks warna cokelat tua gelap agar premium */
+            max-width: 480px; /* Dikunci ukuran HP agar estetik seperti link-in-bio */
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(169, 132, 103, 0.08);
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR & LOGO AREA --- */
+        header {
+            background-color: #f5ebe0; /* Beige lembut */
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e3d5ca;
+        }
+
+        .nav-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tempat foto logo By Tami Hijab */
+        .brand-logo {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid #d5bdaf;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #4a3f35;
+        }
+
+        .cart-box {
+            background: #e3d5ca;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #4a3f35;
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 15px 12px 42px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            background-color: #fcfaf7;
+            outline: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            background-color: #ffffff;
+            border-color: #d5bdaf;
+            box-shadow: 0 0 10px rgba(213, 189, 175, 0.3);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a98467;
+        }
+
+        /* --- MAIN HERO BANNER --- */
+        .main-content {
+            padding: 15px;
+            background-color: #ffffff;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #e3d5ca, #d5bdaf);
+            border-radius: 20px;
+            padding: 35px 20px;
+            text-align: center;
+            color: #4a3f35;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(74, 63, 53, 0.05);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.15;
+            background-image: radial-gradient(circle at 50% 20%, transparent 60%, #4a3f35 62%);
+            background-size: 40px 40px;
+        }
+
+        .hero-banner h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .hero-banner p {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .tag-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            margin-bottom: 15px;
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .hero-subtext {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* --- NOTIFIKASI RESTOK --- */
+        .restock-notice {
+            background-color: #fdf6f0;
+            color: #a98467;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px dashed #d5bdaf;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .restock-notice i {
+            animation: spin 4s infinite linear;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- PRODUCT GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #f5ebe0;
+            padding: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(169, 132, 103, 0.12);
+        }
+
+        .img-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 10px 4px 4px 4px;
+        }
+
+        .product-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a3f35;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            font-size: 0.9rem;
+            color: #a98467;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* --- METODE TRANSAKSI --- */
+        .transaction-section {
+            background-color: #f5ebe0;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .transaction-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #4a3f35;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .payment-badge {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+            box-shadow: 0 2px 6px rgba(74, 63, 53, 0.04);
+            color: #4a3f35;
+        }
+
+        .payment-badge i {
+            font-size: 1.2rem;
+            color: #a98467;
+        }
+
+        /* --- KONTAK & FOOTER --- */
+        footer {
+            background-color: #4a3f35;
+            color: #f5ebe0;
+            padding: 25px 20px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        footer h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-contact {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-contact:hover {
+            opacity: 0.9;
+        }
+
+        .btn-wa { 
+            background-color: #25D366; 
+            color: white; 
+        }
+        
+        .btn-ig { 
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            color: white; 
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar + Logo Resmi -->
+    <header>
+        <div class="nav-top">
+            <i class="fa-solid fa-bars" style="font-size: 1.2rem; color: #4a3f35;"></i>
+            <div class="logo-container">
+                <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
+                <div class="brand-name">HijabByTami</div>
+            </div>
+            <div class="cart-box">
+                <i class="fa-solid fa-shopping-bag"></i> <span>0</span>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Cari koleksi pashmini...">
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        
+        <!-- Hero Banner Utama -->
+        <div class="hero-banner">
+            <h1>Sentuhan Anggun Setiap Hari</h1>
+            <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
+            
+            <div class="tag-badge">
+                ✦ simple • effortless • elegant ✦
+            </div>
+            
+            <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
+        </div>
+
+        <!-- Banner Informasi Restok -->
+        <div class="restock-notice">
+            <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
+        </div>
+
+        <!-- Grid Tempat 3 Foto Produk -->
+        <div class="product-grid">
+            
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="gambar1.jpeg" alt="Pashmina Mini 1" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Pashmina Mini - Soft Pink</div>
+                    <div class="product-price">Rp 50.000</div>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="gambar2.jpeg" alt="Pashmina Mini 2" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Pashmina Mini - OatMilk</div>
+                    <div class="product-price">Rp 50.000</div>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="gambar3.jpeg" alt="Pashmina Mini 3" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Pashmina Mini - Hazelnut</div>
+                    <div class="product-price">Rp 50.000</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Pilihan Metode Transaksi -->
+        <div class="transaction-section">
+            <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
+            <div class="payment-options">
+                <div class="payment-badge">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                    <span>Bisa COD</span>
+                </div>
+                <div class="payment-badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Transfer Bank</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Kontak & Footer Area -->
+    <footer>
+        <h4>Hubungi Kami Untuk Pemesanan</h4>
+        <div class="contact-buttons">
+            <a href="https://wa.me/6287753617027" target="_blank" class="btn-contact btn-wa">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/hijabbytami?igsh=MWNuNHRnbmk4d3Ro" target="_blank" class="btn-contact btn-ig">
+                <i class="fa-brands fa-instagram"></i> HijabByTami
+            </a>
+        </div>
+        <p>2026 HijabByTami. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
