@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HijabByTami - Pashmina Mini Premium</title>
+    <!-- Google Font Poppins agar tampilan teks modern dan bersih -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon menu, search, bag, sosmed, dan metode pembayaran -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -44,6 +46,11 @@
         .fa-bars {
             cursor: pointer;
             padding: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .fa-bars:active {
+            transform: rotate(90deg);
         }
 
         .logo-container {
@@ -79,7 +86,6 @@
             font-size: 0.85rem;
             color: #4a3f35;
             transition: transform 0.2s ease;
-            cursor: pointer; /* Membuat icon keranjang bisa diklik */
         }
 
         /* --- SEARCH BAR --- */
@@ -214,7 +220,9 @@
             border: 1px solid #f5ebe0;
             padding: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-card:hover {
@@ -258,6 +266,47 @@
             color: #a98467;
             font-weight: 700;
             margin-top: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* --- TOMBOL PLUS MINUS (+ -) DI TIAP PRODUK --- */
+        .qty-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f5ebe0;
+            border-radius: 10px;
+            padding: 4px;
+            margin-top: auto;
+        }
+
+        .btn-qty {
+            background-color: #ffffff;
+            border: none;
+            color: #4a3f35;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: background-color 0.2s;
+        }
+
+        .btn-qty:active {
+            background-color: #e3d5ca;
+        }
+
+        .qty-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a3f35;
+            min-width: 20px;
+            text-align: center;
         }
 
         /* --- METODE TRANSAKSI --- */
@@ -295,7 +344,7 @@
             flex: 1;
             box-shadow: 0 2px 6px rgba(74, 63, 53, 0.04);
             color: #4a3f35;
-            cursor: pointer; /* Membuat tombol metode pembayaran bisa diklik */
+            cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
 
@@ -365,26 +414,31 @@
 </head>
 <body>
 
+    <!-- Header / Navbar -->
     <header>
         <div class="nav-top">
-            <i class="fa-solid fa-bars" onclick="bukaMenu()" style="font-size: 1.2rem; color: #4a3f35;"></i>
+            <!-- Tombol Garis Tiga untuk Mengurutkan Ulang Produk -->
+            <i class="fa-solid fa-bars" onclick="urutkanProduk()" style="font-size: 1.2rem; color: #4a3f35;" title="Urutkan Produk"></i>
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
             </div>
-            <div class="cart-box" onclick="kurangiKeranjang()">
-                <i class="fa-solid fa-shopping-bag"></i> <span>0</span>
+            <div class="cart-box">
+                <i class="fa-solid fa-shopping-bag"></i> <span id="total-cart">0</span>
             </div>
         </div>
         
+        <!-- Search Bar -->
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cari koleksi pashmini...">
+            <input type="text" id="search-input" onkeyup="cariProduk()" placeholder="Cari koleksi pashmini...">
         </div>
     </header>
 
+    <!-- Main Content Area -->
     <main class="main-content">
         
+        <!-- Hero Banner Utama -->
         <div class="hero-banner">
             <h1>Sentuhan Anggun Setiap Hari</h1>
             <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
@@ -396,44 +450,68 @@
             <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
         </div>
 
+        <!-- Banner Informasi Restok -->
         <div class="restock-notice">
             <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
         </div>
 
-        <div class="product-grid">
+        <!-- Grid Tempat 3 Foto Produk -->
+        <div class="product-grid" id="product-container">
             
-            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - Soft Pink')">
+            <!-- Produk 1 -->
+            <div class="product-card" data-order="1">
                 <div class="img-container">
                     <img src="gambar1.jpeg" alt="Pashmina Mini 1" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Soft Pink</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- Tombol Pengatur Jumlah (+ -) -->
+                    <div class="qty-control">
+                        <button class="btn-qty" onclick="ubahJumlah(this, -1, 'Pashmina Mini - Soft Pink')">-</button>
+                        <span class="qty-number">0</span>
+                        <button class="btn-qty" onclick="ubahJumlah(this, 1, 'Pashmina Mini - Soft Pink')">+</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - OatMilk')">
+            <!-- Produk 2 -->
+            <div class="product-card" data-order="2">
                 <div class="img-container">
                     <img src="gambar2.jpeg" alt="Pashmina Mini 2" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - OatMilk</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- Tombol Pengatur Jumlah (+ -) -->
+                    <div class="qty-control">
+                        <button class="btn-qty" onclick="ubahJumlah(this, -1, 'Pashmina Mini - OatMilk')">-</button>
+                        <span class="qty-number">0</span>
+                        <button class="btn-qty" onclick="ubahJumlah(this, 1, 'Pashmina Mini - OatMilk')">+</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - Hazelnut')">
+            <!-- Produk 3 -->
+            <div class="product-card" data-order="3">
                 <div class="img-container">
                     <img src="gambar3.jpeg" alt="Pashmina Mini 3" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Hazelnut</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- Tombol Pengatur Jumlah (+ -) -->
+                    <div class="qty-control">
+                        <button class="btn-qty" onclick="ubahJumlah(this, -1, 'Pashmina Mini - Hazelnut')">-</button>
+                        <span class="qty-number">0</span>
+                        <button class="btn-qty" onclick="ubahJumlah(this, 1, 'Pashmina Mini - Hazelnut')">+</button>
+                    </div>
                 </div>
             </div>
 
         </div>
 
+        <!-- Pilihan Metode Transaksi -->
         <div class="transaction-section">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
@@ -450,6 +528,7 @@
 
     </main>
 
+    <!-- Kontak & Footer Area -->
     <footer>
         <h4>Hubungi Kami Untuk Pemesanan</h4>
         <div class="contact-buttons">
@@ -463,48 +542,72 @@
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
+    <!-- KODE JAVASCRIPT LOGIKAL INTERAKTIF -->
     <script>
-        let nilaiKeranjang = 0;
+        let totalBelanja = 0;
 
-        // Fungsi 1: Menambah Angka Keranjang
-        function tambahKeKeranjang(namaProduk) {
-            nilaiKeranjang++;
-            updateTampilanKeranjang();
-            alert(namaProduk + ' sukses ditambahkan! Keranjang belanja kamu sekarang berisi: ' + nilaiKeranjang);
-        }
+        // 1. Fungsi Mengubah Jumlah Produk lewat Tombol + dan - di Samping Produk
+        function ubahJumlah(tombol, perubahan, namaProduk) {
+            // Mencari elemen teks angka di dekat tombol yang diklik
+            const elemenAngkaProduk = tombol.parentElement.querySelector('.qty-number');
+            let jumlahSekarang = parseInt(elemenAngkaProduk.textContent);
 
-        // Fungsi 2: Mengurangi Angka Keranjang saat ikon Keranjang Atas diklik
-        function kurangiKeranjang() {
-            if (nilaiKeranjang > 0) {
-                nilaiKeranjang--;
-                updateTampilanKeranjang();
-                alert('1 item dikeluarkan. Jumlah isi keranjang kamu sekarang: ' + nilaiKeranjang);
-            } else {
-                alert('Keranjang belanja kamu masih kosong, yuk pilih pashmina favoritmu terlebih dahulu!');
-            }
-        }
+            // Menghitung jumlah baru produk tersebut
+            jumlahSekarang += perubahan;
 
-        // Fungsi pembantu untuk memperbarui teks angka di layar
-        function updateTampilanKeranjang() {
-            const elemenAngka = document.querySelector('.cart-box span');
-            if (elemenAngka) {
-                elemenAngka.textContent = nilaiKeranjang;
-            }
+            // Supaya tidak minus di bawah angka 0
+            if (jumlahSekarang < 0) return;
+
+            // Update angka di produk tersebut
+            elemenAngkaProduk.textContent = jumlahSekarang;
+
+            // Update total keranjang keseluruhan di bagian navbar atas
+            totalBelanja += perubahan;
+            document.getElementById('total-cart').textContent = totalBelanja;
+
+            // Efek visual mini pada keranjang navbar atas saat bertambah/berkurang
             const kotakKeranjang = document.querySelector('.cart-box');
             if (kotakKeranjang) {
-                kotakKeranjang.style.transform = 'scale(1.25)';
-                setTimeout(() => { kotakKeranjang.style.transform = 'scale(1)'; }, 200);
+                kotakKeranjang.style.transform = 'scale(1.2)';
+                setTimeout(() => { kotakKeranjang.style.transform = 'scale(1)'; }, 150);
             }
         }
 
-        // Fungsi 3: Klik Metode Pembayaran
-        function pilihMetode(namaMetode) {
-            alert('Kamu memilih metode pembayaran via ' + namaMetode + '. Silakan konfirmasi pesananmu lewat tombol WhatsApp di bawah ya, Sis! ✨');
+        // 2. Fungsi Klik Garis Tiga: Mengurutkan Kembali Semua Produk Secara Berurutan (Reset Posisi/Tampilan)
+        function urutkanProduk() {
+            const container = document.getElementById('product-container');
+            const cards = Array.from(container.getElementsByClassName('product-card'));
+
+            // Mengurutkan element berdasarkan data-order (1, 2, 3)
+            cards.sort((a, b) => {
+                return parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order'));
+            });
+
+            // Menata ulang urutan di dalam halaman HTML
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+
+            alert('✨ Produk telah diurutkan kembali secara rapi dari nomor pertama!');
         }
 
-        // Fungsi 4: Klik Tombol Menu Garis 3
-        function bukaMenu() {
-            alert('Menu navigasi akan segera hadir! Sementara waktu, Anda dapat menjelajahi koleksi kami dengan menggeser halaman ke bawah atau langsung menghubungi kontak di bagian bawah.');
+        // 3. Fungsi Tambahan: Fitur Pencarian Dinamis di Kotak Search
+        function cariProduk() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let judul = cards[i].querySelector('.product-title').textContent.toLowerCase();
+                if (judul.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // 4. Fungsi Klik Metode Pembayaran
+        function pilihMetode(namaMetode) {
+            alert('Metode ' + namaMetode + ' aktif! Jika sudah selesai memilih jumlah produk pashmina, silakan klik tombol WhatsApp atau Instagram di bawah untuk kirim format order ya, Sis! ✨');
         }
     </script>
 
