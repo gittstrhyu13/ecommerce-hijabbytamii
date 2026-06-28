@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HijabByTami - Pashmina Mini Premium</title>
-    <!-- Google Font Poppins agar tampilan teks modern dan bersih -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome untuk ikon menu, search, bag, sosmed, dan metode pembayaran -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -41,6 +39,12 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+        }
+
+        /* Membuat icon menu garis tiga memiliki pointer tangan */
+        .fa-bars {
+            cursor: pointer;
+            padding: 5px;
         }
 
         .logo-container {
@@ -210,6 +214,7 @@
             border: 1px solid #f5ebe0;
             padding: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Tangan penunjuk saat disentuh */
         }
 
         .product-card:hover {
@@ -353,10 +358,9 @@
 </head>
 <body>
 
-    <!-- Header / Navbar + Logo Resmi -->
     <header>
         <div class="nav-top">
-            <i class="fa-solid fa-bars" style="font-size: 1.2rem; color: #4a3f35;"></i>
+            <i class="fa-solid fa-bars" onclick="bukaMenu()" style="font-size: 1.2rem; color: #4a3f35;"></i>
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
@@ -366,17 +370,14 @@
             </div>
         </div>
         
-        <!-- Search Bar -->
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Cari koleksi pashmini...">
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="main-content">
         
-        <!-- Hero Banner Utama -->
         <div class="hero-banner">
             <h1>Sentuhan Anggun Setiap Hari</h1>
             <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
@@ -388,16 +389,13 @@
             <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
         </div>
 
-        <!-- Banner Informasi Restok -->
         <div class="restock-notice">
             <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
         </div>
 
-        <!-- Grid Tempat 3 Foto Produk -->
         <div class="product-grid">
             
-            <!-- Produk 1 -->
-            <div class="product-card">
+            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - Soft Pink')">
                 <div class="img-container">
                     <img src="gambar1.jpeg" alt="Pashmina Mini 1" class="product-img">
                 </div>
@@ -407,8 +405,7 @@
                 </div>
             </div>
 
-            <!-- Produk 2 -->
-            <div class="product-card">
+            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - OatMilk')">
                 <div class="img-container">
                     <img src="gambar2.jpeg" alt="Pashmina Mini 2" class="product-img">
                 </div>
@@ -418,8 +415,7 @@
                 </div>
             </div>
 
-            <!-- Produk 3 -->
-            <div class="product-card">
+            <div class="product-card" onclick="tambahKeKeranjang('Pashmina Mini - Hazelnut')">
                 <div class="img-container">
                     <img src="gambar3.jpeg" alt="Pashmina Mini 3" class="product-img">
                 </div>
@@ -431,7 +427,6 @@
 
         </div>
 
-        <!-- Pilihan Metode Transaksi -->
         <div class="transaction-section">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
@@ -448,7 +443,6 @@
 
     </main>
 
-    <!-- Kontak & Footer Area -->
     <footer>
         <h4>Hubungi Kami Untuk Pemesanan</h4>
         <div class="contact-buttons">
@@ -462,37 +456,36 @@
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
-    <!-- KODE JAVASCRIPT UNTUK AKTIFKAN TOMBOL -->
     <script>
-        // 1. Fungsi Tambah ke Keranjang Belanja Berwarna Abu-Beige di Atas
-        let cartCount = 0;
-        const cartBadge = document.querySelector('.cart-box span');
-        const productCards = document.querySelectorAll('.product-grid .product-card');
+        let nilaiKeranjang = 0;
 
-        productCards.forEach(card => {
-            // Membuat kursor berubah jadi tangan penunjuk saat menyentuh produk
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', () => {
-                cartCount++;
-                cartBadge.textContent = cartCount;
-                
-                // Animasi membesar mini pada keranjang atas biar terasa interaktif
-                cartBadge.parentElement.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    cartBadge.parentElement.style.transform = 'scale(1)';
-                }, 200);
-                
-                alert('Produk berhasil ditambahkan ke keranjang belanja atas!');
-            });
-        });
-
-        // 2. Fungsi Klik Tombol Garis 3 Menu Samping
-        const menuIcon = document.querySelector('.fa-bars');
-        if(menuIcon) {
-            menuIcon.style.cursor = 'pointer';
-            menuIcon.addEventListener 
-                alert('Menu navigasi akan segera hadir! Sementara, Anda bisa melihat produk langsung dengan scroll ke bawah atau hubungi WhatsApp / Instagram di bagian paling bawah halaman.');
+        // Fungsi Menambah Angka Keranjang Belanja Berwarna Beige di Atas
+        function tambahKeKeranjang(namaProduk) {
+            nilaiKeranjang++;
+            
+            // Mengubah teks angka di dalam badge keranjang
+            const elemenAngka = document.querySelector('.cart-box span');
+            if (elemenAngka) {
+                elemenAngka.textContent = nilaiKeranjang;
             }
+
+            // Animasi kejutan kecil pada tombol keranjang di atas saat produk masuk
+            const kotakKeranjang = document.querySelector('.cart-box');
+            if (kotakKeranjang) {
+                kotakKeranjang.style.transform = 'scale(1.25)';
+                setTimeout(() => {
+                    kotakKeranjang.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            // Menampilkan pesan pemberitahuan sukses
+            alert(namaProduk + ' sukses ditambahkan! Keranjang belanja kamu sekarang berisi: ' + nilaiKeranjang);
+        }
+
+        // Fungsi Klik Tombol Menu Samping Garis 3
+        function bukaMenu() {
+            alert('Menu navigasi akan segera hadir! Sementara waktu, Anda dapat menjelajahi koleksi kami dengan menggeser halaman ke bawah atau langsung menghubungi kontak di bagian bawah.');
+        }
     </script>
 
 </body>
