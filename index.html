@@ -287,20 +287,20 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
-            margin-top: auto; /* Mengunci info stok selalu di paling bawah */
+            margin-top: auto;
             padding-top: 4px;
             margin-bottom: 12px;
         }
 
         .stock-status-text {
             font-size: 0.72rem;
-            color: #757575; /* Abu-abu khas Shopee */
+            color: #757575;
             display: flex;
             justify-content: space-between;
         }
 
-        .stock-status-text .highlight-abu {
-            color: #ee4d2d; /* abu khas Shopee */
+        .stock-status-text .highlight-orange {
+            color: #ee4d2d;
             font-weight: 700;
         }
 
@@ -314,7 +314,7 @@
 
         .stock-bar-fill {
             height: 100%;
-            background-color: #ee4d2d; /* Warna isi abu Shopee */
+            background-color: #ee4d2d;
             border-radius: 10px;
         }
 
@@ -383,12 +383,12 @@
         .sidebar-cart {
             position: fixed;
             top: 0;
-            right: -100%; /* Tersembunyi di kanan */
+            right: -100%;
             width: 100%;
-            max-width: 400px; /* Menyesuaikan lebar tampilan HP */
+            max-width: 400px;
             height: 100%;
             background-color: #ffffff;
-            box-shadow: -5px 0 25px rgba(7a, 63, 53, 0.15);
+            box-shadow: -5px 0 25px rgba(74, 63, 53, 0.15);
             z-index: 1000;
             transition: right 0.3s ease-in-out;
             display: flex;
@@ -396,7 +396,7 @@
         }
 
         .sidebar-cart.show {
-            right: 0; /* Bergeser masuk */
+            right: 0;
         }
 
         .sidebar-header {
@@ -456,10 +456,30 @@
             margin-top: 2px;
         }
 
+        .cart-item-action-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .cart-item-price {
             font-size: 0.85rem;
             font-weight: 700;
             color: #a98467;
+        }
+
+        .cart-item-delete-btn {
+            background: none;
+            border: none;
+            color: #ee4d2d; /* Merah */
+            cursor: pointer;
+            padding: 5px;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .cart-item-delete-btn:hover {
+            transform: scale(1.15);
         }
 
         .sidebar-footer {
@@ -578,8 +598,9 @@
             color: white; 
         }
         
-        .btn-ig { 
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+        /* TOMBOL SHOPEE ORANYE */
+        .btn-shopee { 
+            background-color: #ee4d2d; 
             color: white; 
         }
 
@@ -598,7 +619,6 @@
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
             </div>
-            <!-- Keranjang yang bisa di klik untuk melihat isi -->
             <div class="cart-box" onclick="toggleSidebarCart()">
                 <i class="fa-solid fa-shopping-bag"></i> <span id="total-cart">0</span>
             </div>
@@ -631,11 +651,7 @@
         <div class="hero-banner">
             <h1>Sentuhan Anggun Setiap Hari</h1>
             <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
-            
-            <div class="tag-badge">
-                ✦ simple • effortless • elegant ✦
-            </div>
-            
+            <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
             <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
         </div>
 
@@ -645,9 +661,10 @@
 
         <div class="product-grid" id="product-container">
             
+            <!-- PRODUK 1 -->
             <div class="product-card" data-order="1">
                 <div class="img-container">
-                    <img src="gambar1.jpeg" alt="Pashmina Mini - Soft Pink" class="product-img">
+                    <img src="soft-pink.jpeg" alt="Pashmina Mini - Soft Pink" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Soft Pink</div>
@@ -657,11 +674,8 @@
                             <span>Restok</span>
                             <span>Sisa <span class="highlight-orange">1</span> item</span>
                         </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 15%;"></div>
-                        </div>
+                        <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 15%;"></div></div>
                     </div>
-                    <!-- Tombol Pengatur Jumlah & Tambah -->
                     <div class="qty-container">
                         <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
                         <input type="number" class="qty-input" value="1" min="1" readonly>
@@ -673,9 +687,10 @@
                 </div>
             </div>
 
+            <!-- PRODUK 2 -->
             <div class="product-card" data-order="2">
                 <div class="img-container">
-                    <img src="gambar2.jpeg" alt="Pashmina Mini - Taupe" class="product-img">
+                    <img src="taupe-oatmilk.jpeg" alt="Pashmina Mini - Taupe" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Taupe</div>
@@ -685,9 +700,7 @@
                             <span>Restok</span>
                             <span>Sisa <span class="highlight-orange">6</span> item</span>
                         </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 70%;"></div>
-                        </div>
+                        <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 70%;"></div></div>
                     </div>
                     <div class="qty-container">
                         <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
@@ -700,144 +713,36 @@
                 </div>
             </div>
 
+            <!-- PRODUK 3 -->
             <div class="product-card" data-order="3">
                 <div class="img-container">
-                    <img src="gambar3.jpeg" alt="Pashmina Mini - Oatmilk" class="product-img">
+                    <img src="mauve-burgundy.jpeg" alt="Pashmina Mini - Variant Pack" class="product-img">
                 </div>
                 <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Oatmilk</div>
+                    <div class="product-title">Pashmina Mini - Earth & Berry Pack (Mauve/Burgundy/Mahogany/Navy)</div>
                     <div class="product-price">Rp 50.000</div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text">
                             <span>Restok</span>
                             <span>Sisa <span class="highlight-orange">5</span> item</span>
                         </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 55%;"></div>
-                        </div>
+                        <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 55%;"></div></div>
                     </div>
                     <div class="qty-container">
                         <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
                         <input type="number" class="qty-input" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
                     </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Oatmilk', 50000, this)">
+                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Variant Pack', 50000, this)">
                         Tambah ke Keranjang
                     </button>
                 </div>
             </div>
 
+            <!-- PRODUK 4 -->
             <div class="product-card" data-order="4">
                 <div class="img-container">
-                    <img src="gambar4.jpeg" alt="Pashmina Mini - Hazelnut" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Hazelnut</div>
-                    <div class="product-price">Rp 50.000</div>
-                    <div class="stock-info-shopee">
-                        <div class="stock-status-text">
-                            <span>Restok</span>
-                            <span>Sisa <span class="highlight-orange">4</span> item</span>
-                        </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 45%;"></div>
-                        </div>
-                    </div>
-                    <div class="qty-container">
-                        <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
-                        <input type="number" class="qty-input" value="1" min="1" readonly>
-                        <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
-                    </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Hazelnut', 50000, this)">
-                        Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-card" data-order="5">
-                <div class="img-container">
-                    <img src="gambar5.jpeg" alt="Pashmina Mini - Mauve" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Mauve</div>
-                    <div class="product-price">Rp 50.000</div>
-                    <div class="stock-info-shopee">
-                        <div class="stock-status-text">
-                            <span>Restok</span>
-                            <span>Sisa <span class="highlight-orange">3</span> item</span>
-                        </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 35%;"></div>
-                        </div>
-                    </div>
-                    <div class="qty-container">
-                        <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
-                        <input type="number" class="qty-input" value="1" min="1" readonly>
-                        <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
-                    </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mauve', 50000, this)">
-                        Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-card" data-order="6">
-                <div class="img-container">
-                    <img src="gambar6.jpeg" alt="Pashmina Mini - Burgundy" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Burgundy</div>
-                    <div class="product-price">Rp 50.000</div>
-                    <div class="stock-info-shopee">
-                        <div class="stock-status-text">
-                            <span>Restok</span>
-                            <span>Sisa <span class="highlight-orange">2</span> item</span>
-                        </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 25%;"></div>
-                        </div>
-                    </div>
-                    <div class="qty-container">
-                        <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
-                        <input type="number" class="qty-input" value="1" min="1" readonly>
-                        <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
-                    </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Burgundy', 50000, this)">
-                        Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-card" data-order="7">
-                <div class="img-container">
-                    <img src="gambar7.jpeg" alt="Pashmina Mini - Mahogany" class="product-img">
-                </div>
-                <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Mahogany</div>
-                    <div class="product-price">Rp 50.000</div>
-                    <div class="stock-info-shopee">
-                        <div class="stock-status-text">
-                            <span>Restok</span>
-                            <span>Sisa <span class="highlight-orange">4</span> item</span>
-                        </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 45%;"></div>
-                        </div>
-                    </div>
-                    <div class="qty-container">
-                        <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
-                        <input type="number" class="qty-input" value="1" min="1" readonly>
-                        <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
-                    </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mahogany', 50000, this)">
-                        Tambah ke Keranjang
-                    </button>
-                </div>
-            </div>
-
-            <div class="product-card" data-order="8">
-                <div class="img-container">
-                    <img src="gambar8.jpeg" alt="Pashmina Mini - Deep Navy" class="product-img">
+                    <img src="deep-navy.jpeg" alt="Pashmina Mini - Deep Navy" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Deep Navy</div>
@@ -845,11 +750,9 @@
                     <div class="stock-info-shopee">
                         <div class="stock-status-text">
                             <span>Restok</span>
-                            <span>Sisa <span class="highlight-orange">3</span> item</span>
+                            <span>Sisa <span class="highlight-orange">4</span> item</span>
                         </div>
-                        <div class="stock-bar-container">
-                            <div class="stock-bar-fill" style="width: 35%;"></div>
-                        </div>
+                        <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 45%;"></div></div>
                     </div>
                     <div class="qty-container">
                         <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
@@ -886,18 +789,18 @@
             <a href="https://wa.me/6287753617027" target="_blank" class="btn-contact btn-wa">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <a href="https://id.shp.ee/B4exDpf4" target="_blank" class="btn-contact btn-ig">
-                <i class="fa-brands fa-instagram"></i> HijabByTami
+            <!-- TOMBOL INSTAGRAM YANG SUDAH DIGANTI JADI SHOPEE -->
+            <!-- SILAKAN GANTI '#' DI BAWAH DENGAN LINK TOKO SHOPEE-MU ASLI -->
+            <a href="https://id.shp.ee/B4exDpf4" target="_blank" class="btn-contact btn-shopee">
+                <i class="fa-solid fa-bag-shopping"></i> Shopee Order
             </a>
         </div>
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Array Utama Penyimpan Data Keranjang Belanja
         let dataKeranjang = [];
 
-        // Fungsi Tambah-Kurang Input Angka Counter
         function ubahJumlah(tombol, value) {
             const wadahInput = tombol.parentElement.querySelector('.qty-input');
             let angkaSekarang = parseInt(wadahInput.value);
@@ -906,19 +809,16 @@
             wadahInput.value = angkaSekarang;
         }
 
-        // Fungsi Membuka & Menutup Sidebar Tampilan Keranjang Belanja
         function toggleSidebarCart() {
             const sidebar = document.getElementById('sidebar-cart');
             sidebar.classList.toggle('show');
         }
 
-        // Fungsi Menambahkan Barang ke dalam List Keranjang Belanja
         function masukKeranjang(namaProduk, hargaProduk, tombol) {
             const infoCard = tombol.parentElement;
             const inputQty = infoCard.querySelector('.qty-input');
             const totalBeli = parseInt(inputQty.value);
 
-            // Periksa jika barang sudah ada di list sebelumnya
             const barangAda = dataKeranjang.find(item => item.nama === namaProduk);
             if (barangAda) {
                 barangAda.jumlah += totalBeli;
@@ -926,20 +826,20 @@
                 dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, jumlah: totalBeli });
             }
 
-            // Kembalikan counter barang ke angka 1
             inputQty.value = 1;
-
-            // Sinkronisasi data ke Tampilan Nav / Badge & Sidebar
             perbaruiTampilanKeranjang();
             
-            // Otomatis buka slide keranjang agar pembeli tahu barang sudah masuk
             const sidebar = document.getElementById('sidebar-cart');
             if (!sidebar.classList.contains('show')) {
                 sidebar.classList.add('show');
             }
         }
 
-        // Sinkronisasi Data Array ke UI HTML
+        function hapusDariKeranjang(index) {
+            dataKeranjang.splice(index, 1);
+            perbaruiTampilanKeranjang();
+        }
+
         function perbaruiTampilanKeranjang() {
             const badgeTotal = document.getElementById('total-cart');
             const bodiSidebar = document.getElementById('sidebar-body');
@@ -950,21 +850,25 @@
             if (dataKeranjang.length === 0) {
                 bodiSidebar.innerHTML = '<p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>';
             } else {
-                bodiSidebar.innerHTML = dataKeranjang.map(item => `
+                bodiSidebar.innerHTML = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
                         <div class="cart-item-detail">
                             <h5>${item.nama}</h5>
                             <p>${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
                         </div>
-                        <div class="cart-item-price">
-                            Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}
+                        <div class="cart-item-action-area">
+                            <div class="cart-item-price">
+                                Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}
+                            </div>
+                            <button class="cart-item-delete-btn" onclick="hapusDariKeranjang(${index})">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </div>
                     </div>
                 `).join('');
             }
         }
 
-        // Integrasi Otomatis Checkout untuk mengirim format order barang via WA
         function checkoutViaWA(event) {
             if (dataKeranjang.length === 0) {
                 event.preventDefault();
@@ -972,7 +876,7 @@
                 return;
             }
 
-            let teksFormatOrder = "Halo Kak Tami, saya mau pesan koleksi Pashmina Mini berikut ini:\n\n";
+            let teksFormatOrder = "Halo Kak HijabByTami, saya mau pesan koleksi Pashmina Mini berikut ini:\n\n";
             let totalBayarSemua = 0;
 
             dataKeranjang.forEach((item, index) => {
@@ -983,27 +887,20 @@
 
             teksFormatOrder += `*Total Pembayaran:* Rp ${totalBayarSemua.toLocaleString('id-ID')}\n\nMohon diinfokan kelanjutan format pemesanannya ya, Kak. Terima kasih! ✨`;
             
-            // Generate link dinamis mengarah langsung ke nomor WA milikmu
             const urlWhatsApp = `https://wa.me/6287753617027?text=${encodeURIComponent(teksFormatOrder)}`;
             document.getElementById('checkout-wa-btn').setAttribute('href', urlWhatsApp);
         }
 
-        // 1. Fungsi Klik Garis Tiga: Mengurutkan Kembali Semua Produk Secara Berurutan
         function urutkanProduk() {
             const container = document.getElementById('product-container');
             const cards = Array.from(container.getElementsByClassName('product-card'));
 
-            cards.sort((a, b) => {
-                return parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order'));
-            });
-
+            cards.sort((a, b) => parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order')));
             container.innerHTML = '';
             cards.forEach(card => container.appendChild(card));
-
-            alert('✨ Produk telah diurutkan kembali secara rapi dari nomor pertama!');
+            alert('✨ Produk telah diurutkan kembali secara rapi!');
         }
 
-        // 2. Fitur Pencarian Dinamis di Kotak Search
         function cariProduk() {
             const input = document.getElementById('search-input').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
@@ -1018,9 +915,8 @@
             }
         }
 
-        // 3. Fungsi Klik Metode Pembayaran
         function pilihMetode(namaMetode) {
-            alert('Metode ' + namaMetode + ' aktif! Untuk pemesanan warna pashmina yang ready stock, silakan langsung klik tombol WhatsApp atau shopee di bawah untuk kirim format order ya, Sis! ✨');
+            alert('Metode ' + namaMetode + ' aktif! Silakan langsung klik tombol WhatsApp atau Shopee untuk kirim format order ya, Sis! ✨');
         }
     </script>
 
