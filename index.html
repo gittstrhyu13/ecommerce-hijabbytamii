@@ -181,6 +181,67 @@
             font-weight: 500;
         }
 
+        /* SECTION VIDEO PRODUK */
+        .video-section {
+            margin-bottom: 25px;
+            background-color: #fdf6f0;
+            padding: 15px;
+            border-radius: 18px;
+            border: 1px solid #f5ebe0;
+        }
+
+        .video-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #4a3f35;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Rasio 16:9 */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(169, 132, 103, 0.1);
+        }
+
+        .video-wrapper video, .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #000;
+        }
+
+        /* SECTION TENTANG TOKO */
+        .about-section {
+            background: #fcfaf7;
+            border-radius: 18px;
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid #a98467;
+        }
+
+        .about-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a3f35;
+            margin-bottom: 8px;
+        }
+
+        .about-section p {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #6c5a4b;
+        }
+
         .restock-notice {
             background-color: #fdf6f0;
             color: #a98467;
@@ -646,6 +707,24 @@
             <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
         </div>
 
+        <!-- BARU: SECTION TENTANG TOKO -->
+        <div class="about-section">
+            <h3>Tentang HijabByTami ✨</h3>
+            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
+        </div>
+
+        <!-- BARU: SECTION VIDEO PRODUK -->
+        <div class="video-section">
+            <h3><i class="fa-solid fa-circle-play"></i> Review & Detail Produk</h3>
+            <div class="video-wrapper">
+                <!-- GANTI src="produk.mp4" dengan file video lokal kamu, atau dengan link YouTube/Hosting lainnya -->
+                <video controls poster="logo.jpeg">
+                    <source src="produk.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung pemutaran video.
+                </video>
+            </div>
+        </div>
+
         <div class="restock-notice">
             <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
         </div>
@@ -900,7 +979,6 @@
             <a href="https://wa.me/6287753617027" target="_blank" class="btn-contact btn-wa">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
-            <!-- Tautan diganti menjadi Shopee dengan link tujuan silakan disesuaikan nantinya -->
             <a href="https://id.shp.ee/B4exDpf4" target="_blank" class="btn-contact btn-shopee">
                 <i class="fa-solid fa-bag-shopping"></i> Shopee Toko
             </a>
