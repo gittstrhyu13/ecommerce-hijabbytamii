@@ -58,7 +58,7 @@
             border: 1px solid #e3d5ca;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 150px;
+            width: 160px;
             z-index: 200;
         }
 
@@ -142,7 +142,6 @@
             color: #a98467;
         }
 
-        /* MAIN CONTENT PADDING */
         .main-content {
             padding: 15px;
             background-color: #ffffff;
@@ -151,7 +150,7 @@
         .hero-banner {
             background: linear-gradient(135deg, #e3d5ca, #d5bdaf);
             border-radius: 20px;
-            padding: 35px 20px;
+            padding: 30px 20px;
             text-align: center;
             color: #4a3f35;
             position: relative;
@@ -161,15 +160,15 @@
         }
 
         .hero-banner h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero-banner p {
             font-size: 0.85rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             opacity: 0.9;
         }
 
@@ -181,80 +180,35 @@
             font-size: 0.75rem;
             font-weight: 600;
             backdrop-filter: blur(5px);
-            margin-bottom: 15px;
-        }
-
-        /* TENTANG BRAND */
-        .about-section {
-            background: #fcfaf7;
-            border-radius: 18px;
-            padding: 20px 15px;
-            margin-bottom: 25px;
-            border-left: 4px solid #a98467;
-        }
-
-        .about-section h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #4a3f35;
-            margin-bottom: 8px;
-        }
-
-        .about-section p {
-            font-size: 0.8rem;
-            line-height: 1.5;
-            color: #6c5a4b;
-            margin-bottom: 12px;
-        }
-
-        .vision-mission {
-            background: #ffffff;
-            border: 1px solid #e3d5ca;
-            border-radius: 12px;
-            padding: 12px;
-            margin-top: 10px;
-        }
-
-        .vision-mission h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #a98467;
-            margin-bottom: 4px;
-        }
-
-        .vision-mission p {
-            font-size: 0.78rem;
-            margin-bottom: 8px;
-            color: #555;
         }
 
         /* SECTION VIDEO PRODUK */
         .video-section {
             margin-bottom: 25px;
             background-color: #fdf6f0;
-            padding: 20px 15px;
+            padding: 15px;
             border-radius: 18px;
             border: 1px solid #f5ebe0;
             text-align: center;
         }
 
         .video-section h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #4a3f35;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .video-section p {
             font-size: 0.8rem;
             color: #757575;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 120%; /* Proporsi vertikal ala ala TikTok/Reels agar pas */
+            padding-bottom: 100%; /* Disesuaikan sedikit agar lebih proporsional */
             height: 0;
             border-radius: 12px;
             overflow: hidden;
@@ -276,6 +230,7 @@
             text-align: center;
             font-size: 0.8rem;
             font-weight: 600;
+            margin-top: 10px;
             margin-bottom: 20px;
             border: 1px dashed #d5bdaf;
         }
@@ -303,7 +258,7 @@
             border: 1px solid #e3d5ca;
             border-radius: 8px;
             padding: 8px;
-            margin-top: 5px;
+            margin-bottom: 10px;
             font-size: 0.72rem;
             color: #555;
             line-height: 1.3;
@@ -330,10 +285,11 @@
             border-radius: 18px;
             overflow: hidden;
             border: 1px solid #f5ebe0;
-            padding: 8px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(169, 132, 103, 0.03);
         }
 
         .img-container {
@@ -347,10 +303,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
         }
 
         .product-info {
-            padding: 10px 4px 4px 4px;
+            padding-top: 10px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -360,7 +321,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: #4a3f35;
-            min-height: 2.6rem;
+            min-height: 2.4rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -368,7 +329,7 @@
         }
 
         .product-price {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #a98467;
             font-weight: 700;
             margin: 4px 0;
@@ -417,10 +378,60 @@
         }
 
         .btn-add-cart {
-            background-color: #4a3f35; color: #f5ebe0; border: none; padding: 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; width: 100%;
+            background-color: #4a3f35; color: #f5ebe0; border: none; padding: 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; cursor: pointer; width: 100%; transition: background-color 0.2s;
         }
 
-        /* SIDEBAR CART & FORM DATA PEMBELI */
+        .btn-add-cart:hover {
+            background-color: #6c5a4b;
+        }
+
+        /* TENTANG BRAND */
+        .about-section {
+            background: #fcfaf7;
+            border-radius: 18px;
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid #a98467;
+        }
+
+        .about-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a3f35;
+            margin-bottom: 8px;
+        }
+
+        .about-section p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #6c5a4b;
+            margin-bottom: 12px;
+        }
+
+        .vision-mission {
+            background: #ffffff;
+            border: 1px solid #e3d5ca;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .vision-mission h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #a98467;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .vision-mission p {
+            font-size: 0.82rem;
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* SIDEBAR CART */
         .sidebar-cart {
             position: fixed; top: 0; right: -100%; width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: right 0.3s ease-in-out; display: flex; flex-direction: column;
         }
@@ -457,7 +468,7 @@
         
         .sidebar-footer { padding: 20px; border-top: 1px solid #e3d5ca; background-color: #fcfaf7; }
         .btn-direct-checkout { display: block; width: 100%; background-color: #a98467; color: white; text-align: center; padding: 12px; border-radius: 25px; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
-        .btn-checkout-wa { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+        .btn-checkout-wa { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: 600; text-align: center; }
 
         /* OVERLAYS */
         .success-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; justify-content: center; align-items: center; }
@@ -477,7 +488,7 @@
         .btn-wa { background-color: #25D366; color: white; }
         .btn-shopee { background-color: #ee4d2d; color: white; }
 
-        /* FIXED BOTTOM NAVIGATION BAR (3 Menu Sesuai Request) */
+        /* FIXED BOTTOM NAVIGATION BAR (Sederhana 2 Menu Utama) */
         .bottom-nav {
             position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 10px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
         }
@@ -485,7 +496,6 @@
         .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
         .nav-item.active { color: #4a3f35; font-weight: 700; }
 
-        /* CONTROLLER UNTUK MENAMPILKAN / MENYEMBUNYIKAN SEKSI */
         .page-section { display: none; }
         .page-section.show { display: block; }
     </style>
@@ -537,7 +547,6 @@
             <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
         </div>
         
-        <!-- FORM DATA ALAMAT & PEMBAYARAN (Hanya tampil jika ada barang) -->
         <div id="checkout-form-area" style="display: none; padding: 0 20px; overflow-y: auto; max-height: 50vh;">
             <div class="form-user-details">
                 <h4><i class="fa-solid fa-address-card"></i> Data Pengiriman</h4>
@@ -582,8 +591,8 @@
         </div>
     </div>
 
-    <!-- SEKSI 1: BERANDA BARU (Sapaan Utama & Video Review Saja) -->
-    <div id="section-beranda-utama" class="page-section show">
+    <!-- SEKSI 1: KATALOG / BERANDA UTAMA (Langsung Menampilkan Produk) -->
+    <div id="section-katalog-utama" class="page-section show">
         <main class="main-content">
             <div class="hero-banner">
                 <h1>Selamat Datang di HijabByTami 🌸</h1>
@@ -600,12 +609,7 @@
                     </video>
                 </div>
             </div>
-        </main>
-    </div>
 
-    <!-- SEKSI 2: KATALOG PRODUK -->
-    <div id="section-katalog-utama" class="page-section">
-        <main class="main-content">
             <div class="restock-notice">
                 ✨ Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
             </div>
@@ -815,7 +819,7 @@
         </main>
     </div>
 
-    <!-- SEKSI 3: VISI MISI SAJA (Fokus Mengenal Brand) -->
+    <!-- SEKSI 2: TENTANG BRAND (Visi Misi) -->
     <div id="section-visi-misi" class="page-section">
         <main class="main-content">
             <div class="about-section">
@@ -841,19 +845,15 @@
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
-    <!-- FIXED BOTTOM NAVIGATION BAR (Sekarang 3 Menu Utama) -->
+    <!-- FIXED BOTTOM NAVIGATION BAR (Disederhanakan 2 Menu Utama) -->
     <div class="bottom-nav">
-        <div id="nav-beranda" class="nav-item active" onclick="pindahMenu('beranda')">
-            <i class="fa-solid fa-house"></i>
-            <span>Beranda</span>
-        </div>
-        <div id="nav-katalog" class="nav-item" onclick="pindahMenu('katalog')">
+        <div id="nav-katalog" class="nav-item active" onclick="pindahMenu('katalog')">
             <i class="fa-solid fa-images"></i>
             <span>Katalog</span>
         </div>
         <div id="nav-visi" class="nav-item" onclick="pindahMenu('visi')">
             <i class="fa-solid fa-seedling"></i>
-            <span>Visi Misi</span>
+            <span>Tentang Brand</span>
         </div>
     </div>
 
@@ -861,20 +861,15 @@
         let dataKeranjang = [];
         let metodeTerpilih = "COD";
 
-        // Fungsi Navigasi 3 Tab Bawah
+        // Navigasi 2 Tab Baru
         function pindahMenu(target) {
-            document.getElementById('section-beranda-utama').classList.remove('show');
             document.getElementById('section-katalog-utama').classList.remove('show');
             document.getElementById('section-visi-misi').classList.remove('show');
             
-            document.getElementById('nav-beranda').classList.remove('active');
             document.getElementById('nav-katalog').classList.remove('active');
             document.getElementById('nav-visi').classList.remove('active');
 
-            if (target === 'beranda') {
-                document.getElementById('section-beranda-utama').classList.add('show');
-                document.getElementById('nav-beranda').classList.add('active');
-            } else if (target === 'katalog') {
+            if (target === 'katalog') {
                 document.getElementById('section-katalog-utama').classList.add('show');
                 document.getElementById('nav-katalog').classList.add('active');
             } else if (target === 'visi') {
@@ -884,13 +879,11 @@
             window.scrollTo(0,0);
         }
 
-        // Dropdown Menu Filter (Garis 3)
         function toggleFilterMenu() {
             const dropdown = document.getElementById('filter-dropdown');
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Saring Warna
         function filterWarnaLangsung(tone) {
             pindahMenu('katalog');
             const cards = document.getElementsByClassName('product-card');
@@ -1027,7 +1020,6 @@
             else infoRek.innerText = "ShopeePay / DANA: 087753617027 a/n Tami.";
         }
 
-        // VALIDASI FORM SEBELUM CHECKOUT
         function validasiFormPembeli() {
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
@@ -1052,7 +1044,6 @@
             document.getElementById('success-message').innerHTML = pesan;
             document.getElementById('success-overlay').style.display = "flex";
             
-            // Reset Form & Keranjang
             dataKeranjang = [];
             document.getElementById('cust-name').value = "";
             document.getElementById('cust-phone').value = "";
@@ -1066,7 +1057,6 @@
             document.getElementById('success-overlay').style.display = "none";
         }
 
-        // FORMAT ORDER VIA WHATSAPP OTOMATIS BERDASARKAN DATA INPUT FORM
         function checkoutViaWA(event) {
             if (dataKeranjang.length === 0) { event.preventDefault(); alert('Keranjang kosong, Sis!'); return; }
             
