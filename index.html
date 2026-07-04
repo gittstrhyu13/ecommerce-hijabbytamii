@@ -1076,7 +1076,7 @@
             if (barangAda) {
                 barangAda.jumlah = totalBaru;
             } else {
-                dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, jumlah: totalBeli });
+                dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, Residential_stok: stokMaksimal, jumlah: totalBeli });
             }
 
             inputQty.value = 1;
@@ -1096,11 +1096,9 @@
         function setMetodePembayaran(elemen, metode) {
             metodePembayaranTerpilih = metode;
             
-            // Hapus class 'selected' dari semua pilihan pembayaran di keranjang
             const labels = document.querySelectorAll('.payment-radio-label');
             labels.forEach(lbl => lbl.classList.remove('selected'));
             
-            // Tambahkan ke elemen yang diklik
             elemen.classList.add('selected');
         }
 
@@ -1113,7 +1111,7 @@
 
             if (dataKeranjang.length === 0) {
                 bodiSidebar.innerHTML = '<p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>';
-                metodePembayaranTerpilih = ''; // Reset pilihan pembayaran jika kosong
+                metodePembayaranTerpilih = ''; 
             } else {
                 let htmlProduk = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
@@ -1132,7 +1130,6 @@
                     </div>
                 `).join('');
 
-                // Modifikasi: Tambahkan UI Pilihan Metode Pembayaran langsung di dalam Keranjang
                 let htmlPembayaran = `
                     <div class="cart-payment-section">
                         <h4><i class="fa-solid fa-wallet"></i> Pilih Metode Pembayaran:</h4>
@@ -1179,10 +1176,8 @@
             const urlWhatsApp = `https://wa.me/6287753617027?text=${encodeURIComponent(teksFormatOrder)}`;
             document.getElementById('checkout-wa-btn').setAttribute('href', urlWhatsApp);
 
-            // Simulasi Notifikasi Berhasil Checkout
             setTimeout(() => {
                 alert('🎉 HORE! Checkout Berhasil!\n\nFormat pesanan kamu sudah siap dikirim. Silakan lanjutkan chat di WhatsApp untuk konfirmasi pengiriman ya, Sis! Terimakasih sudah belanja di HijabByTami. ✨💖');
-                // Kosongkan keranjang setelah berhasil checkout
                 dataKeranjang = [];
                 metodePembayaranTerpilih = '';
                 perbaruiTampilanKeranjang();
