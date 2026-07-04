@@ -121,7 +121,7 @@
             color: #a98467;
         }
 
-        /* MENU NAVIGASI BERANDA / KATALOG */
+        /* TABS BERANDA & KATALOG */
         .nav-menu-tabs {
             display: flex;
             border-top: 1px solid rgba(227, 213, 202, 0.6);
@@ -324,7 +324,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* SEKSI URUTAN KATALOG JUDUL */
         .catalog-title-area {
             font-size: 0.95rem;
             font-weight: 700;
@@ -408,7 +407,7 @@
             margin-bottom: 4px;
         }
 
-        /* RATING PRODUK STYLE */
+        /* RATING & REVIEW PRODUK (SHOPEE STYLE) */
         .product-rating {
             display: flex;
             align-items: center;
@@ -419,7 +418,7 @@
         }
 
         .product-rating .stars-icon {
-            color: #ffc107; /* Warna Bintang Emas */
+            color: #ffc107; 
         }
 
         .product-rating .rating-num {
@@ -619,7 +618,6 @@
             transform: scale(1.15);
         }
 
-        /* PILIHAN PEMBAYARAN DI KERANJANG */
         .cart-payment-section {
             margin-top: 20px;
             padding-top: 15px;
@@ -669,7 +667,6 @@
             border-color: #4a3f35;
         }
 
-        /* DETAIL BANK TRANSFER */
         .bank-transfer-details {
             background-color: #fdf6f0;
             border: 1px solid #d5bdaf;
@@ -849,7 +846,7 @@
             <input type="text" id="search-input" onkeyup="cariProduk()" placeholder="Cari koleksi pashmini...">
         </div>
 
-        <!-- MENU TABS TAMPILAN -->
+        <!-- MENU TABS BERANDA / KATALOG -->
         <div class="nav-menu-tabs">
             <button id="btn-tab-beranda" class="tab-btn active" onclick="gantiTab('beranda')">Beranda</button>
             <button id="btn-tab-katalog" class="tab-btn" onclick="gantiTab('katalog')">Katalog</button>
@@ -874,7 +871,7 @@
 
     <main class="main-content">
         
-        <!-- AREA BERANDA (Bisa disembunyikan lewat JS) -->
+        <!-- AREA BERANDA -->
         <div id="section-beranda-konten">
             <div class="hero-banner">
                 <h1>Sentuhan Anggun Setiap Hari</h1>
@@ -883,7 +880,7 @@
                 <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
             </div>
 
-            <!-- SECTION TENTANG TOKO, VISI & MISI -->
+            <!-- SECTION TENTANG TOKO -->
             <div class="about-section">
                 <h3>Tentang HijabByTami ✨</h3>
                 <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
@@ -916,24 +913,24 @@
             </div>
         </div>
 
-        <!-- AREA UTAMA PRODUK -->
+        <!-- AREA JUDUL KATALOG -->
         <div class="catalog-title-area" id="catalog-title-area" style="display: none;">
             <i class="fa-solid fa-border-all"></i> Semua Koleksi Produk
         </div>
 
-        <!-- GRID PRODUK -->
+        <!-- GRID PRODUK ASLI (DENGAN RATING DARI PEMBELI) -->
         <div class="product-grid" id="product-container">
-            <!-- PRODUK 1 -->
+            <!-- PRODUK 1: NAVY -->
             <div class="product-card" data-order="1">
-                <div class="img-container"><img src="gambar1.jpeg" alt="Pashmina Mini - Soft Pink" class="product-img"></div>
+                <div class="img-container"><img src="gambar1.jpeg" alt="Pashmina Mini - Navy" class="product-img"></div>
                 <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Soft Pink</div>
+                    <div class="product-title">Pashmina Mini - Navy</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING BARU -->
+                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">4.9</span>
-                        <span>| Terjual 120+</span>
+                        <span>| Terjual 245+</span>
                     </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">1</span> item</span></div>
@@ -944,21 +941,21 @@
                         <input type="number" class="qty-input" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="ubahJumlah(this, 1, 1)">+</button>
                     </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Soft Pink', 50000, this, 1)">Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Navy', 50000, this, 1)">Tambah ke Keranjang</button>
                 </div>
             </div>
 
-            <!-- PRODUK 2 -->
+            <!-- PRODUK 2: TAUPE -->
             <div class="product-card" data-order="2">
                 <div class="img-container"><img src="gambar2.jpeg" alt="Pashmina Mini - Taupe" class="product-img"></div>
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Taupe</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING BARU -->
+                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">5.0</span>
-                        <span>| Terjual 340+</span>
+                        <span>| Terjual 310+</span>
                     </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">6</span> item</span></div>
@@ -973,17 +970,17 @@
                 </div>
             </div>
 
-            <!-- PRODUK 3 -->
+            <!-- PRODUK 3: DUSTY PINK -->
             <div class="product-card" data-order="3">
-                <div class="img-container"><img src="gambar3.jpeg" alt="Pashmina Mini - Mauve" class="product-img"></div>
+                <div class="img-container"><img src="gambar3.jpeg" alt="Pashmina Mini - Dusty Pink" class="product-img"></div>
                 <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Mauve</div>
+                    <div class="product-title">Pashmina Mini - Dusty Pink</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING BARU -->
+                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">4.9</span>
-                        <span>| Terjual 95+</span>
+                        <span>| Terjual 185+</span>
                     </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">5</span> item</span></div>
@@ -994,21 +991,21 @@
                         <input type="number" class="qty-input" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="ubahJumlah(this, 1, 5)">+</button>
                     </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mauve', 50000, this, 5)">Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Dusty Pink', 50000, this, 5)">Tambah ke Keranjang</button>
                 </div>
             </div>
 
-            <!-- PRODUK 4 -->
+            <!-- PRODUK 4: MAHOGANY -->
             <div class="product-card" data-order="4">
-                <div class="img-container"><img src="gambar4.jpeg" alt="Pashmina Mini - Deep Navy" class="product-img"></div>
+                <div class="img-container"><img src="gambar4.jpeg" alt="Pashmina Mini - Mahogany" class="product-img"></div>
                 <div class="product-info">
-                    <div class="product-title">Pashmina Mini - Deep Navy</div>
+                    <div class="product-title">Pashmina Mini - Mahogany</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING BARU -->
+                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">5.0</span>
-                        <span>| Terjual 210+</span>
+                        <span>| Terjual 190+</span>
                     </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">4</span> item</span></div>
@@ -1019,12 +1016,12 @@
                         <input type="number" class="qty-input" value="1" min="1" readonly>
                         <button class="qty-btn" onclick="ubahJumlah(this, 1, 4)">+</button>
                     </div>
-                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Deep Navy', 50000, this, 4)">Tambah ke Keranjang</button>
+                    <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mahogany', 50000, this, 4)">Tambah ke Keranjang</button>
                 </div>
             </div>
         </div>
 
-        <!-- PILIHAN METODE UTAMA (INFORMASI) -->
+        <!-- PILIHAN METODE UTAMA -->
         <div class="transaction-section" id="section-info-transaksi">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
@@ -1059,7 +1056,7 @@
         let metodePembayaranTerpilih = '';
         let bankTerpilih = '';
 
-        // FUNGSI GANTI TAMPILAN BERANDA / KATALOG
+        // JAVASCRIPT GANTI TAMPILAN BERANDA & KATALOG
         function gantiTab(tipeTab) {
             const btnBeranda = document.getElementById('btn-tab-beranda');
             const btnKatalog = document.getElementById('btn-tab-katalog');
@@ -1137,7 +1134,6 @@
 
         function setMetodePembayaran(elemen, metode) {
             metodePembayaranTerpilih = metode;
-            
             const labels = document.querySelectorAll('.payment-radio-label');
             labels.forEach(lbl => lbl.classList.remove('selected'));
             elemen.classList.add('selected');
@@ -1201,17 +1197,14 @@
                         
                         <div id="bank-details" class="bank-transfer-details ${metodePembayaranTerpilih === 'Transfer Bank' ? 'show' : ''}">
                             <p style="font-size: 0.8rem; margin-bottom: 8px; font-weight: 600; color:#6c5a4b;">Pilih Bank Tujuan Transfer:</p>
-                            
                             <div class="bank-option ${bankTerpilih === 'BCA' ? 'selected-bank' : ''}" onclick="pilihBank(this, 'BCA')">
                                 <i class="fa-solid fa-money-check-dollar" style="color: #a98467;"></i>
                                 <div class="bank-info-text"><strong>BCA</strong> 123-456-7890 a/n Tami Hijab</div>
                             </div>
-                            
                             <div class="bank-option ${bankTerpilih === 'Mandiri' ? 'selected-bank' : ''}" onclick="pilihBank(this, 'Mandiri')">
                                 <i class="fa-solid fa-money-check-dollar" style="color: #a98467;"></i>
                                 <div class="bank-info-text"><strong>Mandiri</strong> 987-654-3210 a/n Tami Hijab</div>
                             </div>
-
                             <div class="bank-option ${bankTerpilih === 'BRI' ? 'selected-bank' : ''}" onclick="pilihBank(this, 'BRI')">
                                 <i class="fa-solid fa-money-check-dollar" style="color: #a98467;"></i>
                                 <div class="bank-info-text"><strong>BRI</strong> 0011-2233-4455 a/n Tami Hijab</div>
@@ -1219,7 +1212,6 @@
                         </div>
                     </div>
                 `;
-
                 bodiSidebar.innerHTML = htmlProduk + htmlPembayaran;
             }
         }
@@ -1229,12 +1221,10 @@
                 alert('Keranjang belanja kamu masih kosong, pilih pashmina favoritmu terlebih dahulu ya! ✨');
                 return;
             }
-
             if (!metodePembayaranTerpilih) {
                 alert('Silakan pilih metode pembayaran (COD atau Transfer) terlebih dahulu ya, Sis! ✨');
                 return;
             }
-
             if (metodePembayaranTerpilih === 'Transfer Bank' && !bankTerpilih) {
                 alert('Kamu memilih metode Transfer. Silakan pilih salah satu rekening Bank tujuan terlebih dahulu ya, Sis! ✨');
                 return;
@@ -1243,8 +1233,7 @@
             let totalBayarSemua = 0;
             let detailBarangText = "";
             dataKeranjang.forEach((item) => {
-                let subTotal = item.harga * item.jumlah;
-                totalBayarSemua += subTotal;
+                totalBayarSemua += (item.harga * item.jumlah);
                 detailBarangText += `- ${item.nama} (${item.jumlah} pcs)\n`;
             });
 
@@ -1281,19 +1270,10 @@
         function cariProduk() {
             const input = document.getElementById('search-input').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
-            
-            // Otomatis pindah ke mode katalog jika user mencari produk agar lebih fokus
-            if (input.length > 0) {
-                gantiTab('katalog');
-            }
-
+            if (input.length > 0) { gantiTab('katalog'); }
             for (let i = 0; i < cards.length; i++) {
                 let judul = cards[i].querySelector('.product-title').textContent.toLowerCase();
-                if (judul.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
+                cards[i].style.display = judul.includes(input) ? "" : "none";
             }
         }
 
