@@ -146,7 +146,7 @@
             background-color: #ffffff;
         }
 
-        /* HERO BANNER BARU SESUAI GAMBAR 1000203206_2.jpg */
+        /* HERO BANNER ESTETIK SESUAI REFERENSI GAMBAR */
         .hero-banner {
             background: #cbbaa9;
             background-image: radial-gradient(circle at 100% 150%, #cbbaa9 24%, #bfae9c 24%, #bfae9c 28%, #cbbaa9 28%, #cbbaa9 36%, #bfae9c 36%, #bfae9c 40%, transparent 40%),
@@ -197,7 +197,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* KARTU PREVIEW TENTANG BRAND DI BERANDA */
+        /* PANEL INFO SINGKAT TENTANG BRAND */
         .brand-preview-card {
             background: #ffffff;
             border-radius: 20px;
@@ -429,7 +429,7 @@
             background-color: #6c5a4b;
         }
 
-        /* HALAMAN TENTANG BRAND UTAMA (VISI MISI & PROFIL FULL) */
+        /* TAB MENU HALAMAN TENTANG BRAND */
         .about-section {
             background: #ffffff;
             border-radius: 18px;
@@ -480,6 +480,7 @@
             line-height: 1.6;
         }
 
+        /* SLIDE SIDEBAR KERANJANG */
         .sidebar-cart {
             position: fixed; top: 0; left: 50%; transform: translateX(150%); width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: transform 0.3s ease-in-out; display: flex; flex-direction: column;
         }
@@ -534,6 +535,7 @@
         .btn-wa { background-color: #25D366; color: white; }
         .btn-shopee { background-color: #ee4d2d; color: white; }
 
+        /* BOTTOM NAVIGATION MENU BAR */
         .bottom-nav {
             position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 12px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
         }
@@ -558,7 +560,7 @@
                 </div>
             </div>
             <div class="logo-container">
-                <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
+                <img src="logo.jpeg" alt="Logo" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
             </div>
             <div class="cart-box" onclick="toggleSidebarCart()">
@@ -572,7 +574,7 @@
         </div>
     </header>
 
-    <!-- OVERLAY SUKSES -->
+    <!-- NOTIFIKASI SEMENTARA SUKSES -->
     <div id="success-overlay" class="success-overlay">
         <div class="success-box">
             <i class="fa-solid fa-circle-check"></i>
@@ -582,7 +584,7 @@
         </div>
     </div>
 
-    <!-- SIDEBAR KERANJANG -->
+    <!-- SIDEBAR TRANSAKSI KERANJANG -->
     <div id="sidebar-cart" class="sidebar-cart">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-shopping-bag"></i> Isi Keranjang</h3>
@@ -636,10 +638,11 @@
         </div>
     </div>
 
-    <!-- SEKSI 1: KATALOG / BERANDA UTAMA (DENGAN TAMPILAN SESUAI FOTO) -->
+    <!-- HALAMAN BERANDA / KATALOG UTAMA -->
     <div id="section-katalog-utama" class="page-section show">
         <main class="main-content">
-            <!-- BANNER HERO UPDATE SESUAI FOTO -->
+            
+            <!-- UPDATE BANNER HERO BARU SESUAI GAMBAR REFERENSI -->
             <div class="hero-banner">
                 <h1>Sentuhan Anggun Setiap Hari</h1>
                 <p class="hero-desc-top">Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
@@ -647,13 +650,13 @@
                 <p class="hero-desc-bottom">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
             </div>
 
-            <!-- TENTANG BRAND PREVIEW SESUAI TAMPILAN DI FOTO -->
+            <!-- TENTANG BRAND SINGKAT YANG TAMPIL DI BERANDA -->
             <div class="brand-preview-card">
                 <h3>Tentang HijabByTami ✨</h3>
                 <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
             </div>
 
-            <!-- VIDEO REVIEW PRODUK -->
+            <!-- VIDEO REVIEW HALAMAN DEPAN -->
             <div class="video-section">
                 <h2><i class="fa-solid fa-play-circle"></i> Temukan Keanggunannya</h2>
                 <p>Tonton video review detail material dan cara satset pakai Pashmina Mini premium kami.</p>
@@ -668,7 +671,7 @@
                 ✨ Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
             </div>
 
-            <!-- GRID PRODUK -->
+            <!-- GRID AREA LIST PRODUK -->
             <div class="product-grid" id="product-container">
                 <!-- Soft Pink -->
                 <div class="product-card" data-tone="terang">
@@ -873,13 +876,12 @@
         </main>
     </div>
 
-    <!-- SEKSI 2: TENTANG BRAND DETAIL (VISI MISI FULL) -->
+    <!-- HALAMAN PROFIL DETIL (VISI & MISI BRAND) -->
     <div id="section-visi-misi" class="page-section">
         <main class="main-content">
             <div class="about-section">
                 <h2>Profil HijabByTami ✨</h2>
                 <p>HijabByTami berkomitmen penuh menghadirkan kualitas pashmina terbaik yang ramah untuk penggunaan sehari-hari maupun acara formal. Kami memadukan kecantikan minimalis dengan kepraktisan yang tinggi.</p>
-                
                 <p>Setiap produk kami diproduksi secara teliti melalui proses kurasi bahan terbaik demi menjaga kepuasan serta rasa percaya diri seluruh Teman Tami di Indonesia.</p>
                 
                 <div class="vision-mission">
@@ -903,7 +905,7 @@
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
-    <!-- FIXED BOTTOM NAVIGATION BAR -->
+    <!-- BAR NAVIGASI BAGIAN BAWAH -->
     <div class="bottom-nav">
         <div id="nav-katalog" class="nav-item active" onclick="pindahMenu('katalog')">
             <i class="fa-solid fa-images"></i>
