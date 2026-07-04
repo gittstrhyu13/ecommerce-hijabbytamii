@@ -210,7 +210,7 @@
             box-shadow: 0 4px 12px rgba(169, 132, 103, 0.1);
         }
 
-        .video-wrapper video, .video-wrapper iframe {
+        .video-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
@@ -432,78 +432,12 @@
             background-color: #312922;
         }
 
-        /* BARU: CSS UNTUK SECTION TESTIMONI (GAYA LAYAR HP KAIN KITA) */
-        .testimonials-section {
-            margin-bottom: 25px;
-            background-color: #ffffff;
-        }
-
-        .testimonials-section h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #4a3f35;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .testimonial-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .testimonial-card {
-            background-color: #fdf6f0;
-            border: 1px solid #f5ebe0;
-            border-radius: 12px;
-            padding: 12px 15px;
-        }
-
-        .testimonial-stars {
-            color: #ffb703;
-            font-size: 0.75rem;
-            margin-bottom: 6px;
-        }
-
-        .testimonial-text {
-            font-size: 0.78rem;
-            color: #6c5a4b;
-            line-height: 1.4;
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-
-        .testimonial-user {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .testimonial-avatar {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #e3d5ca;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: #4a3f35;
-            font-weight: 600;
-        }
-
-        .testimonial-name {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4a3f35;
-        }
-
         .sidebar-cart {
             position: fixed;
             top: 0;
             right: -100%; 
             width: 100%;
-            max-width: 400px; 
+            max-width: 440px; 
             height: 100%;
             background-color: #ffffff;
             box-shadow: -5px 0 25px rgba(74, 63, 53, 0.15);
@@ -598,6 +532,56 @@
         
         .cart-item-delete-btn:hover {
             transform: scale(1.15);
+        }
+
+        /* PILIHAN PEMBAYARAN DI KERANJANG */
+        .cart-payment-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed #e3d5ca;
+        }
+
+        .cart-payment-section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4a3f35;
+        }
+
+        .payment-options-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .payment-radio-label {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #fcfaf7;
+            border: 1px solid #e3d5ca;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .payment-radio-label input {
+            display: none;
+        }
+
+        .payment-radio-label:hover {
+            background-color: #f5ebe0;
+        }
+
+        /* Style ketika radio button terpilih */
+        .payment-radio-label.selected {
+            background-color: #4a3f35;
+            color: #ffffff;
+            border-color: #4a3f35;
         }
 
         .sidebar-footer {
@@ -1022,41 +1006,14 @@
 
         </div>
 
-        <!-- BARU: SECTION TESTIMONI PELANGGAN (Sesuai Video Referensi Menit 00:01) -->
-        <div class="testimonials-section">
-            <h3>Pelanggan Kami ✨</h3>
-            <div class="testimonial-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Bahan pashmina mini-nya beneran premium, tegak banget di dahi dan ga gampang geser. Cocok buat daily casual look!"</p>
-                    <div class="testimonial-user">
-                        <div class="testimonial-avatar">S</div>
-                        <span class="testimonial-name">Siti Aminah</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Pemesanan via WhatsApp cepat direspons, barang langsung dikirim. Warnanya realpict dan anggun pas dipakai."</p>
-                    <div class="testimonial-user">
-                        <div class="testimonial-avatar">R</div>
-                        <span class="testimonial-name">Rini Handayani</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="transaction-section">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
-                <div class="payment-badge" onclick="pilihMetode('COD (Bayar di Tempat)')">
+                <div class="payment-badge" onclick="pilihMetodeUtama('COD (Bayar di Tempat)')">
                     <i class="fa-solid fa-truck-ramp-box"></i>
                     <span>Bisa COD</span>
                 </div>
-                <div class="payment-badge" onclick="pilihMetode('Transfer Bank')">
+                <div class="payment-badge" onclick="pilihMetodeUtama('Transfer Bank')">
                     <i class="fa-solid fa-building-columns"></i>
                     <span>Transfer Bank</span>
                 </div>
@@ -1080,6 +1037,7 @@
 
     <script>
         let dataKeranjang = [];
+        let metodePembayaranTerpilih = '';
 
         function ubahJumlah(tombol, value, stokMaksimal) {
             const wadahInput = tombol.parentElement.querySelector('.qty-input');
@@ -1135,6 +1093,17 @@
             perbaruiTampilanKeranjang();
         }
 
+        function setMetodePembayaran(elemen, metode) {
+            metodePembayaranTerpilih = metode;
+            
+            // Hapus class 'selected' dari semua pilihan pembayaran di keranjang
+            const labels = document.querySelectorAll('.payment-radio-label');
+            labels.forEach(lbl => lbl.classList.remove('selected'));
+            
+            // Tambahkan ke elemen yang diklik
+            elemen.classList.add('selected');
+        }
+
         function perbaruiTampilanKeranjang() {
             const badgeTotal = document.getElementById('total-cart');
             const bodiSidebar = document.getElementById('sidebar-body');
@@ -1144,8 +1113,9 @@
 
             if (dataKeranjang.length === 0) {
                 bodiSidebar.innerHTML = '<p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>';
+                metodePembayaranTerpilih = ''; // Reset pilihan pembayaran jika kosong
             } else {
-                bodiSidebar.innerHTML = dataKeranjang.map((item, index) => `
+                let htmlProduk = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
                         <div class="cart-item-detail">
                             <h5>${item.nama}</h5>
@@ -1161,6 +1131,23 @@
                         </div>
                     </div>
                 `).join('');
+
+                // Modifikasi: Tambahkan UI Pilihan Metode Pembayaran langsung di dalam Keranjang
+                let htmlPembayaran = `
+                    <div class="cart-payment-section">
+                        <h4><i class="fa-solid fa-wallet"></i> Pilih Metode Pembayaran:</h4>
+                        <div class="payment-options-box">
+                            <label class="payment-radio-label ${metodePembayaranTerpilih === 'COD (Bayar di Tempat)' ? 'selected' : ''}" onclick="setMetodePembayaran(this, 'COD (Bayar di Tempat)')">
+                                <i class="fa-solid fa-truck-ramp-box"></i> COD
+                            </label>
+                            <label class="payment-radio-label ${metodePembayaranTerpilih === 'Transfer Bank' ? 'selected' : ''}" onclick="setMetodePembayaran(this, 'Transfer Bank')">
+                                <i class="fa-solid fa-building-columns"></i> Transfer
+                            </label>
+                        </div>
+                    </div>
+                `;
+
+                bodiSidebar.innerHTML = htmlProduk + htmlPembayaran;
             }
         }
 
@@ -1168,6 +1155,12 @@
             if (dataKeranjang.length === 0) {
                 event.preventDefault();
                 alert('Keranjang belanja kamu masih kosong, pilih pashmina favoritmu terlebih dahulu ya! ✨');
+                return;
+            }
+
+            if (!metodePembayaranTerpilih) {
+                event.preventDefault();
+                alert('Silakan pilih metode pembayaran (COD atau Transfer) di dalam keranjang terlebih dahulu ya, Sis! ✨');
                 return;
             }
 
@@ -1180,10 +1173,21 @@
                 teksFormatOrder += `${index + 1}. ${item.nama}\n   Jumlah: ${item.jumlah} pcs (Rp ${subTotal.toLocaleString('id-ID')})\n\n`;
             });
 
+            teksFormatOrder += `*Metode Pembayaran:* ${metodePembayaranTerpilih}\n`;
             teksFormatOrder += `*Total Pembayaran:* Rp ${totalBayarSemua.toLocaleString('id-ID')}\n\nMohon diinfokan kelanjutan format pemesanannya ya, Kak. Terima kasih! ✨`;
             
             const urlWhatsApp = `https://wa.me/6287753617027?text=${encodeURIComponent(teksFormatOrder)}`;
             document.getElementById('checkout-wa-btn').setAttribute('href', urlWhatsApp);
+
+            // Simulasi Notifikasi Berhasil Checkout
+            setTimeout(() => {
+                alert('🎉 HORE! Checkout Berhasil!\n\nFormat pesanan kamu sudah siap dikirim. Silakan lanjutkan chat di WhatsApp untuk konfirmasi pengiriman ya, Sis! Terimakasih sudah belanja di HijabByTami. ✨💖');
+                // Kosongkan keranjang setelah berhasil checkout
+                dataKeranjang = [];
+                metodePembayaranTerpilih = '';
+                perbaruiTampilanKeranjang();
+                toggleSidebarCart();
+            }, 1000);
         }
 
         function urutkanProduk() {
@@ -1214,8 +1218,8 @@
             }
         }
 
-        function pilihMetode(namaMetode) {
-            alert('Metode ' + namaMetode + ' aktif! Untuk pemesanan warna pashmina yang ready stock, silakan langsung klik tombol WhatsApp atau Shopee di bawah untuk kirim format order ya, Sis! ✨');
+        function pilihMetodeUtama(namaMetode) {
+            alert('Metode ' + namaMetode + ' tersedia! Silakan tambahkan pashmina ke keranjang terlebih dahulu, lalu pilih metode ini di dalam keranjang saat mau checkout ya, Sis! ✨');
         }
     </script>
 
