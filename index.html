@@ -20,10 +20,10 @@
             color: #4a3f35; 
             max-width: 480px; 
             margin: 0 auto;
-            box-shadow: 0 0 25px rgba(169, 132, 103, 0.08);
+            box-shadow: 0 0 25px rgba(169, 132, 103, 0.15);
             min-height: 100vh;
             position: relative;
-            padding-bottom: 80px; 
+            padding-bottom: 90px; 
         }
 
         header {
@@ -58,7 +58,7 @@
             border: 1px solid #e3d5ca;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 160px;
+            width: 170px;
             z-index: 200;
         }
 
@@ -96,7 +96,7 @@
 
         .cart-box {
             background: #e3d5ca;
-            padding: 5px 14px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-weight: 600;
             display: flex;
@@ -289,7 +289,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(169, 132, 103, 0.03);
+            box-shadow: 0 2px 8px rgba(169, 132, 103, 0.05);
         }
 
         .img-container {
@@ -297,7 +297,7 @@
             aspect-ratio: 1/1;
             overflow: hidden;
             border-radius: 12px;
-            background-color: #f5ebe0; /* Background placeholder jika gambar belum dimuat */
+            background-color: #f5ebe0; 
         }
 
         .product-img {
@@ -368,10 +368,15 @@
             border-radius: 20px;
             margin-bottom: 8px;
             background-color: #fcfaf7;
+            overflow: hidden;
         }
 
         .qty-btn {
-            background: none; border: none; padding: 5px 12px; font-size: 1rem; font-weight: 600; color: #a98467; cursor: pointer;
+            background: none; border: none; padding: 5px 14px; font-size: 1rem; font-weight: 600; color: #a98467; cursor: pointer; transition: background 0.2s;
+        }
+        
+        .qty-btn:hover {
+            background-color: #f5ebe0;
         }
 
         .qty-input {
@@ -434,10 +439,10 @@
 
         /* SIDEBAR CART */
         .sidebar-cart {
-            position: fixed; top: 0; right: -100%; width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: right 0.3s ease-in-out; display: flex; flex-direction: column;
+            position: fixed; top: 0; left: 50%; transform: translateX(150%); width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: transform 0.3s ease-in-out; display: flex; flex-direction: column;
         }
 
-        .sidebar-cart.show { right: 0; }
+        .sidebar-cart.show { transform: translateX(-50%); }
         .sidebar-header { background-color: #f5ebe0; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e3d5ca; }
         .close-cart-btn { background: none; border: none; font-size: 1.2rem; color: #a98467; cursor: pointer; }
         .sidebar-body { flex: 1; padding: 20px; overflow-y: auto; }
@@ -483,7 +488,7 @@
         .payment-badge { background-color: #ffffff; padding: 10px 15px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
         .payment-badge i { color: #a98467; font-size: 1.2rem; }
 
-        footer { background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px; border-radius: 20px 20px 0 0; text-align: center; }
+        footer { background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px; border-radius: 20px 20px 0 0; text-align: center; margin-top: 20px; }
         .contact-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; margin-top: 15px; }
         .btn-contact { padding: 10px 20px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
         .btn-wa { background-color: #25D366; color: white; }
@@ -491,7 +496,7 @@
 
         /* FIXED BOTTOM NAVIGATION BAR */
         .bottom-nav {
-            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 10px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 12px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
         }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: #a98467; cursor: pointer; font-weight: 500; flex: 1; text-align: center; }
         .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
@@ -548,7 +553,7 @@
             <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
         </div>
         
-        <div id="checkout-form-area" style="display: none; padding: 0 20px; overflow-y: auto; max-height: 50vh;">
+        <div id="checkout-form-area" style="display: none; padding: 0 20px; overflow-y: auto; max-height: 45vh;">
             <div class="form-user-details">
                 <h4><i class="fa-solid fa-address-card"></i> Data Pengiriman</h4>
                 <div class="input-group">
@@ -862,12 +867,10 @@
         let dataKeranjang = [];
         let metodeTerpilih = "COD";
 
-        // Memastikan katalog produk langsung tampil saat halaman di-load
         document.addEventListener("DOMContentLoaded", function() {
             pindahMenu('katalog');
         });
 
-        // Navigasi Tab Menu Utama
         function pindahMenu(target) {
             document.getElementById('section-katalog-utama').classList.remove('show');
             document.getElementById('section-visi-misi').classList.remove('show');
@@ -956,7 +959,7 @@
             if (barangAda) {
                 barangAda.jumlah = totalBaru;
             } else {
-                dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, jumlah: totalBeli });
+                dataKeranjang.push({ nama: namaProduk, height: null, harga: hargaProduk, jumlah: totalBeli });
             }
 
             inputQty.value = 1;
@@ -986,8 +989,8 @@
                 let listHtml = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
                         <div class="cart-item-detail">
-                            <h5>${item.nama}</h5>
-                            <p>${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
+                            <h5 style="font-size:0.85rem; font-weight:600;">${item.nama}</h5>
+                            <p style="font-size:0.75rem; color:#757575;">${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
                         </div>
                         <div class="cart-item-action-area">
                             <div style="font-size:0.85rem; font-weight:700; color:#a98467;">Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}</div>
@@ -998,7 +1001,7 @@
                 
                 let totalBelanjaan = dataKeranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
                 listHtml += `
-                    <div style="display:flex; justify-content:space-between; font-weight:700; margin-top:15px; font-size:0.95rem;">
+                    <div style="display:flex; justify-content:space-between; font-weight:700; margin-top:15px; font-size:0.95rem; border-top:1px solid #f5ebe0; padding-top:10px;">
                         <span>Total Bayar:</span>
                         <span>Rp ${totalBelanjaan.toLocaleString('id-ID')}</span>
                     </div>
@@ -1051,7 +1054,6 @@
             document.getElementById('success-overlay').style.display = "flex";
             
             dataKeranjang = [];
-            // Reset input alamat saja agar nama & wa default tidak hilang saat checkout berikutnya
             document.getElementById('cust-address').value = "";
             document.getElementById('cust-email').value = "";
             perbaruiTampilanKeranjang();
