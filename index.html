@@ -27,7 +27,7 @@
 
         header {
             background-color: #f5ebe0; 
-            padding: 15px 20px;
+            padding: 15px 20px 10px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -38,7 +38,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .fa-bars {
@@ -93,16 +93,17 @@
 
         .search-container {
             position: relative;
+            margin-bottom: 12px;
         }
 
         .search-container input {
             width: 100%;
-            padding: 12px 15px 12px 42px;
+            padding: 10px 15px 10px 42px;
             border: 1px solid transparent;
             border-radius: 12px;
             background-color: #fcfaf7;
             outline: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
         }
 
@@ -118,6 +119,41 @@
             top: 50%;
             transform: translateY(-50%);
             color: #a98467;
+        }
+
+        /* MENU NAVIGASI BERANDA / KATALOG */
+        .nav-menu-tabs {
+            display: flex;
+            border-top: 1px solid rgba(227, 213, 202, 0.6);
+            padding-top: 8px;
+            justify-content: space-around;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a98467;
+            cursor: pointer;
+            padding: 4px 12px;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .tab-btn.active {
+            color: #4a3f35;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #a98467;
+            border-radius: 10px;
         }
 
         .main-content {
@@ -288,6 +324,19 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* SEKSI URUTAN KATALOG JUDUL */
+        .catalog-title-area {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px solid #f5ebe0;
+            padding-bottom: 6px;
+        }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -356,7 +405,26 @@
             color: #a98467;
             font-weight: 700;
             margin-top: 4px;
+            margin-bottom: 4px;
+        }
+
+        /* RATING PRODUK STYLE */
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.72rem;
+            color: #757575;
             margin-bottom: 8px;
+        }
+
+        .product-rating .stars-icon {
+            color: #ffc107; /* Warna Bintang Emas */
+        }
+
+        .product-rating .rating-num {
+            font-weight: 600;
+            color: #4a3f35;
         }
 
         .stock-info-shopee {
@@ -780,6 +848,12 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="search-input" onkeyup="cariProduk()" placeholder="Cari koleksi pashmini...">
         </div>
+
+        <!-- MENU TABS TAMPILAN -->
+        <div class="nav-menu-tabs">
+            <button id="btn-tab-beranda" class="tab-btn active" onclick="gantiTab('beranda')">Beranda</button>
+            <button id="btn-tab-katalog" class="tab-btn" onclick="gantiTab('katalog')">Katalog</button>
+        </div>
     </header>
 
     <!-- SIDEBAR KERANJANG -->
@@ -800,43 +874,51 @@
 
     <main class="main-content">
         
-        <div class="hero-banner">
-            <h1>Sentuhan Anggun Setiap Hari</h1>
-            <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
-            <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
-            <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
-        </div>
+        <!-- AREA BERANDA (Bisa disembunyikan lewat JS) -->
+        <div id="section-beranda-konten">
+            <div class="hero-banner">
+                <h1>Sentuhan Anggun Setiap Hari</h1>
+                <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
+                <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
+                <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
+            </div>
 
-        <!-- SECTION TENTANG TOKO, VISI & MISI -->
-        <div class="about-section">
-            <h3>Tentang HijabByTami ✨</h3>
-            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
-            
-            <div class="vismis-box">
-                <h4>Visi:</h4>
-                <p>Menjadi pionir modest fashion lokal terdepan yang menginspirasi wanita muslimah untuk tampil percaya diri, praktis, dan tetap anggun dalam kesederhanaan setiap hari.</p>
-                <h4>Misi:</h4>
-                <ul>
-                    <li>Menyediakan pashmina mini premium berkualitas tinggi dengan harga yang tetap bersahabat.</li>
-                    <li>Mengutamakan inovasi desain hijab yang instan, rapi, tegak, dan anti-ribet.</li>
-                    <li>Memberikan pelayanan transaksi yang transparan, mudah, dan terpercaya bagi pelanggan.</li>
-                </ul>
+            <!-- SECTION TENTANG TOKO, VISI & MISI -->
+            <div class="about-section">
+                <h3>Tentang HijabByTami ✨</h3>
+                <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
+                
+                <div class="vismis-box">
+                    <h4>Visi:</h4>
+                    <p>Menjadi pionir modest fashion lokal terdepan yang menginspirasi wanita muslimah untuk tampil percaya diri, praktis, dan tetap anggun dalam kesederhanaan setiap hari.</p>
+                    <h4>Misi:</h4>
+                    <ul>
+                        <li>Menyediakan pashmina mini premium berkualitas tinggi dengan harga yang tetap bersahabat.</li>
+                        <li>Mengutamakan inovasi desain hijab yang instan, rapi, tegak, dan anti-ribet.</li>
+                        <li>Memberikan pelayanan transaksi yang transparan, mudah, dan terpercaya bagi pelanggan.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION VIDEO PRODUK -->
+            <div class="video-section">
+                <h3><i class="fa-solid fa-circle-play"></i> Review & Detail Produk</h3>
+                <div class="video-wrapper">
+                    <video controls poster="logo.jpeg">
+                        <source src="produk.mp4" type="video/mp4">
+                        Browser kamu tidak mendukung pemutaran video.
+                    </video>
+                </div>
+            </div>
+
+            <div class="restock-notice">
+                <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
             </div>
         </div>
 
-        <!-- SECTION VIDEO PRODUK -->
-        <div class="video-section">
-            <h3><i class="fa-solid fa-circle-play"></i> Review & Detail Produk</h3>
-            <div class="video-wrapper">
-                <video controls poster="logo.jpeg">
-                    <source src="produk.mp4" type="video/mp4">
-                    Browser kamu tidak mendukung pemutaran video.
-                </video>
-            </div>
-        </div>
-
-        <div class="restock-notice">
-            <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
+        <!-- AREA UTAMA PRODUK -->
+        <div class="catalog-title-area" id="catalog-title-area" style="display: none;">
+            <i class="fa-solid fa-border-all"></i> Semua Koleksi Produk
         </div>
 
         <!-- GRID PRODUK -->
@@ -847,6 +929,12 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Soft Pink</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- RATING BARU -->
+                    <div class="product-rating">
+                        <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
+                        <span class="rating-num">4.9</span>
+                        <span>| Terjual 120+</span>
+                    </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">1</span> item</span></div>
                         <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 15%;"></div></div>
@@ -866,6 +954,12 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Taupe</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- RATING BARU -->
+                    <div class="product-rating">
+                        <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
+                        <span class="rating-num">5.0</span>
+                        <span>| Terjual 340+</span>
+                    </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">6</span> item</span></div>
                         <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 70%;"></div></div>
@@ -885,6 +979,12 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Mauve</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- RATING BARU -->
+                    <div class="product-rating">
+                        <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
+                        <span class="rating-num">4.9</span>
+                        <span>| Terjual 95+</span>
+                    </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">5</span> item</span></div>
                         <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 55%;"></div></div>
@@ -904,6 +1004,12 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Deep Navy</div>
                     <div class="product-price">Rp 50.000</div>
+                    <!-- RATING BARU -->
+                    <div class="product-rating">
+                        <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
+                        <span class="rating-num">5.0</span>
+                        <span>| Terjual 210+</span>
+                    </div>
                     <div class="stock-info-shopee">
                         <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">4</span> item</span></div>
                         <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 45%;"></div></div>
@@ -919,7 +1025,7 @@
         </div>
 
         <!-- PILIHAN METODE UTAMA (INFORMASI) -->
-        <div class="transaction-section">
+        <div class="transaction-section" id="section-info-transaksi">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
                 <div class="payment-badge" onclick="pilihMetodeUtama('COD (Bayar di Tempat)')">
@@ -952,6 +1058,29 @@
         let dataKeranjang = [];
         let metodePembayaranTerpilih = '';
         let bankTerpilih = '';
+
+        // FUNGSI GANTI TAMPILAN BERANDA / KATALOG
+        function gantiTab(tipeTab) {
+            const btnBeranda = document.getElementById('btn-tab-beranda');
+            const btnKatalog = document.getElementById('btn-tab-katalog');
+            const kontenBeranda = document.getElementById('section-beranda-konten');
+            const infoTransaksi = document.getElementById('section-info-transaksi');
+            const judulKatalog = document.getElementById('catalog-title-area');
+
+            if (tipeTab === 'beranda') {
+                btnBeranda.classList.add('active');
+                btnKatalog.classList.remove('active');
+                kontenBeranda.style.display = "block";
+                infoTransaksi.style.display = "block";
+                judulKatalog.style.display = "none";
+            } else if (tipeTab === 'katalog') {
+                btnKatalog.classList.add('active');
+                btnBeranda.classList.remove('active');
+                kontenBeranda.style.display = "none";
+                infoTransaksi.style.display = "none";
+                judulKatalog.style.display = "flex";
+            }
+        }
 
         function ubahJumlah(tombol, value, stokMaksimal) {
             const wadahInput = tombol.parentElement.querySelector('.qty-input');
@@ -1018,7 +1147,7 @@
                 transferDetails.classList.add('show');
             } else {
                 transferDetails.classList.remove('show');
-                bankTerpilih = ''; // Reset bank jika pindah ke COD
+                bankTerpilih = ''; 
             }
         }
 
@@ -1111,16 +1240,14 @@
                 return;
             }
 
-            // Hitung Total Bayar
             let totalBayarSemua = 0;
             let detailBarangText = "";
-            dataKeranjang.forEach((item, index) => {
+            dataKeranjang.forEach((item) => {
                 let subTotal = item.harga * item.jumlah;
                 totalBayarSemua += subTotal;
                 detailBarangText += `- ${item.nama} (${item.jumlah} pcs)\n`;
             });
 
-            // Tampilkan Alert Berhasil Langsung di Web
             let infoMetode = metodePembayaranTerpilih;
             if(metodePembayaranTerpilih === 'Transfer Bank') {
                 infoMetode += ` (${bankTerpilih})`;
@@ -1135,7 +1262,6 @@
                 `Pesanan akan segera kami kemas dan kirimkan ke alamat tujuan. Have a lovely day! ✨💖`
             );
 
-            // Reset Aplikasi Setelah Sukses Checkout
             dataKeranjang = [];
             metodePembayaranTerpilih = '';
             bankTerpilih = '';
@@ -1155,6 +1281,12 @@
         function cariProduk() {
             const input = document.getElementById('search-input').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
+            
+            // Otomatis pindah ke mode katalog jika user mencari produk agar lebih fokus
+            if (input.length > 0) {
+                gantiTab('katalog');
+            }
+
             for (let i = 0; i < cards.length; i++) {
                 let judul = cards[i].querySelector('.product-title').textContent.toLowerCase();
                 if (judul.includes(input)) {
