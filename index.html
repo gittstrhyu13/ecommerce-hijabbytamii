@@ -121,7 +121,6 @@
             color: #a98467;
         }
 
-        /* TABS BERANDA & KATALOG */
         .nav-menu-tabs {
             display: flex;
             border-top: 1px solid rgba(227, 213, 202, 0.6);
@@ -217,7 +216,6 @@
             font-weight: 500;
         }
 
-        /* SECTION TENTANG TOKO */
         .about-section {
             background: #fcfaf7;
             border-radius: 18px;
@@ -261,7 +259,6 @@
             color: #6c5a4b;
         }
 
-        /* SECTION VIDEO PRODUK */
         .video-section {
             margin-bottom: 25px;
             background-color: #fdf6f0;
@@ -407,7 +404,6 @@
             margin-bottom: 4px;
         }
 
-        /* RATING & REVIEW PRODUK (SHOPEE STYLE) */
         .product-rating {
             display: flex;
             align-items: center;
@@ -515,7 +511,6 @@
             background-color: #312922;
         }
 
-        /* SIDEBAR KERANJANG */
         .sidebar-cart {
             position: fixed;
             top: 0;
@@ -846,14 +841,12 @@
             <input type="text" id="search-input" onkeyup="cariProduk()" placeholder="Cari koleksi pashmini...">
         </div>
 
-        <!-- MENU TABS BERANDA / KATALOG -->
         <div class="nav-menu-tabs">
             <button id="btn-tab-beranda" class="tab-btn active" onclick="gantiTab('beranda')">Beranda</button>
             <button id="btn-tab-katalog" class="tab-btn" onclick="gantiTab('katalog')">Katalog</button>
         </div>
     </header>
 
-    <!-- SIDEBAR KERANJANG -->
     <div id="sidebar-cart" class="sidebar-cart">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-shopping-bag"></i> Isi Keranjang Belanja</h3>
@@ -871,7 +864,6 @@
 
     <main class="main-content">
         
-        <!-- AREA BERANDA -->
         <div id="section-beranda-konten">
             <div class="hero-banner">
                 <h1>Sentuhan Anggun Setiap Hari</h1>
@@ -880,7 +872,6 @@
                 <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
             </div>
 
-            <!-- SECTION TENTANG TOKO -->
             <div class="about-section">
                 <h3>Tentang HijabByTami ✨</h3>
                 <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
@@ -897,7 +888,6 @@
                 </div>
             </div>
 
-            <!-- SECTION VIDEO PRODUK -->
             <div class="video-section">
                 <h3><i class="fa-solid fa-circle-play"></i> Review & Detail Produk</h3>
                 <div class="video-wrapper">
@@ -913,12 +903,11 @@
             </div>
         </div>
 
-        <!-- AREA JUDUL KATALOG -->
         <div class="catalog-title-area" id="catalog-title-area" style="display: none;">
             <i class="fa-solid fa-border-all"></i> Semua Koleksi Produk
         </div>
 
-        <!-- GRID PRODUK ASLI (DENGAN RATING DARI PEMBELI) -->
+        <!-- GRID PRODUK ASLI DENGAN RATING & DATA WARNA YG BENAR -->
         <div class="product-grid" id="product-container">
             <!-- PRODUK 1: NAVY -->
             <div class="product-card" data-order="1">
@@ -926,7 +915,6 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Navy</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">4.9</span>
@@ -951,7 +939,6 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Taupe</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">5.0</span>
@@ -976,7 +963,6 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Dusty Pink</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">4.9</span>
@@ -1001,7 +987,6 @@
                 <div class="product-info">
                     <div class="product-title">Pashmina Mini - Mahogany</div>
                     <div class="product-price">Rp 50.000</div>
-                    <!-- RATING & REVIEW ASLI -->
                     <div class="product-rating">
                         <span class="stars-icon"><i class="fa-solid fa-star"></i></span>
                         <span class="rating-num">5.0</span>
@@ -1021,7 +1006,6 @@
             </div>
         </div>
 
-        <!-- PILIHAN METODE UTAMA -->
         <div class="transaction-section" id="section-info-transaksi">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
@@ -1056,7 +1040,6 @@
         let metodePembayaranTerpilih = '';
         let bankTerpilih = '';
 
-        // JAVASCRIPT GANTI TAMPILAN BERANDA & KATALOG
         function gantiTab(tipeTab) {
             const btnBeranda = document.getElementById('btn-tab-beranda');
             const btnKatalog = document.getElementById('btn-tab-katalog');
