@@ -20,10 +20,10 @@
             color: #4a3f35; 
             max-width: 480px; 
             margin: 0 auto;
-            box-shadow: 0 0 25px rgba(169, 132, 103, 0.15);
+            box-shadow: 0 0 25px rgba(169, 132, 103, 0.08);
             min-height: 100vh;
             position: relative;
-            padding-bottom: 90px; 
+            padding-bottom: 80px; 
         }
 
         header {
@@ -48,6 +48,7 @@
             position: relative;
         }
 
+        /* Dropdown Filter Warna */
         .filter-dropdown {
             display: none;
             position: absolute;
@@ -57,7 +58,7 @@
             border: 1px solid #e3d5ca;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 170px;
+            width: 160px;
             z-index: 200;
         }
 
@@ -95,7 +96,7 @@
 
         .cart-box {
             background: #e3d5ca;
-            padding: 6px 14px;
+            padding: 5px 14px;
             border-radius: 20px;
             font-weight: 600;
             display: flex;
@@ -146,78 +147,42 @@
             background-color: #ffffff;
         }
 
-        /* HERO BANNER MINIMALIS BARU (FIX RAPI) */
         .hero-banner {
-            background: linear-gradient(135deg, #d5bdaf 0%, #e3d5ca 100%);
-            border-radius: 24px;
-            padding: 35px 22px;
+            background: linear-gradient(135deg, #e3d5ca, #d5bdaf);
+            border-radius: 20px;
+            padding: 30px 20px;
             text-align: center;
             color: #4a3f35;
             position: relative;
             overflow: hidden;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(169, 132, 103, 0.1);
+            box-shadow: 0 4px 15px rgba(74, 63, 53, 0.05);
         }
 
         .hero-banner h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 12px;
-            color: #3d3229;
+            margin-bottom: 8px;
         }
 
-        .hero-banner p.hero-desc-top {
-            font-size: 0.88rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            color: #5c4d40;
-        }
-
-        .hero-banner p.hero-desc-bottom {
+        .hero-banner p {
             font-size: 0.85rem;
-            line-height: 1.5;
-            margin-top: 15px;
-            color: #5c4d40;
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .tag-badge {
             display: inline-block;
-            background: #ffffff;
-            padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 6px 16px;
             border-radius: 25px;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: #a98467;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            backdrop-filter: blur(5px);
         }
 
-        /* PANEL INFO SINGKAT TENTANG BRAND */
-        .brand-preview-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 22px 18px;
-            margin-bottom: 25px;
-            border-left: 5px solid #c3a38a;
-            box-shadow: 0 4px 12px rgba(169, 132, 103, 0.08);
-        }
-
-        .brand-preview-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #4a3f35;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .brand-preview-card p {
-            font-size: 0.86rem;
-            line-height: 1.6;
-            color: #5c4d40;
-        }
-
+        /* SECTION VIDEO PRODUK */
         .video-section {
             margin-bottom: 25px;
             background-color: #fdf6f0;
@@ -243,7 +208,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; 
+            padding-bottom: 100%; /* Disesuaikan sedikit agar lebih proporsional */
             height: 0;
             border-radius: 12px;
             overflow: hidden;
@@ -270,6 +235,7 @@
             border: 1px dashed #d5bdaf;
         }
 
+        /* RATING & REVIEW */
         .rating-container {
             display: flex;
             align-items: center;
@@ -306,6 +272,7 @@
             font-style: normal;
         }
 
+        /* PRODUCT GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -322,7 +289,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 2px 8px rgba(169, 132, 103, 0.05);
+            box-shadow: 0 2px 8px rgba(169, 132, 103, 0.03);
         }
 
         .img-container {
@@ -330,7 +297,6 @@
             aspect-ratio: 1/1;
             overflow: hidden;
             border-radius: 12px;
-            background-color: #f5ebe0; 
         }
 
         .product-img {
@@ -401,15 +367,10 @@
             border-radius: 20px;
             margin-bottom: 8px;
             background-color: #fcfaf7;
-            overflow: hidden;
         }
 
         .qty-btn {
-            background: none; border: none; padding: 5px 14px; font-size: 1rem; font-weight: 600; color: #a98467; cursor: pointer; transition: background 0.2s;
-        }
-        
-        .qty-btn:hover {
-            background-color: #f5ebe0;
+            background: none; border: none; padding: 5px 12px; font-size: 1rem; font-weight: 600; color: #a98467; cursor: pointer;
         }
 
         .qty-input {
@@ -424,63 +385,58 @@
             background-color: #6c5a4b;
         }
 
-        /* TAB MENU HALAMAN TENTANG BRAND */
+        /* TENTANG BRAND */
         .about-section {
-            background: #ffffff;
+            background: #fcfaf7;
             border-radius: 18px;
-            padding: 25px 20px;
+            padding: 20px 15px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #a98467;
         }
 
-        .about-section h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .about-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #4a3f35;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #f5ebe0;
-            padding-bottom: 8px;
+            margin-bottom: 8px;
         }
 
         .about-section p {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             line-height: 1.6;
-            color: #5c4d40;
-            margin-bottom: 15px;
+            color: #6c5a4b;
+            margin-bottom: 12px;
         }
 
         .vision-mission {
-            background: #fcfaf7;
+            background: #ffffff;
             border: 1px solid #e3d5ca;
             border-radius: 12px;
-            padding: 18px;
-            margin-top: 20px;
+            padding: 15px;
+            margin-top: 15px;
         }
 
         .vision-mission h4 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #a98467;
-            margin-top: 12px;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            margin-top: 8px;
+            margin-bottom: 4px;
         }
 
         .vision-mission p {
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            font-size: 0.82rem;
+            margin-bottom: 8px;
             color: #555;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* SLIDE SIDEBAR KERANJANG */
+        /* SIDEBAR CART */
         .sidebar-cart {
-            position: fixed; top: 0; left: 50%; transform: translateX(150%); width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: transform 0.3s ease-in-out; display: flex; flex-direction: column;
+            position: fixed; top: 0; right: -100%; width: 100%; max-width: 480px; height: 100%; background-color: #ffffff; z-index: 1000; transition: right 0.3s ease-in-out; display: flex; flex-direction: column;
         }
 
-        .sidebar-cart.show { transform: translateX(-50%); }
+        .sidebar-cart.show { right: 0; }
         .sidebar-header { background-color: #f5ebe0; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e3d5ca; }
         .close-cart-btn { background: none; border: none; font-size: 1.2rem; color: #a98467; cursor: pointer; }
         .sidebar-body { flex: 1; padding: 20px; overflow-y: auto; }
@@ -489,6 +445,7 @@
         .cart-item-action-area { display: flex; align-items: center; gap: 15px; }
         .cart-item-delete-btn { background: none; border: none; color: #ee4d2d; cursor: pointer; font-size: 1rem; }
         
+        /* FORM INPUT ALAMAT */
         .form-user-details {
             margin-top: 20px;
             padding-top: 15px;
@@ -513,6 +470,7 @@
         .btn-direct-checkout { display: block; width: 100%; background-color: #a98467; color: white; text-align: center; padding: 12px; border-radius: 25px; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
         .btn-checkout-wa { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 10px; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: 600; text-align: center; }
 
+        /* OVERLAYS */
         .success-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; display: none; justify-content: center; align-items: center; }
         .success-box { background: #ffffff; padding: 30px 20px; border-radius: 20px; text-align: center; max-width: 350px; width: 90%; }
         .success-box i { font-size: 3rem; color: #25D366; margin-bottom: 15px; }
@@ -524,15 +482,15 @@
         .payment-badge { background-color: #ffffff; padding: 10px 15px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
         .payment-badge i { color: #a98467; font-size: 1.2rem; }
 
-        footer { background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px; border-radius: 20px 20px 0 0; text-align: center; margin-top: 20px; }
+        footer { background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px; border-radius: 20px 20px 0 0; text-align: center; }
         .contact-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; margin-top: 15px; }
         .btn-contact { padding: 10px 20px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
         .btn-wa { background-color: #25D366; color: white; }
         .btn-shopee { background-color: #ee4d2d; color: white; }
 
-        /* BOTTOM NAVIGATION MENU BAR */
+        /* FIXED BOTTOM NAVIGATION BAR (Sederhana 2 Menu Utama) */
         .bottom-nav {
-            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 12px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background-color: #ffffff; border-top: 1px solid #e3d5ca; display: flex; justify-content: space-around; padding: 10px 0; z-index: 900; box-shadow: 0 -4px 10px rgba(0,0,0,0.03);
         }
         .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: #a98467; cursor: pointer; font-weight: 500; flex: 1; text-align: center; }
         .nav-item i { font-size: 1.2rem; margin-bottom: 3px; }
@@ -555,7 +513,7 @@
                 </div>
             </div>
             <div class="logo-container">
-                <img src="logo.jpeg" alt="Logo" class="brand-logo">
+                <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
             </div>
             <div class="cart-box" onclick="toggleSidebarCart()">
@@ -569,7 +527,7 @@
         </div>
     </header>
 
-    <!-- NOTIFIKASI SEMENTARA SUKSES -->
+    <!-- OVERLAY SUKSES -->
     <div id="success-overlay" class="success-overlay">
         <div class="success-box">
             <i class="fa-solid fa-circle-check"></i>
@@ -579,7 +537,7 @@
         </div>
     </div>
 
-    <!-- SIDEBAR TRANSAKSI KERANJANG -->
+    <!-- SIDEBAR KERANJANG -->
     <div id="sidebar-cart" class="sidebar-cart">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-shopping-bag"></i> Isi Keranjang</h3>
@@ -589,16 +547,16 @@
             <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
         </div>
         
-        <div id="checkout-form-area" style="display: none; padding: 0 20px; overflow-y: auto; max-height: 45vh;">
+        <div id="checkout-form-area" style="display: none; padding: 0 20px; overflow-y: auto; max-height: 50vh;">
             <div class="form-user-details">
                 <h4><i class="fa-solid fa-address-card"></i> Data Pengiriman</h4>
                 <div class="input-group">
                     <label>Nama Lengkap *</label>
-                    <input type="text" id="cust-name" value="Gita Siti Rahayu" placeholder="Contoh: Gita Siti">
+                    <input type="text" id="cust-name" placeholder="Contoh: Gita Siti">
                 </div>
                 <div class="input-group">
                     <label>No. WhatsApp (Aktif) *</label>
-                    <input type="tel" id="cust-phone" value="087753617027" placeholder="Contoh: 0877xxxxx">
+                    <input type="tel" id="cust-phone" placeholder="Contoh: 0877xxxxx">
                 </div>
                 <div class="input-group">
                     <label>Alamat Lengkap Pengiriman *</label>
@@ -633,25 +591,15 @@
         </div>
     </div>
 
-    <!-- HALAMAN BERANDA / KATALOG UTAMA -->
+    <!-- SEKSI 1: KATALOG / BERANDA UTAMA (Langsung Menampilkan Produk) -->
     <div id="section-katalog-utama" class="page-section show">
         <main class="main-content">
-            
-            <!-- HERO BANNER MINIMALIS BARU (FIX RAPI) -->
             <div class="hero-banner">
-                <h1>Sentuhan Anggun Setiap Hari</h1>
-                <p class="hero-desc-top">Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
+                <h1>Selamat Datang di HijabByTami 🌸</h1>
+                <p>Solusi tampil cantik, rapi, dan instan dengan Pashmina Mini Premium terbaik pilihan kamu.</p>
                 <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
-                <p class="hero-desc-bottom">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
             </div>
 
-            <!-- TENTANG BRAND SINGKAT YANG TAMPIL DI BERANDA -->
-            <div class="brand-preview-card">
-                <h3>Tentang HijabByTami ✨</h3>
-                <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
-            </div>
-
-            <!-- VIDEO REVIEW HALAMAN DEPAN -->
             <div class="video-section">
                 <h2><i class="fa-solid fa-play-circle"></i> Temukan Keanggunannya</h2>
                 <p>Tonton video review detail material dan cara satset pakai Pashmina Mini premium kami.</p>
@@ -666,11 +614,11 @@
                 ✨ Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
             </div>
 
-            <!-- GRID AREA LIST PRODUK -->
+            <!-- GRID PRODUK -->
             <div class="product-grid" id="product-container">
                 <!-- Soft Pink -->
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar1.jpeg" class="product-img" alt="Soft Pink"></div>
+                    <div class="img-container"><img src="gambar1.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Soft Pink</div>
                         <div class="rating-container">
@@ -694,7 +642,7 @@
 
                 <!-- Taupe -->
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar2.jpeg" class="product-img" alt="Taupe"></div>
+                    <div class="img-container"><img src="gambar2.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Taupe</div>
                         <div class="rating-container">
@@ -718,7 +666,7 @@
 
                 <!-- Mauve -->
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar3.jpeg" class="product-img" alt="Mauve"></div>
+                    <div class="img-container"><img src="gambar3.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Mauve</div>
                         <div class="rating-container">
@@ -742,7 +690,7 @@
 
                 <!-- Deep Navy -->
                 <div class="product-card" data-tone="gelap">
-                    <div class="img-container"><img src="gambar4.jpeg" class="product-img" alt="Deep Navy"></div>
+                    <div class="img-container"><img src="gambar4.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Deep Navy</div>
                         <div class="rating-container">
@@ -766,7 +714,7 @@
 
                 <!-- Mahogany -->
                 <div class="product-card" data-tone="gelap">
-                    <div class="img-container"><img src="gambar5.jpeg" class="product-img" alt="Mahogany"></div>
+                    <div class="img-container"><img src="gambar5.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Mahogany</div>
                         <div class="rating-container">
@@ -790,7 +738,7 @@
 
                 <!-- Hazelnut -->
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar6.jpeg" class="product-img" alt="Hazelnut"></div>
+                    <div class="img-container"><img src="gambar6.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Hazelnut</div>
                         <div class="rating-container">
@@ -814,7 +762,7 @@
 
                 <!-- Burgundy -->
                 <div class="product-card" data-tone="gelap">
-                    <div class="img-container"><img src="gambar7.jpeg" class="product-img" alt="Burgundy"></div>
+                    <div class="img-container"><img src="gambar7.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Burgundy</div>
                         <div class="rating-container">
@@ -838,7 +786,7 @@
 
                 <!-- Oat Milk -->
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar8.jpeg" class="product-img" alt="Oat Milk"></div>
+                    <div class="img-container"><img src="gambar8.jpeg" class="product-img"></div>
                     <div class="product-info">
                         <div class="product-title">Pashmina Mini - Oat Milk</div>
                         <div class="rating-container">
@@ -871,21 +819,18 @@
         </main>
     </div>
 
-    <!-- HALAMAN PROFIL DETIL (VISI & MISI BRAND) -->
+    <!-- SEKSI 2: TENTANG BRAND (Visi Misi) -->
     <div id="section-visi-misi" class="page-section">
         <main class="main-content">
             <div class="about-section">
-                <h2>Profil HijabByTami ✨</h2>
-                <p>HijabByTami berkomitmen penuh menghadirkan kualitas pashmina terbaik yang ramah untuk penggunaan sehari-hari maupun acara formal. Kami memadukan kecantikan minimalis dengan kepraktisan yang tinggi.</p>
-                <p>Setiap produk kami diproduksi secara teliti melalui proses kurasi bahan terbaik demi menjaga kepuasan serta rasa percaya diri seluruh Teman Tami di Indonesia.</p>
+                <h3>Tentang HijabByTami ✨</h3>
+                <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
                 
                 <div class="vision-mission">
-                    <h4><i class="fa-solid fa-eye"></i> Visi Kami:</h4>
+                    <h4>Visi Kami:</h4>
                     <p>Menjadi brand hijab lokal terpercaya yang mempermudah wanita muslimah tampil percaya diri, anggun, dan praktis dalam aktivitas sehari-hari.</p>
-                    
-                    <h4><i class="fa-solid fa-bullseye"></i> Misi Kami:</h4>
-                    <p>• Menyediakan pashmina berkualitas premium dengan jahitan rapi dan bahan ternyaman.<br>
-                       • Memberikan pelayanan terbaik dan solusi gaya hijab instan yang efisien bagi wanita aktif modern.</p>
+                    <h4>Misi Kami:</h4>
+                    <p>• Menyediakan pashmina berkualitas premium dengan jahitan rapi dan bahan ternyaman.<br>• Memberikan pelayanan terbaik dan solusi gaya hijab instan yang efisien.</p>
                 </div>
             </div>
         </main>
@@ -900,11 +845,11 @@
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
-    <!-- BAR NAVIGASI BAGIAN BAWAH -->
+    <!-- FIXED BOTTOM NAVIGATION BAR (Disederhanakan 2 Menu Utama) -->
     <div class="bottom-nav">
         <div id="nav-katalog" class="nav-item active" onclick="pindahMenu('katalog')">
             <i class="fa-solid fa-images"></i>
-            <span>Beranda (Katalog)</span>
+            <span>Katalog</span>
         </div>
         <div id="nav-visi" class="nav-item" onclick="pindahMenu('visi')">
             <i class="fa-solid fa-seedling"></i>
@@ -916,10 +861,7 @@
         let dataKeranjang = [];
         let metodeTerpilih = "COD";
 
-        document.addEventListener("DOMContentLoaded", function() {
-            pindahMenu('katalog');
-        });
-
+        // Navigasi 2 Tab Baru
         function pindahMenu(target) {
             document.getElementById('section-katalog-utama').classList.remove('show');
             document.getElementById('section-visi-misi').classList.remove('show');
@@ -1038,8 +980,8 @@
                 let listHtml = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
                         <div class="cart-item-detail">
-                            <h5 style="font-size:0.85rem; font-weight:600;">${item.nama}</h5>
-                            <p style="font-size:0.75rem; color:#757575;">${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
+                            <h5>${item.nama}</h5>
+                            <p>${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
                         </div>
                         <div class="cart-item-action-area">
                             <div style="font-size:0.85rem; font-weight:700; color:#a98467;">Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}</div>
@@ -1050,7 +992,7 @@
                 
                 let totalBelanjaan = dataKeranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
                 listHtml += `
-                    <div style="display:flex; justify-content:space-between; font-weight:700; margin-top:15px; font-size:0.95rem; border-top:1px solid #f5ebe0; padding-top:10px;">
+                    <div style="display:flex; justify-content:space-between; font-weight:700; margin-top:15px; font-size:0.95rem;">
                         <span>Total Bayar:</span>
                         <span>Rp ${totalBelanjaan.toLocaleString('id-ID')}</span>
                     </div>
@@ -1103,6 +1045,8 @@
             document.getElementById('success-overlay').style.display = "flex";
             
             dataKeranjang = [];
+            document.getElementById('cust-name').value = "";
+            document.getElementById('cust-phone').value = "";
             document.getElementById('cust-address').value = "";
             document.getElementById('cust-email').value = "";
             perbaruiTampilanKeranjang();
