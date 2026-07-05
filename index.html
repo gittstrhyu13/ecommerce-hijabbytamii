@@ -546,7 +546,7 @@
             margin-bottom: 4px;
             color: #6c5a4b;
         }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #d5bdaf;
@@ -555,7 +555,7 @@
             outline: none;
             background-color: #fcfaf7;
         }
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             background-color: #ffffff;
             border-color: #a98467;
         }
@@ -757,6 +757,11 @@
             color: #a98467;
         }
 
+        /* STYLE PILIHAN BANK (NEW) */
+        #bank-select-group {
+            transition: all 0.3s ease;
+        }
+
         footer {
             background-color: #4a3f35;
             color: #f5ebe0;
@@ -913,7 +918,7 @@
 
         <div class="product-grid" id="product-container">
             
-            <!-- PRODUK 1 (STOK KUNCI: 1) - TONE: LIGHT -->
+            <!-- PRODUK 1 -->
             <div class="product-card" data-order="1" data-tone="light">
                 <div class="img-container">
                     <img src="gambar1.jpeg" alt="Pashmina Mini - Soft Pink" class="product-img">
@@ -944,7 +949,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 2 (STOK KUNCI: 6) - TONE: LIGHT -->
+            <!-- PRODUK 2 -->
             <div class="product-card" data-order="2" data-tone="light">
                 <div class="img-container">
                     <img src="gambar2.jpeg" alt="Pashmina Mini - Taupe" class="product-img">
@@ -975,7 +980,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 3 (STOK KUNCI: 5) - TONE: LIGHT -->
+            <!-- PRODUK 3 -->
             <div class="product-card" data-order="3" data-tone="light">
                 <div class="img-container">
                     <img src="gambar3.jpeg" alt="Pashmina Mini - Mauve" class="product-img">
@@ -1006,7 +1011,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 4 (STOK KUNCI: 4) - TONE: DARK -->
+            <!-- PRODUK 4 -->
             <div class="product-card" data-order="4" data-tone="dark">
                 <div class="img-container">
                     <img src="gambar4.jpeg" alt="Pashmina Mini - Deep Navy" class="product-img">
@@ -1037,7 +1042,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 5 (STOK KUNCI: 3) - TONE: DARK -->
+            <!-- PRODUK 5 -->
             <div class="product-card" data-order="5" data-tone="dark">
                 <div class="img-container">
                     <img src="gambar5.jpeg" alt="Pashmina Mini - Mahogany" class="product-img">
@@ -1068,7 +1073,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 6 (STOK KUNCI: 2) - TONE: LIGHT -->
+            <!-- PRODUK 6 -->
             <div class="product-card" data-order="6" data-tone="light">
                 <div class="img-container">
                     <img src="gambar6.jpeg" alt="Pashmina Mini - Hazelnut" class="product-img">
@@ -1099,7 +1104,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 7 (STOK KUNCI: 4) - TONE: DARK -->
+            <!-- PRODUK 7 -->
             <div class="product-card" data-order="7" data-tone="dark">
                 <div class="img-container">
                     <img src="gambar7.jpeg" alt="Pashmina Mini - Burgundy" class="product-img">
@@ -1130,7 +1135,7 @@
                 </div>
             </div>
 
-            <!-- PRODUK 8 (STOK KUNCI: 3) - TONE: LIGHT -->
+            <!-- PRODUK 8 -->
             <div class="product-card" data-order="8" data-tone="light">
                 <div class="img-container">
                     <img src="gambar8.jpeg" alt="Pashmina Mini - Oat Milk" class="product-img">
@@ -1188,6 +1193,15 @@
             <div class="form-group">
                 <label for="buyer-phone">Nomor WhatsApp/HP *</label>
                 <input type="tel" id="buyer-phone" placeholder="Contoh: 081234567xx">
+            </div>
+            <div class="form-group" id="bank-select-group" style="display: none;">
+                <label for="bank-name">Pilih Bank Transfer *</label>
+                <select id="bank-name">
+                    <option value="" disabled selected>-- Pilih Bank --</option>
+                    <option value="Bank BCA">Bank BCA</option>
+                    <option value="Bank Mandiri">Bank Mandiri</option>
+                    <option value="Bank BRI">Bank BRI</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="buyer-address">Alamat Pengiriman Lengkap *</label>
@@ -1383,39 +1397,74 @@
             document.getElementById('badge-cod').classList.remove('selected');
             document.getElementById('badge-tf').classList.remove('selected');
             
+            const bankGroup = document.getElementById('bank-select-group');
+
             if(namaMetode === 'COD (Bayar di Tempat)') {
                 document.getElementById('badge-cod').classList.add('selected');
+                bankGroup.style.display = "none"; // Sembunyikan pilihan bank jika COD
+                document.getElementById('bank-name').selectedIndex = 0; 
             } else {
                 document.getElementById('badge-tf').classList.add('selected');
+                bankGroup.style.display = "block"; // Tampilkan pilihan bank jika Transfer
             }
             alert('Metode pembayaran ' + namaMetode + ' berhasil dipilih!');
         }
 
-        // SISTEM CHECKOUT LANGSUNG (Selesai Belanja tanpa dialihkan)
+        // SISTEM CHECKOUT LANGSUNG (Selesai Belanja dengan Detail Lengkap)
         function prosesCheckoutLangsung() {
             const nama = document.getElementById('buyer-name').value.trim();
             const hp = document.getElementById('buyer-phone').value.trim();
             const alamat = document.getElementById('buyer-address').value.trim();
+            const bankPilihan = document.getElementById('bank-name').value;
 
             if (dataKeranjang.length === 0) {
                 alert('Keranjang Anda masih kosong, nih Sis! Silakan tambahkan produk ke keranjang terlebih dahulu. 🛒');
                 return;
             }
             if (!nama || !hp || !alamat) {
-                alert('Mohon lengkapi semua data data pemesan (Nama, No HP, Alamat) ya, Sis! 📋');
+                alert('Mohon lengkapi semua data pemesan (Nama, No HP, Alamat) ya, Sis! 📋');
                 return;
             }
             if (!metodeTerpilih) {
                 alert('Silakan pilih salah satu Metode Transaksi (COD / Transfer Bank) terlebih dahulu! 💳');
                 return;
             }
+            if (metodeTerpilih === 'Transfer Bank' && !bankPilihan) {
+                alert('Sebab Sis memilih metode Transfer, silakan pilih Bank tujuan terlebih dahulu! 🏦');
+                return;
+            }
 
             let totalBayar = dataKeranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
-
-            // Simulasi popup invoice sukses checkout di tempat
-            alert(`🎉 PESANAN BERHASIL TERCEKOUT! 🎉\n\nTerima kasih ${nama}, pesanan Anda sedang kami proses.\n\nDetail Ringkas:\n- Total Item: ${dataKeranjang.reduce((t, i) => t + i.jumlah, 0)} pcs\n- Total Biaya: Rp ${totalBayar.toLocaleString('id-ID')}\n- Metode: ${metodeTerpilih}\n- Tujuan: ${alamat}\n\nResi pengiriman akan diinfokan ke nomor ${hp} ya, Sis! ✨`);
             
-            // Mengosongkan data setelah berhasil checkout
+            // Menyusun daftar detail produk yang dibeli untuk ditampilkan di alert
+            let detailProdukLaporan = "";
+            dataKeranjang.forEach((item, index) => {
+                detailProdukLaporan += `- ${item.nama} (${item.jumlah} pcs): Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}\n`;
+            });
+
+            let infoMetodeTeks = metodeTerpilih;
+            if (metodeTerpilih === 'Transfer Bank') {
+                infoMetodeTeks += ` (${bankPilihan})`;
+            }
+
+            // Popup Invoice Sukses Checkout dengan Informasi yang Diminta
+            alert(
+                `🎉 PESANAN ANDA TELAH BERHASIL! 🎉\n\n` +
+                `Terima kasih Sis ${nama}, data orderan kamu telah kami terima dan siap diproses.\n\n` +
+                `📋 RINCIAN PEMBELIAN:\n` +
+                `${detailProdukLaporan}\n` +
+                `💰 RINGKASAN INVOICE:\n` +
+                `- Total Item: ${dataKeranjang.reduce((t, i) => t + i.jumlah, 0)} pcs\n` +
+                `- Total Biaya: Rp ${totalBayar.toLocaleString('id-ID')}\n` +
+                `- Metode: ${infoMetodeTeks}\n\n` +
+                `📍 DETAIL PENGIRIMAN:\n` +
+                `- Nama Penerima: ${nama}\n` +
+                `- No. WhatsApp/HP: ${hp}\n` +
+                `- Alamat Tujuan: ${alamat}\n\n` +
+                `Nomor resi dan info pembayaran lebih lanjut akan segera diinfokan oleh admin ke nomor WA ${hp} ya, Sis! ✨`
+            );
+            
+            // Mengosongkan kembali form dan keranjang belanja setelah sukses transaksi
             dataKeranjang = [];
             perbaruiTampilanKeranjang();
             document.getElementById('buyer-name').value = "";
@@ -1423,6 +1472,8 @@
             document.getElementById('buyer-address').value = "";
             document.getElementById('badge-cod').classList.remove('selected');
             document.getElementById('badge-tf').classList.remove('selected');
+            document.getElementById('bank-select-group').style.display = "none";
+            document.getElementById('bank-name').selectedIndex = 0;
             metodeTerpilih = "";
         }
     </script>
