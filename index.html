@@ -125,14 +125,23 @@
             background-color: #ffffff;
         }
 
+        /* BANNER DENGAN POLA GELOMBANG SESUAI MOCKUP 1000203206.jpg */
         .hero-banner {
-            background: linear-gradient(135deg, #e3d5ca, #d5bdaf);
-            padding: 35px 20px 20px 20px;
+            background-color: #d5bdaf; 
+            background-image: 
+                radial-gradient(circle at 50% 0, rgba(255,255,255,0.15) 24%, transparent 25%),
+                radial-gradient(circle at 50% 100%, #d5bdaf 24%, transparent 25%),
+                radial-gradient(circle at 50% 100%, rgba(255,255,255,0.15) 29%, transparent 30%),
+                radial-gradient(circle at 50% 0, #d5bdaf 29%, transparent 30%);
+            background-size: 60px 30px;
+            background-position: 0 0, 0 0, 30px 15px, 30px 15px;
+            
+            padding: 35px 20px;
             text-align: center;
             color: #4a3f35;
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 24px;
             margin: 15px 0;
         }
 
@@ -163,16 +172,6 @@
         .hero-subtext {
             font-size: 0.8rem;
             font-weight: 500;
-        }
-
-        /* WAVE SEPARATOR */
-        .wave-container {
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            background-color: #ffffff;
-            margin-bottom: 20px;
-            display: none; /* Disembunyikan agar sesuai mockup melengkung banner */
         }
 
         /* SECTION TENTANG TOKO */
@@ -673,7 +672,7 @@
             cursor: pointer; padding: 5px; font-size: 1rem;
         }
 
-        /* FORM DATA PEMBELI (BARU) */
+        /* FORM DATA PEMBELI */
         .buyer-data-form {
             background: #fcfaf7;
             border: 1px solid #e3d5ca;
@@ -959,7 +958,7 @@
         </div>
     </div>
 
-    <!-- HERO BANNER -->
+    <!-- HERO BANNER DENGAN POLA GELOMBANG SESUAI MOCKUP -->
     <div class="hero-banner">
         <h1>Sentuhan Anggun Setiap Hari</h1>
         <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
