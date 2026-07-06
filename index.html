@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HijabByTami - Pashmina Mini Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght={300;400;500;600;700}&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -44,11 +44,11 @@
         .fa-bars {
             cursor: pointer;
             padding: 5px;
-            transition: transform 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .fa-bars:active {
-            transform: rotate(90deg);
+        .fa-bars:hover {
+            color: #a98467;
         }
 
         .logo-container {
@@ -121,20 +121,17 @@
         }
 
         .main-content {
-            padding: 15px;
+            padding: 0 15px 15px 15px;
             background-color: #ffffff;
         }
 
         .hero-banner {
             background: linear-gradient(135deg, #e3d5ca, #d5bdaf);
-            border-radius: 20px;
-            padding: 35px 20px;
+            padding: 35px 20px 20px 20px;
             text-align: center;
             color: #4a3f35;
             position: relative;
             overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(74, 63, 53, 0.05);
         }
 
         .hero-banner h1 {
@@ -146,7 +143,7 @@
 
         .hero-banner p {
             font-size: 0.85rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             opacity: 0.9;
         }
 
@@ -166,7 +163,27 @@
             font-weight: 500;
         }
 
-        /* SECTION TENTANG TOKO & VISI MISI */
+        /* WAVE SEPARATOR */
+        .wave-container {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+        }
+
+        .wave-container .shape-fill {
+            fill: #d5bdaf;
+        }
+
+        /* SECTION TENTANG TOKO */
         .about-section {
             background: #fcfaf7;
             border-radius: 18px;
@@ -189,25 +206,139 @@
             margin-bottom: 12px;
         }
 
-        .vision-mission {
-            background: #ffffff;
-            border: 1px solid #e3d5ca;
+        .btn-vision-mission {
+            background-color: #a98467;
+            color: white;
+            border: none;
+            padding: 8px 16px;
             border-radius: 12px;
-            padding: 12px;
-            margin-top: 10px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-vision-mission:hover {
+            background-color: #8c6d53;
+        }
+
+        /* MODAL POPUP VISI MISI */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(3px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 20px;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-box h3 {
+            font-size: 1.1rem;
+            color: #4a3f35;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f5ebe0;
+            padding-bottom: 8px;
         }
 
         .vision-mission h4 {
             font-size: 0.85rem;
             font-weight: 600;
             color: #a98467;
+            margin-top: 10px;
             margin-bottom: 4px;
         }
 
         .vision-mission p {
-            font-size: 0.78rem;
-            margin-bottom: 8px;
+            font-size: 0.8rem;
+            line-height: 1.5;
             color: #555;
+            margin-bottom: 10px;
+        }
+
+        .btn-close-modal {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: none; border: none;
+            font-size: 1.2rem; color: #a98467;
+            cursor: pointer;
+        }
+
+        /* SIDEBAR NAV/FILTER KIRI */
+        .sidebar-left {
+            position: fixed;
+            top: 0; left: -100%;
+            width: 100%; max-width: 320px; height: 100%;
+            background-color: #ffffff;
+            box-shadow: 5px 0 25px rgba(74, 63, 53, 0.15);
+            z-index: 1500;
+            transition: left 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 20px;
+        }
+
+        .sidebar-left.show {
+            left: 0;
+        }
+
+        .sidebar-left h3 {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            color: #4a3f35;
+            border-bottom: 1px solid #f5ebe0;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-btn {
+            background: #fcfaf7;
+            border: 1px solid #e3d5ca;
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #4a3f35;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #4a3f35;
+            color: #f5ebe0;
+            border-color: #4a3f35;
         }
 
         /* SECTION VIDEO PRODUK */
@@ -241,12 +372,57 @@
 
         .video-wrapper video {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: #000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none; background-color: #000;
+        }
+
+        /* REVIEW / REKOMENDASI KOMENTAR */
+        .review-section {
+            margin-bottom: 25px;
+        }
+
+        .review-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #4a3f35;
+            margin-bottom: 12px;
+        }
+
+        .review-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .review-card {
+            background: #fcfaf7;
+            border: 1px solid #f5ebe0;
+            border-radius: 14px;
+            padding: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .reviewer-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4a3f35;
+        }
+
+        .review-date {
+            font-size: 0.7rem;
+            color: #a98467;
+        }
+
+        .review-comment {
+            font-size: 0.78rem;
+            color: #6c5a4b;
+            line-height: 1.4;
         }
 
         .restock-notice {
@@ -433,11 +609,8 @@
         /* SIDEBAR CART */
         .sidebar-cart {
             position: fixed;
-            top: 0;
-            right: -100%; 
-            width: 100%;
-            max-width: 480px; 
-            height: 100%;
+            top: 0; right: -100%; 
+            width: 100%; max-width: 480px; height: 100%;
             background-color: #ffffff;
             box-shadow: -5px 0 25px rgba(74, 63, 53, 0.15);
             z-index: 1000;
@@ -466,289 +639,174 @@
         }
 
         .close-cart-btn {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: #a98467;
+            background: none; border: none;
+            font-size: 1.2rem; color: #a98467;
             cursor: pointer;
         }
 
         .sidebar-body {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
+            flex: 1; padding: 20px; overflow-y: auto;
         }
 
         .empty-cart-text {
-            text-align: center;
-            color: #a98467;
-            font-size: 0.85rem;
-            margin-top: 40px;
+            text-align: center; color: #a98467;
+            font-size: 0.85rem; margin-top: 40px;
         }
 
         .cart-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 12px;
-            margin-bottom: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 12px; margin-bottom: 12px;
             border-bottom: 1px solid #f5ebe0;
         }
 
         .cart-item-detail h5 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #4a3f35;
+            font-size: 0.85rem; font-weight: 600; color: #4a3f35;
         }
 
         .cart-item-detail p {
-            font-size: 0.75rem;
-            color: #757575;
-            margin-top: 2px;
+            font-size: 0.75rem; color: #757575; margin-top: 2px;
         }
 
         .cart-item-action-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            display: flex; align-items: center; gap: 15px;
         }
 
         .cart-item-price {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #a98467;
+            font-size: 0.85rem; font-weight: 700; color: #a98467;
         }
 
         .cart-item-delete-btn {
-            background: none;
-            border: none;
-            color: #ee4d2d;
-            cursor: pointer;
-            padding: 5px;
-            font-size: 1rem;
+            background: none; border: none; color: #ee4d2d;
+            cursor: pointer; padding: 5px; font-size: 1rem;
         }
 
         /* CHECKOUT AREA DALAM WEB */
         .checkout-form-container {
-            margin-top: 15px;
-            padding-top: 15px;
+            margin-top: 15px; padding-top: 15px;
             border-top: 2px dashed #e3d5ca;
         }
 
         .checkout-form-container h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #4a3f35;
+            font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; color: #4a3f35;
         }
 
         .payment-selection {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
+            display: flex; gap: 10px; margin-bottom: 12px;
         }
 
         .pay-option {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #d5bdaf;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
+            flex: 1; padding: 10px; border: 1px solid #d5bdaf; border-radius: 10px;
+            text-align: center; font-size: 0.8rem; font-weight: 600; cursor: pointer;
             background-color: #fcfaf7;
         }
 
         .pay-option.active {
-            background-color: #4a3f35;
-            color: #ffffff;
-            border-color: #4a3f35;
+            background-color: #4a3f35; color: #ffffff; border-color: #4a3f35;
         }
 
         .bank-details {
-            display: none;
-            background: #fdf6f0;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 0.78rem;
-            margin-bottom: 12px;
-            border: 1px solid #e3d5ca;
+            display: none; background: #fdf6f0; padding: 10px; border-radius: 10px;
+            font-size: 0.78rem; margin-bottom: 12px; border: 1px solid #e3d5ca;
         }
 
         .bank-select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 8px;
-            border-radius: 6px;
-            border: 1px solid #d5bdaf;
-            font-size: 0.8rem;
-            outline: none;
+            width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px;
+            border: 1px solid #d5bdaf; font-size: 0.8rem; outline: none;
         }
 
         .sidebar-footer {
-            padding: 20px;
-            border-top: 1px solid #e3d5ca;
-            background-color: #fcfaf7;
+            padding: 20px; border-top: 1px solid #e3d5ca; background-color: #fcfaf7;
         }
 
         .btn-direct-checkout {
-            display: block;
-            width: 100%;
-            background-color: #a98467;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 25px;
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 10px;
+            display: block; width: 100%; background-color: #a98467; color: white;
+            text-align: center; padding: 12px; border-radius: 25px; border: none;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer; margin-bottom: 10px;
         }
 
         .btn-checkout-wa {
-            display: block;
-            width: 100%;
-            background-color: #25D366;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
+            display: block; width: 100%; background-color: #25D366; color: white;
+            text-align: center; padding: 10px; border-radius: 25px; text-decoration: none;
+            font-size: 0.8rem; font-weight: 600;
         }
 
         /* NOTIFIKASI SUKSES */
         .success-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0,0,0,0.5); z-index: 2000;
+            display: none; justify-content: center; align-items: center;
         }
 
         .success-box {
-            background: #ffffff;
-            padding: 30px 20px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 350px;
-            width: 90%;
+            background: #ffffff; padding: 30px 20px; border-radius: 20px;
+            text-align: center; max-width: 350px; width: 90%;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .success-box i {
-            font-size: 3rem;
-            color: #25D366;
-            margin-bottom: 15px;
+            font-size: 3rem; color: #25D366; margin-bottom: 15px;
         }
 
         .success-box h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #4a3f35;
+            font-size: 1.2rem; margin-bottom: 10px; color: #4a3f35;
         }
 
         .success-box p {
-            font-size: 0.85rem;
-            color: #6c5a4b;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            font-size: 0.85rem; color: #6c5a4b; margin-bottom: 20px; line-height: 1.4;
         }
 
         .btn-close-success {
-            background-color: #4a3f35;
-            color: white;
-            border: none;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            cursor: pointer;
+            background-color: #4a3f35; color: white; border: none;
+            padding: 8px 25px; border-radius: 20px; font-size: 0.85rem; cursor: pointer;
         }
 
         /* FOOTER & LAINNYA */
         .transaction-section {
-            background-color: #f5ebe0;
-            border-radius: 18px;
-            padding: 18px;
-            margin-bottom: 25px;
+            background-color: #f5ebe0; border-radius: 18px; padding: 18px; margin-bottom: 25px;
         }
 
         .transaction-section h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-align: center;
-            color: #4a3f35;
+            font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; text-align: center; color: #4a3f35;
         }
 
         .payment-options {
-            display: flex;
-            justify-content: space-around;
-            gap: 10px;
+            display: flex; justify-content: space-around; gap: 10px;
         }
 
         .payment-badge {
-            background-color: #ffffff;
-            padding: 10px 15px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            flex: 1;
-            color: #4a3f35;
+            background-color: #ffffff; padding: 10px 15px; border-radius: 12px;
+            font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column;
+            align-items: center; gap: 6px; flex: 1; color: #4a3f35;
         }
 
         .payment-badge i {
-            font-size: 1.2rem;
-            color: #a98467;
+            font-size: 1.2rem; color: #a98467;
         }
 
         footer {
-            background-color: #4a3f35;
-            color: #f5ebe0;
-            padding: 25px 20px;
-            border-radius: 20px 20px 0 0;
-            text-align: center;
+            background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px;
+            border-radius: 20px 20px 0 0; text-align: center;
         }
 
         footer h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 0.95rem; font-weight: 600; margin-bottom: 15px;
         }
 
         .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;
         }
 
         .btn-contact {
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 10px 20px; border-radius: 25px; text-decoration: none;
+            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px;
         }
 
         .btn-wa { background-color: #25D366; color: white; }
         .btn-shopee { background-color: #ee4d2d; color: white; }
 
         footer p {
-            font-size: 0.75rem;
-            opacity: 0.6;
+            font-size: 0.75rem; opacity: 0.6;
         }
     </style>
 </head>
@@ -756,7 +814,8 @@
 
     <header>
         <div class="nav-top">
-            <i class="fa-solid fa-bars" onclick="urutkanProduk()" style="font-size: 1.2rem; color: #4a3f35;" title="Urutkan Produk"></i>
+            <!-- KLIK BAR SEKARANG MEMBUKA SIDEBAR FILTER KIRI -->
+            <i class="fa-solid fa-bars" onclick="toggleSidebarLeft()" style="font-size: 1.2rem; color: #4a3f35;" title="Filter Warna"></i>
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
@@ -779,6 +838,30 @@
             <h3>Pemesanan Anda Selesai!</h3>
             <p id="success-message">Terima kasih sudah berbelanja di HijabByTami. Pesanan Anda telah tercatat ke dalam sistem kami dan akan segera diproses. ✨</p>
             <button class="btn-close-success" onclick="tutupNotifikasiSukses()">Selesai</button>
+        </div>
+    </div>
+
+    <!-- MODAL POP-UP VISI MISI TERPISAH -->
+    <div id="vision-mission-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-close-modal" onclick="toggleModalVisiMisi()"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Visi & Misi HijabByTami ✨</h3>
+            <div class="vision-mission">
+                <h4>Visi Kami:</h4>
+                <p>Menjadi brand hijab lokal terpercaya yang mempermudah wanita muslimah tampil percaya diri, anggun, dan praktis dalam aktivitas sehari-hari.</p>
+                <h4>Misi Kami:</h4>
+                <p>• Menyediakan pashmina berkualitas premium dengan jahitan rapi dan bahan ternyaman.<br>• Memberikan pelayanan terbaik dan solusi gaya hijab instan yang efisien.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIDEBAR LEFT (MENU FILTER WARNA) -->
+    <div id="sidebar-left" class="sidebar-left">
+        <h3>Pilih Kategori Warna <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="toggleSidebarLeft()"></i></h3>
+        <div class="filter-group">
+            <button class="filter-btn active" id="btn-all" onclick="filterWarna('all')"><i class="fa-solid fa-border-all"></i> Semua Koleksi</button>
+            <button class="filter-btn" id="btn-bright" onclick="filterWarna('bright')"><i class="fa-solid fa-wand-magic-sparkles"></i> Warna Terang / Pastels</button>
+            <button class="filter-btn" id="btn-earth" onclick="filterWarna('earth')"><i class="fa-solid fa-leaf"></i> Earth Tones / Dark</button>
         </div>
     </div>
 
@@ -824,26 +907,30 @@
         </div>
     </div>
 
+    <!-- HERO BANNER -->
+    <div class="hero-banner">
+        <h1>Sentuhan Anggun Setiap Hari</h1>
+        <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
+        <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
+        <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
+    </div>
+
+    <!-- DESIGN GELOMBANG AESTHETIC (WAVE INLINE SVG) -->
+    <div class="wave-container">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1250,80 1300,70 L1300,0 L0,0 Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
     <main class="main-content">
         
-        <div class="hero-banner">
-            <h1>Sentuhan Anggun Setiap Hari</h1>
-            <p>Temukan koleksi pashmina mini premium yang praktis, tegak di dahi, dan nyaman digunakan sepanjang hari.</p>
-            <div class="tag-badge">✦ simple • effortless • elegant ✦</div>
-            <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
-        </div>
-
-        <!-- SECTION TENTANG TOKO & VISI MISI -->
+        <!-- SECTION TENTANG TOKO (VISI MISI TERPISAH) -->
         <div class="about-section">
             <h3>Tentang HijabByTami ✨</h3>
-            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
-            
-            <div class="vision-mission">
-                <h4>Visi Kami:</h4>
-                <p>Menjadi brand hijab lokal terpercaya yang mempermudah wanita muslimah tampil percaya diri, anggun, dan praktis dalam aktivitas sehari-hari.</p>
-                <h4>Misi Kami:</h4>
-                <p>• Menyediakan pashmina berkualitas premium dengan jahitan rapi dan bahan ternyaman.<br>• Memberikan pelayanan terbaik dan solusi gaya hijab instan yang efisien.</p>
-            </div>
+            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis tanpa ribet.</p>
+            <button class="btn-vision-mission" onclick="toggleModalVisiMisi()">
+                <i class="fa-solid fa-eye"></i> Lihat Visi & Misi Toko
+            </button>
         </div>
 
         <!-- SECTION VIDEO PRODUK -->
@@ -857,15 +944,36 @@
             </div>
         </div>
 
+        <!-- SECTION ULASAN KOMENTAR PRODUK (BARU) -->
+        <div class="review-section">
+            <h3>Apa Kata Mereka? ✨</h3>
+            <div class="review-container">
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Siti R.</span>
+                        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <p class="review-comment">"Bahan Pashmini-nya adem banget, pas di dahi langsung tegak lancip anti-letoy! Pengiriman cepet bgt, next order warna lain."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Amelia_Putri</span>
+                        <div class="rating-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <p class="review-comment">"Warna Taupe dan Oat Milk-nya secantik itu, beneran earth tone aesthetic. Ukurannya pas buat daily hangout, ringkes gak numpuk di leher."</p>
+                </div>
+            </div>
+        </div>
+
         <div class="restock-notice">
             <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
         </div>
 
-        <!-- GRID PRODUK DENGAN RATING BINTANG -->
+        <!-- GRID PRODUK DENGAN ATRIBUT KATEGORI WARNA (data-color) -->
         <div class="product-grid" id="product-container">
             
-            <!-- PRODUK 1 -->
-            <div class="product-card" data-order="1">
+            <!-- PRODUK 1 (Soft Pink - Bright) -->
+            <div class="product-card" data-order="1" data-color="bright">
                 <div class="img-container">
                     <img src="gambar1.jpeg" alt="Pashmina Mini - Soft Pink" class="product-img">
                 </div>
@@ -891,8 +999,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 2 -->
-            <div class="product-card" data-order="2">
+            <!-- PRODUK 2 (Taupe - Earth) -->
+            <div class="product-card" data-order="2" data-color="earth">
                 <div class="img-container">
                     <img src="gambar2.jpeg" alt="Pashmina Mini - Taupe" class="product-img">
                 </div>
@@ -918,8 +1026,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 3 -->
-            <div class="product-card" data-order="3">
+            <!-- PRODUK 3 (Mauve - Bright) -->
+            <div class="product-card" data-order="3" data-color="bright">
                 <div class="img-container">
                     <img src="gambar3.jpeg" alt="Pashmina Mini - Mauve" class="product-img">
                 </div>
@@ -945,8 +1053,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 4 -->
-            <div class="product-card" data-order="4">
+            <!-- PRODUK 4 (Deep Navy - Earth) -->
+            <div class="product-card" data-order="4" data-color="earth">
                 <div class="img-container">
                     <img src="gambar4.jpeg" alt="Pashmina Mini - Deep Navy" class="product-img">
                 </div>
@@ -972,8 +1080,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 5 -->
-            <div class="product-card" data-order="5">
+            <!-- PRODUK 5 (Mahogany - Earth) -->
+            <div class="product-card" data-order="5" data-color="earth">
                 <div class="img-container">
                     <img src="gambar5.jpeg" alt="Pashmina Mini - Mahogany" class="product-img">
                 </div>
@@ -999,8 +1107,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 6 -->
-            <div class="product-card" data-order="6">
+            <!-- PRODUK 6 (Hazelnut - Earth) -->
+            <div class="product-card" data-order="6" data-color="earth">
                 <div class="img-container">
                     <img src="gambar6.jpeg" alt="Pashmina Mini - Hazelnut" class="product-img">
                 </div>
@@ -1026,8 +1134,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 7 -->
-            <div class="product-card" data-order="7">
+            <!-- PRODUK 7 (Burgundy - Earth) -->
+            <div class="product-card" data-order="7" data-color="earth">
                 <div class="img-container">
                     <img src="gambar7.jpeg" alt="Pashmina Mini - Burgundy" class="product-img">
                 </div>
@@ -1053,8 +1161,8 @@
                 </div>
             </div>
 
-            <!-- PRODUK 8 -->
-            <div class="product-card" data-order="8">
+            <!-- PRODUK 8 (Oat Milk - Bright) -->
+            <div class="product-card" data-order="8" data-color="bright">
                 <div class="img-container">
                     <img src="gambar8.jpeg" alt="Pashmina Mini - Oat Milk" class="product-img">
                 </div>
@@ -1128,6 +1236,47 @@
             }
             
             wadahInput.value = angkaSekarang;
+        }
+
+        /* SIDEBAR LEFT MANAGEMENT (BARS TOGGLE) */
+        function toggleSidebarLeft() {
+            const sidebarLeft = document.getElementById('sidebar-left');
+            sidebarLeft.classList.toggle('show');
+        }
+
+        /* FILTER SYSTEM (TERANG / GELAP-EARTH) */
+        function filterWarna(kategori) {
+            const cards = document.getElementsByClassName('product-card');
+            
+            // Atur status aktif button filter
+            document.getElementById('btn-all').classList.remove('active');
+            document.getElementById('btn-bright').classList.remove('active');
+            document.getElementById('btn-earth').classList.remove('active');
+            
+            if(kategori === 'all') document.getElementById('btn-all').classList.add('active');
+            if(kategori === 'bright') document.getElementById('btn-bright').classList.add('active');
+            if(kategori === 'earth') document.getElementById('btn-earth').classList.add('active');
+
+            // Proses sembunyikan/tampilkan kartu produk
+            for (let i = 0; i < cards.length; i++) {
+                let warnaCard = cards[i].getAttribute('data-color');
+                if (kategori === 'all' || warnaCard === kategori) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+            toggleSidebarLeft(); // Tutup menu setelah klik filter
+        }
+
+        /* MODAL VISI MISI TOGGLE */
+        function toggleModalVisiMisi() {
+            const modal = document.getElementById('vision-mission-modal');
+            if (modal.style.display === "flex") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "flex";
+            }
         }
 
         function toggleSidebarCart() {
@@ -1260,7 +1409,6 @@
             document.getElementById('success-message').innerHTML = pesanSukses.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             document.getElementById('success-overlay').style.display = "flex";
             
-            // Reset keranjang
             dataKeranjang = [];
             perbaruiTampilanKeranjang();
             toggleSidebarCart();
@@ -1290,15 +1438,6 @@
             
             const urlWhatsApp = `https://wa.me/6287753617027?text=${encodeURIComponent(teksFormatOrder)}`;
             document.getElementById('checkout-wa-btn').setAttribute('href', urlWhatsApp);
-        }
-
-        function urutkanProduk() {
-            const container = document.getElementById('product-container');
-            const cards = Array.from(container.getElementsByClassName('product-card'));
-            cards.sort((a, b) => parseInt(a.getAttribute('data-order')) - parseInt(b.getAttribute('data-order')));
-            container.innerHTML = '';
-            cards.forEach(card => container.appendChild(card));
-            alert('✨ Produk telah diurutkan kembali secara rapi dari nomor pertama!');
         }
 
         function cariProduk() {
