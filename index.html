@@ -132,6 +132,8 @@
             color: #4a3f35;
             position: relative;
             overflow: hidden;
+            border-radius: 20px;
+            margin: 15px 0;
         }
 
         .hero-banner h1 {
@@ -170,17 +172,7 @@
             line-height: 0;
             background-color: #ffffff;
             margin-bottom: 20px;
-        }
-
-        .wave-container svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 40px;
-        }
-
-        .wave-container .shape-fill {
-            fill: #d5bdaf;
+            display: none; /* Disembunyikan agar sesuai mockup melengkung banner */
         }
 
         /* SECTION TENTANG TOKO */
@@ -190,6 +182,7 @@
             padding: 20px 15px;
             margin-bottom: 25px;
             border-left: 4px solid #a98467;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .about-section h3 {
@@ -680,6 +673,48 @@
             cursor: pointer; padding: 5px; font-size: 1rem;
         }
 
+        /* FORM DATA PEMBELI (BARU) */
+        .buyer-data-form {
+            background: #fcfaf7;
+            border: 1px solid #e3d5ca;
+            padding: 15px;
+            border-radius: 14px;
+            margin-top: 15px;
+        }
+
+        .buyer-data-form h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4a3f35;
+        }
+
+        .form-group-buyer {
+            margin-bottom: 10px;
+        }
+
+        .form-group-buyer label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #6c5a4b;
+        }
+
+        .form-group-buyer input, .form-group-buyer textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d5bdaf;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .form-group-buyer input:focus, .form-group-buyer textarea:focus {
+            border-color: #a98467;
+        }
+
         /* CHECKOUT AREA DALAM WEB */
         .checkout-form-container {
             margin-top: 15px; padding-top: 15px;
@@ -814,7 +849,6 @@
 
     <header>
         <div class="nav-top">
-            <!-- KLIK BAR SEKARANG MEMBUKA SIDEBAR FILTER KIRI -->
             <i class="fa-solid fa-bars" onclick="toggleSidebarLeft()" style="font-size: 1.2rem; color: #4a3f35;" title="Filter Warna"></i>
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
@@ -878,6 +912,24 @@
 
         <!-- FORM CHECKOUT LANGSUNG DI WEB -->
         <div id="checkout-form-area" style="display: none; padding: 0 20px;">
+            
+            <!-- FORM DATA PEMBELI BARU -->
+            <div class="buyer-data-form">
+                <h4>Data Pengiriman</h4>
+                <div class="form-group-buyer">
+                    <label for="buyer-name">Nama Lengkap *</label>
+                    <input type="text" id="buyer-name" placeholder="Contoh: Siti Rahma">
+                </div>
+                <div class="form-group-buyer">
+                    <label for="buyer-phone">No. WhatsApp Aktif *</label>
+                    <input type="number" id="buyer-phone" placeholder="Contoh: 08123456789">
+                </div>
+                <div class="form-group-buyer">
+                    <label for="buyer-address">Alamat Pengiriman Lengkap *</label>
+                    <textarea id="buyer-address" rows="2" placeholder="Nama jalan, RT/RW, kecamatan, kota, kode pos"></textarea>
+                </div>
+            </div>
+
             <div class="checkout-form-container">
                 <h4>Metode Pembayaran</h4>
                 <div class="payment-selection">
@@ -915,19 +967,12 @@
         <p class="hero-subtext">Ukurannya Mini, Cantiknya Maksimal. Sempurna untuk gaya casual look yang effortless.</p>
     </div>
 
-    <!-- DESIGN GELOMBANG AESTHETIC (WAVE INLINE SVG) -->
-    <div class="wave-container">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,60 C150,100 350,20 500,60 C650,100 850,20 1000,60 C1150,100 1250,80 1300,70 L1300,0 L0,0 Z" class="shape-fill"></path>
-        </svg>
-    </div>
-
     <main class="main-content">
         
-        <!-- SECTION TENTANG TOKO (VISI MISI TERPISAH) -->
+        <!-- SECTION TENTANG TOKO -->
         <div class="about-section">
             <h3>Tentang HijabByTami ✨</h3>
-            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis tanpa ribet.</p>
+            <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
             <button class="btn-vision-mission" onclick="toggleModalVisiMisi()">
                 <i class="fa-solid fa-eye"></i> Lihat Visi & Misi Toko
             </button>
@@ -944,7 +989,7 @@
             </div>
         </div>
 
-        <!-- SECTION ULASAN KOMENTAR PRODUK (BARU) -->
+        <!-- SECTION ULASAN KOMENTAR PRODUK -->
         <div class="review-section">
             <h3>Apa Kata Mereka? ✨</h3>
             <div class="review-container">
@@ -969,7 +1014,7 @@
             <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
         </div>
 
-        <!-- GRID PRODUK DENGAN ATRIBUT KATEGORI WARNA (data-color) -->
+        <!-- GRID PRODUK -->
         <div class="product-grid" id="product-container">
             
             <!-- PRODUK 1 (Soft Pink - Bright) -->
@@ -1248,7 +1293,6 @@
         function filterWarna(kategori) {
             const cards = document.getElementsByClassName('product-card');
             
-            // Atur status aktif button filter
             document.getElementById('btn-all').classList.remove('active');
             document.getElementById('btn-bright').classList.remove('active');
             document.getElementById('btn-earth').classList.remove('active');
@@ -1257,7 +1301,6 @@
             if(kategori === 'bright') document.getElementById('btn-bright').classList.add('active');
             if(kategori === 'earth') document.getElementById('btn-earth').classList.add('active');
 
-            // Proses sembunyikan/tampilkan kartu produk
             for (let i = 0; i < cards.length; i++) {
                 let warnaCard = cards[i].getAttribute('data-color');
                 if (kategori === 'all' || warnaCard === kategori) {
@@ -1266,7 +1309,7 @@
                     cards[i].style.display = "none";
                 }
             }
-            toggleSidebarLeft(); // Tutup menu setelah klik filter
+            toggleSidebarLeft();
         }
 
         /* MODAL VISI MISI TOGGLE */
@@ -1393,21 +1436,42 @@
             }
         }
 
+        /* VALIDASI FORM */
+        function validasiDataInput() {
+            const nama = document.getElementById('buyer-name').value.trim();
+            const telepon = document.getElementById('buyer-phone').value.trim();
+            const alamat = document.getElementById('buyer-address').value.trim();
+
+            if (!nama || !telepon || !alamat) {
+                alert('Wajib isi data Nama, No WhatsApp, dan Alamat Pengiriman terlebih dahulu ya, Sis! 💖');
+                return false;
+            }
+            return { nama, telepon, alamat };
+        }
+
         function prosesCheckoutLokal() {
             if (dataKeranjang.length === 0) return;
+            
+            const buyerData = validasiDataInput();
+            if (!buyerData) return;
 
             let totalBelanjaan = dataKeranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
             let pesanSukses = "";
 
             if(metodeTerpilih === "COD") {
-                pesanSukses = `Pesanan Anda sebesar **Rp ${totalBelanjaan.toLocaleString('id-ID')}** dengan metode **COD (Bayar di Tempat)** telah sukses dikunci. Kurir kami akan segera mengantarkan pashmina pesanan Anda! ✨`;
+                pesanSukses = `Hai **${buyerData.nama}**, Pesanan Anda sebesar **Rp ${totalBelanjaan.toLocaleString('id-ID')}** dengan metode **COD (Bayar di Tempat)** telah sukses dikunci. Paket akan dikirim ke alamat: *${buyerData.alamat}*. Kurir kami akan segera mengantarkan pashmina pesanan Anda! ✨`;
             } else {
                 const bankPilihan = document.getElementById('bank-select-option').value;
-                pesanSukses = `Pesanan Anda sebesar **Rp ${totalBelanjaan.toLocaleString('id-ID')}** via **Transfer ${bankPilihan}** sukses dibuat. Silakan selesaikan pembayaran agar barang bisa langsung dikirim hari ini. Terima kasih! ✨`;
+                pesanSukses = `Hai **${buyerData.nama}**, Pesanan Anda sebesar **Rp ${totalBelanjaan.toLocaleString('id-ID')}** via **Transfer ${bankPilihan}** sukses dibuat. Silakan selesaikan pembayaran agar barang bisa langsung dikirim ke *${buyerData.alamat}* hari ini. Terima kasih! ✨`;
             }
 
-            document.getElementById('success-message').innerHTML = pesanSukses.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            document.getElementById('success-message').innerHTML = pesanSukses.replace(/\*\*(.*?)\*\//g, '<strong>$1</strong>');
             document.getElementById('success-overlay').style.display = "flex";
+            
+            // Reset input form
+            document.getElementById('buyer-name').value = "";
+            document.getElementById('buyer-phone').value = "";
+            document.getElementById('buyer-address').value = "";
             
             dataKeranjang = [];
             perbaruiTampilanKeranjang();
@@ -1425,7 +1489,13 @@
                 return;
             }
 
-            let teksFormatOrder = "Halo Kak Tami, saya mau pesan koleksi Pashmina Mini berikut ini:\n\n";
+            const buyerData = validasiDataInput();
+            if (!buyerData) {
+                event.preventDefault();
+                return;
+            }
+
+            let teksFormatOrder = `Halo Kak Tami, saya mau pesan koleksi Pashmina Mini berikut ini:\n\n`;
             let totalBayarSemua = 0;
 
             dataKeranjang.forEach((item, index) => {
@@ -1434,7 +1504,13 @@
                 teksFormatOrder += `${index + 1}. ${item.nama}\n   Jumlah: ${item.jumlah} pcs (Rp ${subTotal.toLocaleString('id-ID')})\n\n`;
             });
 
-            teksFormatOrder += `*Total Pembayaran:* Rp ${totalBayarSemua.toLocaleString('id-ID')}\n*Metode Pembayaran:* ${metodeTerpilih}\n\nMohon diinfokan kelanjutan format pemesanannya ya, Kak. Terima kasih! ✨`;
+            teksFormatOrder += `*Total Pembayaran:* Rp ${totalBayarSemua.toLocaleString('id-ID')}\n`;
+            teksFormatOrder += `*Metode Pembayaran:* ${metodeTerpilih}\n\n`;
+            teksFormatOrder += `*--- DATA PENGIRIMAN ---*\n`;
+            teksFormatOrder += `*Nama:* ${buyerData.nama}\n`;
+            teksFormatOrder += `*No. WA:* ${buyerData.telepon}\n`;
+            teksFormatOrder += `*Alamat:* ${buyerData.alamat}\n\n`;
+            teksFormatOrder += `Mohon diinfokan kelanjutan total ongkir dan format pemesanannya ya, Kak. Terima kasih! ✨`;
             
             const urlWhatsApp = `https://wa.me/6287753617027?text=${encodeURIComponent(teksFormatOrder)}`;
             document.getElementById('checkout-wa-btn').setAttribute('href', urlWhatsApp);
