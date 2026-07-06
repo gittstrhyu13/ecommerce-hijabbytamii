@@ -228,7 +228,6 @@
             gap: 3px;
         }
 
-        /* TENTANG TOKO & VISI MISI DIBUAT TERPISAH */
         .about-section {
             background: #fcfaf7;
             border-radius: 18px;
@@ -472,7 +471,6 @@
             width: 100%;
         }
 
-        /* REVIEW SECTION */
         .review-section {
             margin-bottom: 30px;
         }
@@ -515,7 +513,6 @@
             font-style: italic;
         }
 
-        /* FITUR BARU: METODE TRANSAKSI & CHECKOUT DIRECT DI WEB */
         .transaction-section {
             background-color: #f5ebe0;
             border-radius: 18px;
@@ -566,9 +563,9 @@
         }
 
         .bank-select-container {
-            display: none; /* Sembunyi sebelum memilih transfer bank */
+            display: none; 
             background-color: #ffffff;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             border: 1px solid #d5bdaf;
             margin-top: 5px;
@@ -590,6 +587,21 @@
             font-size: 0.8rem;
             background-color: #fcfaf7;
             color: #4a3f35;
+            margin-bottom: 10px;
+        }
+
+        .rekening-detail {
+            background-color: #fdf6f0;
+            border: 1px dashed #a98467;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #4a3f35;
+            display: none;
+        }
+
+        .rekening-detail strong {
+            color: #a98467;
         }
 
         .checkout-section {
@@ -639,7 +651,6 @@
             margin-top: 10px;
         }
 
-        /* SIDEBAR KERANJANG */
         .sidebar-cart {
             position: fixed;
             top: 0; right: -100%; 
@@ -721,6 +732,8 @@
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
+            border: none;
+            cursor: pointer;
         }
 
         footer {
@@ -795,7 +808,6 @@
             <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
         </div>
         <div class="sidebar-footer">
-            <!-- Diubah: Tombol mengarahkan user mengisi data di form bawah web, bukan langsung WA -->
             <button onclick="lanjutIsiData()" class="btn-scroll-form">
                 Lanjut Isi Data Pemesan & Checkout
             </button>
@@ -817,13 +829,11 @@
             <span>4.9 / 5.0 (2.5k Ulasan Pembeli)</span>
         </div>
 
-        <!-- SECTION TENTANG TOKO -->
         <div class="about-section">
             <h3><i class="fa-solid fa-heart"></i> Tentang HijabByTami ✨</h3>
             <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik. Kami mengerti kebutuhan wanita aktif yang ingin tampil modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
         </div>
 
-        <!-- SECTION VISI MISI (TERPISAH SEPERTI REQUEST) -->
         <div class="vision-mission-section">
             <h3><i class="fa-solid fa-bullseye"></i> Visi & Misi</h3>
             <div class="vision-mission-block">
@@ -949,7 +959,7 @@
             </div>
         </div>
 
-        <!-- FITUR PILIHAN COD / TRANSAKSI BANK & DROPDOWN -->
+        <!-- SEKSI TRANSAKSI & DETAIL TRANSAKSI -->
         <div id="section-pembayaran" class="transaction-section" style="scroll-margin-top: 130px;">
             <h3><i class="fa-solid fa-shield-heart"></i> Pilihan Metode Transaksi</h3>
             <div class="payment-options">
@@ -963,19 +973,20 @@
                 </div>
             </div>
             
-            <!-- Pilihan Bank (Dropdown Otomatis Muncul jika memilih Transfer Bank) -->
             <div class="bank-select-container" id="bank-select-box">
                 <label for="bank-name">Pilih Bank Tujuan Transfer:</label>
-                <select id="bank-name" class="bank-dropdown">
+                <select id="bank-name" class="bank-dropdown" onchange="tampilkanDetailRekening()">
                     <option value="" disabled selected>-- Pilih Bank --</option>
-                    <option value="BCA">Bank BCA (No. Rek: 777-1234-567 a/n Tami)</option>
-                    <option value="MANDIRI">Bank Mandiri (No. Rek: 131-00-12345 a/n Tami)</option>
-                    <option value="BRI">Bank BRI (No. Rek: 0021-01-0234 a/n Tami)</option>
+                    <option value="BCA">Bank BCA</option>
+                    <option value="MANDIRI">Bank Mandiri</option>
+                    <option value="BRI">Bank BRI</option>
                 </select>
+
+                <!-- Box info rekening dinamis -->
+                <div id="rekening-detail-box" class="rekening-detail"></div>
             </div>
         </div>
 
-        <!-- FORM DATA PEMESAN & TOMBOL FINAL CHECKOUT -->
         <div class="checkout-section">
             <h3><i class="fa-solid fa-file-invoice"></i> Form Data Pemesan</h3>
             <div class="form-group">
@@ -1094,13 +1105,13 @@
             }
         }
 
-        function lanjutIsData() {
+        // Perbaikan typo fungsi dari 'lanjutIsData' menjadi 'lanjutIsiData'
+        function lanjutIsiData() {
             toggleSidebarCart();
             const target = document.getElementById('section-pembayaran');
             if(target) target.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Fungsi memilih sistem pembayaran dan memunculkan dropdown bank
         function pilihMetode(metode) {
             metodeTerpilih = metode;
             document.getElementById('badge-cod').classList.remove('selected');
@@ -1116,7 +1127,21 @@
             }
         }
 
-        // Fungsi final checkout langsung di halaman web tanpa terlempar ke WA
+        // Fungsi baru untuk menampilkan info rekening secara jelas di halaman
+        function tampilkanDetailRekening() {
+            const bank = document.getElementById('bank-name').value;
+            const detailBox = document.getElementById('rekening-detail-box');
+            detailBox.style.display = "block";
+
+            if (bank === 'BCA') {
+                detailBox.innerHTML = `Silakan transfer ke:<br><strong>Bank BCA: 777-1234-567</strong><br>a/n Tami`;
+            } else if (bank === 'MANDIRI') {
+                detailBox.innerHTML = `Silakan transfer ke:<br><strong>Bank Mandiri: 131-00-12345</strong><br>a/n Tami`;
+            } else if (bank === 'BRI') {
+                detailBox.innerHTML = `Silakan transfer ke:<br><strong>Bank BRI: 0021-01-0234</strong><br>a/n Tami`;
+            }
+        }
+
         function prosesCheckoutLangsung() {
             const nama = document.getElementById('buyer-name').value.trim();
             const hp = document.getElementById('buyer-phone').value.trim();
@@ -1145,10 +1170,11 @@
                 detailMetode += ` (${bank})`;
             }
 
-            // ALERT PESANAN BERHASIL (Sesuai Permintaan)
-            alert(`✨ PESANAN ANDA AKAN SEGERA DIBUATKAN! ✨\n\nTerima kasih ${nama}, data orderan Anda telah kami terima secara langsung di website.\n\nRingkasan:\n- Metode: ${detailMetode}\n- Alamat: ${alamat}\n\nAdmin kami akan menghubungi nomor WhatsApp Anda (${hp}) untuk info validasi dan pengiriman resi. Selamat berbelanja! 🥰🌻`);
+            // Hitung total belanjaan
+            let totalBelanja = dataKeranjang.reduce((t, i) => t + (i.harga * i.jumlah), 0);
+
+            alert(`✨ PESANAN ANDA AKAN SEGERA DIBUATKAN! ✨\n\nTerima kasih ${nama}, data orderan Anda telah kami terima secara langsung di website.\n\nRingkasan:\n- Total: Rp ${totalBelanja.toLocaleString('id-ID')}\n- Metode: ${detailMetode}\n- Alamat: ${alamat}\n\nAdmin kami akan menghubungi nomor WhatsApp Anda (${hp}) untuk info validasi dan pengiriman resi. Selamat berbelanja! 🥰🌻`);
             
-            // Reset form dan keranjang setelah berhasil belanja
             dataKeranjang = [];
             perbaruiTampilanKeranjang();
             document.getElementById('buyer-name').value = "";
@@ -1157,6 +1183,7 @@
             document.getElementById('badge-cod').classList.remove('selected');
             document.getElementById('badge-tf').classList.remove('selected');
             document.getElementById('bank-select-box').style.display = 'none';
+            document.getElementById('rekening-detail-box').style.display = 'none';
             document.getElementById('bank-name').selectedIndex = 0;
             metodeTerpilih = "";
         }
