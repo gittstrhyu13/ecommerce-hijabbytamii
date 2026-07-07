@@ -39,50 +39,47 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
-            position: relative;
         }
 
-        .sort-menu-container {
+        .sort-wrapper {
             position: relative;
         }
 
         .fa-bars {
             cursor: pointer;
             padding: 5px;
+            transition: transform 0.3s ease;
             font-size: 1.2rem;
             color: #4a3f35;
         }
 
-        /* DROPDOWN SORTIR ELEGAN */
-        .dropdown-sort {
+        .sort-dropdown {
             display: none;
             position: absolute;
-            top: 35px;
+            top: 30px;
             left: 0;
-            background: #ffffff;
+            background: white;
             border: 1px solid #e3d5ca;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            z-index: 200;
-            width: 160px;
-            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 10;
+            width: 140px;
         }
 
-        .dropdown-sort button {
+        .sort-dropdown button {
             width: 100%;
-            padding: 10px 15px;
+            padding: 10px;
+            text-align: left;
             background: none;
             border: none;
-            text-align: left;
             font-size: 0.8rem;
             color: #4a3f35;
             cursor: pointer;
             font-weight: 500;
-            transition: background 0.2s;
         }
 
-        .dropdown-sort button:hover {
-            background: #f5ebe0;
+        .sort-dropdown button:hover {
+            background-color: #f5ebe0;
         }
 
         .logo-container {
@@ -116,7 +113,13 @@
             gap: 8px;
             font-size: 0.85rem;
             color: #4a3f35;
+            transition: transform 0.2s ease;
             cursor: pointer;
+            user-select: none;
+        }
+        
+        .cart-box:hover {
+            transform: scale(1.05);
         }
 
         .uas-tabs {
@@ -138,6 +141,7 @@
             color: #a98467;
             cursor: pointer;
             border-radius: 8px;
+            transition: all 0.2s ease;
         }
 
         .tab-btn.active {
@@ -157,6 +161,13 @@
             background-color: #fcfaf7;
             outline: none;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            background-color: #ffffff;
+            border-color: #d5bdaf;
+            box-shadow: 0 0 10px rgba(213, 189, 175, 0.3);
         }
 
         .search-container i {
@@ -186,12 +197,23 @@
             padding: 35px 20px;
             text-align: center;
             color: #4a3f35;
+            position: relative;
+            overflow: hidden;
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(74, 63, 53, 0.05);
         }
 
         .hero-banner h1 {
             font-size: 1.5rem;
             font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .hero-banner p {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
         .tag-badge {
@@ -201,6 +223,7 @@
             border-radius: 25px;
             font-size: 0.75rem;
             font-weight: 600;
+            backdrop-filter: blur(5px);
             margin-bottom: 15px;
         }
 
@@ -212,73 +235,18 @@
             border-left: 4px solid #a98467;
         }
 
-        /* VISI MISI ACCORDION STYLE */
-        .vimi-accordion {
-            margin-top: 15px;
-        }
-
-        .vimi-trigger {
-            width: 100%;
-            background: #f5ebe0;
-            border: 1px solid #e3d5ca;
-            padding: 10px 12px;
-            text-align: left;
-            font-size: 0.82rem;
+        .about-section h3 {
+            font-size: 1rem;
             font-weight: 600;
             color: #4a3f35;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-bottom: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 8px;
         }
 
-        .vimi-panel {
-            display: none;
-            background: #ffffff;
-            border: 1px solid #e3d5ca;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-size: 0.78rem;
+        .about-section p {
+            font-size: 0.8rem;
             line-height: 1.5;
             color: #6c5a4b;
-        }
-
-        .video-section {
-            margin-bottom: 25px;
-            background-color: #fdf6f0;
-            padding: 15px;
-            border-radius: 18px;
-            border: 1px solid #f5ebe0;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; 
-            height: 0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .video-wrapper video {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #000;
-        }
-
-        .restock-notice {
-            background-color: #fdf6f0;
-            color: #a98467;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px dashed #d5bdaf;
+            margin-bottom: 8px;
         }
 
         .product-grid {
@@ -319,29 +287,32 @@
             flex-grow: 1;
         }
 
+        .product-greeting {
+            font-size: 0.7rem;
+            color: #a98467;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 2px;
+        }
+
         .product-title {
             font-size: 0.85rem;
             font-weight: 600;
             color: #4a3f35;
             min-height: 2.6rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         .product-rating {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: #ffb703;
-            margin: 2px 0 6px 0;
+            margin-bottom: 4px;
             display: flex;
             align-items: center;
             gap: 4px;
         }
-        
-        .rating-text {
+
+        .product-rating span {
             color: #757575;
-            font-size: 0.7rem;
         }
 
         .product-price {
@@ -349,39 +320,6 @@
             color: #a98467;
             font-weight: 700;
             margin-bottom: 8px;
-        }
-
-        .stock-info-shopee {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            margin-top: auto; 
-            margin-bottom: 12px;
-        }
-
-        .stock-status-text {
-            font-size: 0.72rem;
-            color: #757575; 
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .highlight-orange {
-            color: #ee4d2d; 
-            font-weight: 700;
-        }
-
-        .stock-bar-container {
-            width: 100%;
-            height: 5px;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .stock-bar-fill {
-            height: 100%;
-            background-color: #ee4d2d; 
         }
 
         .qty-container {
@@ -412,7 +350,6 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: #4a3f35;
-            outline: none;
         }
 
         .btn-add-cart {
@@ -427,41 +364,14 @@
             width: 100%;
         }
 
-        .reviews-section {
-            background-color: #fdf6f0;
-            border-radius: 18px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: 1px solid #f5ebe0;
-        }
-
-        .reviews-section h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .review-item {
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            font-size: 0.78rem;
-            border: 1px solid #e3d5ca;
-        }
-
-        .review-user {
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 2px;
-        }
-
         /* SIDEBAR STYLES */
         .sidebar-cart {
             position: fixed;
-            top: 0; right: -100%; 
-            width: 100%; max-width: 480px; height: 100%;
+            top: 0;
+            right: -100%; 
+            width: 100%;
+            max-width: 480px; 
+            height: 100%;
             background-color: #ffffff;
             box-shadow: -5px 0 25px rgba(74, 63, 53, 0.15);
             z-index: 1000;
@@ -484,88 +394,213 @@
         }
 
         .close-cart-btn {
-            background: none; border: none; font-size: 1.2rem; color: #a98467; cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #a98467;
+            cursor: pointer;
         }
 
         .sidebar-body {
-            flex: 1; padding: 20px; overflow-y: auto;
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
         }
 
         .empty-cart-text {
-            text-align: center; color: #a98467; font-size: 0.85rem; margin-top: 40px;
+            text-align: center;
+            color: #a98467;
+            font-size: 0.85rem;
+            margin-top: 40px;
         }
 
         .cart-item-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid #f5ebe0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #f5ebe0;
         }
 
-        .cart-item-detail h5 { font-size: 0.85rem; font-weight: 600; color: #4a3f35; }
-        .cart-item-detail p { font-size: 0.75rem; color: #757575; }
-        .cart-item-action-area { display: flex; align-items: center; gap: 15px; }
-        .cart-item-price { font-size: 0.85rem; font-weight: 700; color: #a98467; }
-        .cart-item-delete-btn { background: none; border: none; color: #ee4d2d; cursor: pointer; }
-
-        /* CHECKOUT FORM */
-        .checkout-form-container {
-            margin-top: 15px; padding-top: 15px; border-top: 2px dashed #e3d5ca;
+        .checkout-payment-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed #e3d5ca;
         }
 
-        .checkout-form-container h4 { font-size: 0.9rem; margin-bottom: 10px; color: #4a3f35; }
-        .form-group { margin-bottom: 10px; }
-        .form-group label { display: block; font-size: 0.75rem; font-weight: 600; margin-bottom: 4px; }
-        .form-group input, .form-group select { width: 100%; padding: 8px 12px; border: 1px solid #e3d5ca; border-radius: 8px; font-size: 0.8rem; outline: none; }
-        .bank-options-box { display: none; background: #fdf6f0; padding: 10px; border-radius: 8px; margin-top: 5px; border: 1px solid #e3d5ca; }
-
-        /* NOTA SUKSES POPUP MANDIRI */
-        .success-invoice-box {
-            display: none; background: #fcfaf7; border: 2px solid #a98467; padding: 15px; border-radius: 12px; margin-top: 15px; text-align: center;
+        .checkout-payment-section h4 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #4a3f35;
         }
-        .success-invoice-box i { font-size: 2rem; color: #25D366; margin-bottom: 10px; }
+
+        .pay-methods {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .pay-methods label {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e3d5ca;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: #fcfaf7;
+        }
+
+        .pay-methods input {
+            display: none;
+        }
+
+        .pay-methods input:checked + label {
+            background-color: #4a3f35;
+            color: #f5ebe0;
+            border-color: #4a3f35;
+        }
+
+        .bank-options {
+            display: none;
+            margin-bottom: 15px;
+        }
+
+        .bank-options select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e3d5ca;
+            font-size: 0.85rem;
+            outline: none;
+        }
 
         .sidebar-footer {
-            padding: 20px; border-top: 1px solid #e3d5ca; background-color: #fcfaf7;
+            padding: 20px;
+            border-top: 1px solid #e3d5ca;
+            background-color: #fcfaf7;
         }
 
-        .btn-checkout-direct {
-            display: block; width: 100%; background-color: #4a3f35; color: white; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: none; cursor: pointer;
+        .btn-direct-checkout {
+            display: block;
+            width: 100%;
+            background-color: #a98467;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .transaction-section {
-            background-color: #f5ebe0; border-radius: 18px; padding: 18px; margin-bottom: 25px; text-align: center;
+        /* NOTIFIKASI SUKSES POPUP */
+        .success-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 2000;
+            text-align: center;
         }
 
-        .payment-options { display: flex; justify-content: space-around; gap: 10px; }
-        .payment-badge { background-color: #ffffff; padding: 10px 15px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; color: #4a3f35; }
-        .payment-badge i { font-size: 1.2rem; color: #a98467; }
+        .success-popup i {
+            font-size: 3.5rem;
+            color: #25D366;
+            margin-bottom: 15px;
+        }
 
-        .doc-section { background: #fff; padding: 10px 5px; }
-        .doc-card { background: #fcfaf7; border-radius: 14px; padding: 16px; margin-bottom: 15px; border: 1px solid #e3d5ca; }
-        .doc-card h4 { font-size: 0.95rem; color: #4a3f35; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #e3d5ca; padding-bottom: 4px; }
-        .doc-card p { font-size: 0.8rem; line-height: 1.5; color: #6c5a4b; }
+        .success-popup h3 {
+            color: #4a3f35;
+            margin-bottom: 10px;
+        }
 
-        footer { background-color: #4a3f35; color: #f5ebe0; padding: 25px 20px; border-radius: 20px 20px 0 0; text-align: center; }
-        .contact-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .btn-contact { padding: 10px 20px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-        .btn-wa { background-color: #25D366; color: white; }
-        .btn-shopee { background-color: #ee4d2d; color: white; }
-        footer p { font-size: 0.75rem; opacity: 0.6; }
+        .success-popup p {
+            font-size: 0.85rem;
+            color: #6c5a4b;
+            margin-bottom: 15px;
+        }
+
+        .popup-summary {
+            background: #fcfaf7;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            text-align: left;
+            margin-bottom: 20px;
+            border: 1px solid #e3d5ca;
+        }
+
+        .btn-close-popup {
+            background: #4a3f35;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1999;
+        }
+
+        .doc-card {
+            background: #fcfaf7;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #e3d5ca;
+        }
+
+        .doc-card h4 {
+            font-size: 0.95rem;
+            color: #4a3f35;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e3d5ca;
+            padding-bottom: 4px;
+        }
+
+        .doc-card p {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #6c5a4b;
+        }
+
+        footer {
+            background-color: #4a3f35;
+            color: #f5ebe0;
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
     </style>
 </head>
 <body>
 
-    <header id="main-header">
+    <header>
         <div class="nav-top">
-            <!-- SEKSI SORTIR BARU INSTAN -->
-            <div class="sort-menu-container">
-                <i class="fa-solid fa-bars" onclick="toggleSortDropdown()" title="Filter Warna"></i>
-                <div id="sortDropdown" class="dropdown-sort">
-                    <button onclick="eksekusiSortir('all')">🌈 Tampilkan Semua</button>
-                    <button onclick="eksekusiSortir('terang')">💡 Warna Terang</button>
-                    <button onclick="eksekusiSortir('gelap')">🌙 Warna Gelap</button>
+            <div class="sort-wrapper">
+                <i class="fa-solid fa-bars" onclick="toggleSortMenu()" title="Urutkan Warna"></i>
+                <div id="sort-dropdown" class="sort-dropdown">
+                    <button onclick="urutkanWarna('terang')">☀️ Warna Terang</button>
+                    <button onclick="urutkanWarna('gelap')">🌙 Warna Gelap</button>
                 </div>
             </div>
-            
             <div class="logo-container">
                 <img src="logo.jpeg" alt="Logo By Tami Hijab" class="brand-logo">
                 <div class="brand-name">HijabByTami</div>
@@ -586,65 +621,57 @@
         </div>
     </header>
 
-    <!-- SIDEBAR KERANJANG -->
+    <!-- SIDEBAR KERANJANG & CHECKOUT LANGSUNG -->
     <div id="sidebar-cart" class="sidebar-cart">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-shopping-bag"></i> Isi Keranjang Belanja</h3>
             <button class="close-cart-btn" onclick="toggleSidebarCart()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="sidebar-body">
-            <div id="sidebar-items-list">
-                <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
+        <div id="sidebar-body" class="sidebar-body">
+            <p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>
+        </div>
+        
+        <!-- PANEL PEMBAYARAN LANGSUNG -->
+        <div class="checkout-payment-section" id="payment-section-box" style="display:none; padding: 20px;">
+            <h4>Pilih Metode Pembayaran:</h4>
+            <div class="pay-methods">
+                <input type="radio" id="pay-cod" name="payment_method" value="COD" checked onclick="handlePaymentChange()">
+                <label for="pay-cod">COD (Bayar di Tempat)</label>
+                
+                <input type="radio" id="pay-bank" name="payment_method" value="Transfer Bank" onclick="handlePaymentChange()">
+                <label for="pay-bank">Transfer Bank</label>
             </div>
 
-            <!-- FORM INPUT DATA PEMBELI -->
-            <div id="checkout-form-area" class="checkout-form-container" style="display: none;">
-                <h4>✍️ Data Pembeli & Pembayaran</h4>
-                <div class="form-group">
-                    <label>Nama Lengkap</label>
-                    <input type="text" id="cust-name" placeholder="Contoh: Siti Rahma">
-                </div>
-                <div class="form-group">
-                    <label>Alamat Pengiriman</label>
-                    <input type="text" id="cust-address" placeholder="Nama jalan, nomor rumah, kota">
-                </div>
-                <div class="form-group">
-                    <label>Metode Pembayaran</label>
-                    <select id="payment-method" onchange="handlePaymentChange()">
-                        <option value="">-- Pilih Pembayaran --</option>
-                        <option value="COD">COD (Bayar di Tempat)</option>
-                        <option value="Transfer Bank">Transfer Bank</option>
-                    </select>
-                </div>
-                <div id="bank-selection-box" class="bank-options-box">
-                    <label style="font-size: 0.75rem; font-weight: 600; margin-bottom: 4px; display: block;">Pilih Bank Tujuan</label>
-                    <select id="bank-name">
-                        <option value="Bank BCA">Bank BCA (Transfer)</option>
-                        <option value="Bank Mandiri">Bank Mandiri (Transfer)</option>
-                        <option value="Bank BRI">Bank BRI (Transfer)</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- INVOICE SUKSES MANDIRI -->
-            <div id="success-invoice" class="success-invoice-box">
-                <i class="fa-solid fa-circle-check"></i>
-                <h4 style="font-size:0.95rem; margin-bottom:5px; color:#4a3f35;">Pesanan Sukses Dibuat!</h4>
-                <p id="invoice-detail" style="font-size:0.75rem; text-align:left; color:#6c5a4b; background:#fff; padding:8px; border-radius:6px; border:1px solid #e3d5ca;"></p>
-                <p style="font-size:0.75rem; font-weight:600; margin-top:8px; color:#a98467;">✨ Mohon tunggu, pesanan Anda akan segera diproses!</p>
+            <div id="bank-selection" class="bank-options">
+                <select id="select-bank">
+                    <option value="BCA">Bank BCA (Pilih)</option>
+                    <option value="Mandiri">Bank Mandiri</option>
+                    <option value="BRI">Bank BRI</option>
+                </select>
             </div>
         </div>
-        <div class="sidebar-footer" id="sidebar-footer-btn">
-            <button onclick="eksekusiCheckoutMandiri()" class="btn-checkout-direct">
-                <i class="fa-solid fa-box-open"></i> Konfirmasi & Proses Pesanan
+
+        <div class="sidebar-footer">
+            <button onclick="prosesCheckoutLangsung()" class="btn-direct-checkout">
+                <i class="fa-solid fa-credit-card"></i> Checkout Sekarang
             </button>
         </div>
+    </div>
+
+    <!-- POPUP SUKSES & OVERLAY -->
+    <div class="overlay" id="overlay-bg"></div>
+    <div class="success-popup" id="success-card">
+        <i class="fa-solid fa-circle-check"></i>
+        <h3>Pesanan Anda Sukses Dibuat!</h3>
+        <p>Terima kasih sudah berbelanja di HijabByTami. Pesanan Anda akan segera diproses dan dibuat.</p>
+        <div class="popup-summary" id="order-summary-text"></div>
+        <button class="btn-close-popup" onclick="tutupPopupSukses()">Selesai</button>
     </div>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
         
-        <!-- ====== TAB 1: HALAMAN TOKO UTAMA ====== -->
+        <!-- TAB 1: HALAMAN TOKO UTAMA -->
         <div id="tab-toko" class="tab-content active">
             <div class="hero-banner">
                 <h1>Sentuhan Anggun Setiap Hari</h1>
@@ -654,213 +681,178 @@
 
             <div class="about-section">
                 <h3>Tentang HijabByTami ✨</h3>
-                <p>HijabByTami adalah local brand hijab yang berfokus menghadirkan koleksi pashmina mini premium dengan material terbaik.</p>
-                
-                <!-- SEKSI VISI MISI SITEM KLIK (ACCORDION) -->
-                <div class="vimi-accordion">
-                    <button class="vimi-trigger" onclick="toggleVimi('panel-visi')">👁️ Lihat Visi Perusahaan <i class="fa-solid fa-chevron-down"></i></button>
-                    <div id="panel-visi" class="vimi-panel">
-                        Menjadi pionir modest fashion lokal terdepan yang menginspirasi Muslimah tampil percaya diri, praktis, dan elegan lewat produk berkualitas tinggi serta estetika modern yang fungsional.
-                    </div>
-
-                    <button class="vimi-trigger" onclick="toggleVimi('panel-misi')">🎯 Lihat Misi Perusahaan <i class="fa-solid fa-chevron-down"></i></button>
-                    <div id="panel-misi" class="vimi-panel">
-                        1. Menghadirkan pashmina inovatif berukuran mikro yang adem, nyaman, dan anti-ribet untuk mendukung mobilitas tinggi wanita aktif.<br><br>
-                        2. Memberikan pelayanan prima yang transparan dan berbasis data demi kepuasan menyeluruh pelanggan setia.
-                    </div>
-                </div>
+                <p>HijabByTami menghadirkan koleksi pashmina mini premium yang modis, rapi, dan anti ribet tanpa mengorbankan kenyamanan sepanjang hari.</p>
+                <p><strong>Visi:</strong> Menjadi local brand modest fashion terdepan yang menginspirasi Muslimah Indonesia tampil percaya diri melalui produk yang praktis, berkualitas tinggi, dan adaptif terhadap tren global.</p>
+                <p><strong>Misi:</strong> Menyediakan produk hijab premium fungsional, memberikan pelayanan terbaik demi kepuasan pelanggan, serta membangun ekosistem bisnis fashion retail yang amanah dan transparan.</p>
             </div>
 
-            <div class="video-section">
-                <h3><i class="fa-solid fa-circle-play"></i> Review & Detail Produk</h3>
-                <div class="video-wrapper">
-                    <video controls poster="logo.jpeg">
-                        <source src="produk.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-
-            <div class="restock-notice">
-                <i class="fa-solid fa-rotate"></i> Koleksi Pashmina Mini Baru Saja Di-restok! Amankan Warnamu ✨
-            </div>
-
-            <!-- PRODUK GRID -->
+            <!-- PRODUK GRID (Ditambah Greeting, Rating, dan Atribut Tone Warna) -->
             <div class="product-grid" id="product-container">
-                <!-- PRODUK 1 (TERANG) -->
+                
                 <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar1.jpeg" class="product-img"></div>
+                    <div class="img-container"><img src="gambar1.jpeg" alt="Soft Pink" class="product-img"></div>
                     <div class="product-info">
+                        <div class="product-greeting">"Bikin harimu makin ceria!"</div>
                         <div class="product-title">Pashmina Mini - Soft Pink</div>
-                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="rating-text">(4.9)</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 4.9 <span>(42 ulasan)</span></div>
                         <div class="product-price">Rp 50.000</div>
-                        <div class="stock-info-shopee">
-                            <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">1</span> item</span></div>
-                            <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 15%;"></div></div>
-                        </div>
                         <div class="qty-container">
-                            <button class="qty-btn" onclick="ubahJumlah(this, -1, 1)">-</button>
-                            <input type="number" class="qty-input" value="1" min="1" readonly>
-                            <button class="qty-btn" onclick="ubahJumlah(this, 1, 1)">+</button>
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
                         </div>
-                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Soft Pink', 50000, this, 1)">Tambah ke Keranjang</button>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Soft Pink', 50000, this)">Tambah ke Keranjang</button>
                     </div>
                 </div>
 
-                <!-- PRODUK 4 (GELAP) -->
                 <div class="product-card" data-tone="gelap">
-                    <div class="img-container"><img src="gambar4.jpeg" class="product-img"></div>
+                    <div class="img-container"><img src="gambar2.jpeg" alt="Taupe" class="product-img"></div>
                     <div class="product-info">
-                        <div class="product-title">Pashmina Mini - Deep Navy</div>
-                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="rating-text">(4.8)</span></div>
-                        <div class="product-price">Rp 50.000</div>
-                        <div class="stock-info-shopee">
-                            <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">4</span> item</span></div>
-                            <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 45%;"></div></div>
-                        </div>
-                        <div class="qty-container">
-                            <button class="qty-btn" onclick="ubahJumlah(this, -1, 4)">-</button>
-                            <input type="number" class="qty-input" value="1" min="1" readonly>
-                            <button class="qty-btn" onclick="ubahJumlah(this, 1, 4)">+</button>
-                        </div>
-                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Deep Navy', 50000, this, 4)">Tambah ke Keranjang</button>
-                    </div>
-                </div>
-
-                <!-- PRODUK 2 (TERANG) -->
-                <div class="product-card" data-tone="terang">
-                    <div class="img-container"><img src="gambar2.jpeg" class="product-img"></div>
-                    <div class="product-info">
+                        <div class="product-greeting">"Warna kalem buat look natural!"</div>
                         <div class="product-title">Pashmina Mini - Taupe</div>
-                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="rating-text">(4.7)</span></div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 4.8 <span>(38 ulasan)</span></div>
                         <div class="product-price">Rp 50.000</div>
-                        <div class="stock-info-shopee">
-                            <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">6</span> item</span></div>
-                            <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 70%;"></div></div>
-                        </div>
                         <div class="qty-container">
-                            <button class="qty-btn" onclick="ubahJumlah(this, -1, 6)">-</button>
-                            <input type="number" class="qty-input" value="1" min="1" readonly>
-                            <button class="qty-btn" onclick="ubahJumlah(this, 1, 6)">+</button>
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
                         </div>
-                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Taupe', 50000, this, 6)">Tambah ke Keranjang</button>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Taupe', 50000, this)">Tambah ke Keranjang</button>
                     </div>
                 </div>
 
-                <!-- PRODUK 5 (GELAP) -->
-                <div class="product-card" data-tone="gelap">
-                    <div class="img-container"><img src="gambar5.jpeg" class="product-img"></div>
+                <div class="product-card" data-tone="terang">
+                    <div class="img-container"><img src="gambar3.jpeg" alt="Mauve" class="product-img"></div>
                     <div class="product-info">
-                        <div class="product-title">Pashmina Mini - Mahogany</div>
-                        <div class="product-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <span class="rating-text">(4.6)</span></div>
+                        <div class="product-greeting">"Sentuhan feminin nan manis!"</div>
+                        <div class="product-title">Pashmina Mini - Mauve</div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 5.0 <span>(51 ulasan)</span></div>
                         <div class="product-price">Rp 50.000</div>
-                        <div class="stock-info-shopee">
-                            <div class="stock-status-text"><span>Restok</span><span>Sisa <span class="highlight-orange">3</span> item</span></div>
-                            <div class="stock-bar-container"><div class="stock-bar-fill" style="width: 35%;"></div></div>
-                        </div>
                         <div class="qty-container">
-                            <button class="qty-btn" onclick="ubahJumlah(this, -1, 3)">-</button>
-                            <input type="number" class="qty-input" value="1" min="1" readonly>
-                            <button class="qty-btn" onclick="ubahJumlah(this, 1, 3)">+</button>
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
                         </div>
-                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mahogany', 50000, this, 3)">Tambah ke Keranjang</button>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mauve', 50000, this)">Tambah ke Keranjang</button>
                     </div>
                 </div>
-            </div>
 
-            <div class="reviews-section">
-                <h3>💬 Ulasan Pelanggan Setia</h3>
-                <div class="review-item">
-                    <div class="review-user"><span>Amalia H.</span><span>⭐⭐⭐⭐⭐</span></div>
-                    <p>"Bahan cerutinya premium banget, tegak di dahi dan praktis digunakan!"</p>
+                <div class="product-card" data-tone="gelap">
+                    <div class="img-container"><img src="gambar4.jpeg" alt="Deep Navy" class="product-img"></div>
+                    <div class="product-info">
+                        <div class="product-greeting">"Elegant, bold, dan menawan!"</div>
+                        <div class="product-title">Pashmina Mini - Deep Navy</div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 4.9 <span>(29 ulasan)</span></div>
+                        <div class="product-price">Rp 50.000</div>
+                        <div class="qty-container">
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
+                        </div>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Deep Navy', 50000, this)">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-tone="gelap">
+                    <div class="img-container"><img src="gambar5.jpeg" alt="Mahogany" class="product-img"></div>
+                    <div class="product-info">
+                        <div class="product-greeting">"Nuansa earth-tone eksklusif!"</div>
+                        <div class="product-title">Pashmina Mini - Mahogany</div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 4.7 <span>(33 ulasan)</span></div>
+                        <div class="product-price">Rp 50.000</div>
+                        <div class="qty-container">
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
+                        </div>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Mahogany', 50000, this)">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-tone="terang">
+                    <div class="img-container"><img src="gambar6.jpeg" alt="Hazelnut" class="product-img"></div>
+                    <div class="product-info">
+                        <div class="product-greeting">"Anggun dan cocok ke semua outfit!"</div>
+                        <div class="product-title">Pashmina Mini - Hazelnut</div>
+                        <div class="product-rating"><i class="fa-solid fa-star"></i> 4.9 <span>(47 ulasan)</span></div>
+                        <div class="product-price">Rp 50.000</div>
+                        <div class="qty-container">
+                            <button class="qty-btn" onclick="ubahJumlah(this, -1)">-</button>
+                            <input type="number" class="qty-input" value="1" readonly>
+                            <button class="qty-btn" onclick="ubahJumlah(this, 1)">+</button>
+                        </div>
+                        <button class="btn-add-cart" onclick="masukKeranjang('Pashmina Mini - Hazelnut', 50000, this)">Tambah ke Keranjang</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- ====== TAB 2: HALAMAN DOKUMENTASI BISNIS (UAS) ====== -->
+        <!-- TAB 2: HALAMAN DOKUMENTASI BISNIS (UAS) -->
         <div id="tab-bisnis" class="tab-content">
-            <div class="doc-section">
-                <div class="doc-card">
-                    <h4><i class="fa-solid fa-store"></i> 1. Identitas & Value Proposition</h4>
-                    <p><strong>Nama Bisnis:</strong> HijabByTami</p>
-                    <p><strong>Value Proposition:</strong> Menawarkan kepraktisan lewat lini pashmina mini berdesain ringkas, adem, tegak di dahi untuk Muslimah dengan mobilitas tinggi.</p>
-                </div>
+            <div class="doc-card">
+                <h4><i class="fa-solid fa-eye"></i> Visi & Misi Perusahaan</h4>
+                <p><strong>Visi:</strong> Menjadi local brand modest fashion terdepan yang menginspirasi Muslimah Indonesia tampil percaya diri melalui produk praktis dan berkualitas.</p>
+                <p><strong>Misi:</strong> Menyediakan produk hijab premium fungsional, mengutamakan kenyamanan bahan, serta membangun sistem transaksi e-commerce mandiri yang amanah.</p>
+            </div>
+            <div class="doc-card">
+                <h4><i class="fa-solid fa-store"></i> Value Proposition</h4>
+                <p>Menawarkan kepraktisan lewat lini hijab pashmina mini berdesain ringkas, tegak di dahi, adem, dan dirancang khusus anti ribet bagi Muslimah aktif.</p>
+            </div>
+            <div class="doc-card">
+                <h4><i class="fa-solid fa-credit-card"></i> Sistem Pembayaran Aplikasi Mandiri</h4>
+                <p>Mengintegrasikan fitur Direct Checkout di dalam sistem (Client-side logic simulation) yang memproses transaksi secara lokal tanpa perlu dialihkan ke platform pihak ketiga/WA.</p>
             </div>
         </div>
 
     </main>
 
     <footer>
-        <div class="contact-buttons">
-            <a href="https://wa.me/6287753617027" target="_blank" class="btn-contact btn-wa">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://id.shp.ee/B4exDpf4" target="_blank" class="btn-contact btn-shopee">
-                <i class="fa-solid fa-bag-shopping"></i> Shopee Toko
-            </a>
-        </div>
         <p>&copy; 2026 HijabByTami. All Rights Reserved.</p>
     </footer>
 
     <script>
         let dataKeranjang = [];
 
-        // FUNGSI GANTI TAB AMAN (Mencegah header rusak)
         function switchTab(tabName, tombol) {
             const contents = document.getElementsByClassName('tab-content');
             for (let i = 0; i < contents.length; i++) contents[i].classList.remove('active');
-            
+
             const buttons = document.getElementsByClassName('tab-btn');
             for (let i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
-            
+
             document.getElementById('tab-' + tabName).classList.add('active');
             tombol.classList.add('active');
 
             const searchBox = document.getElementById('header-search-box');
-            if (tabName === 'bisnis') {
-                searchBox.style.display = 'none';
-            } else {
-                searchBox.style.display = 'block';
-            }
+            searchBox.style.display = (tabName === 'bisnis') ? 'none' : '';
         }
 
-        // FUNGSI TOGGLE ACCORDION VISI MISI
-        function toggleVimi(panelId) {
-            const panel = document.getElementById(panelId);
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
+        function toggleSortMenu() {
+            const dropdown = document.getElementById('sort-dropdown');
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
         }
 
-        // FUNGSI TOGGLE DROPDOWN SORTIR
-        function toggleSortDropdown() {
-            const drop = document.getElementById('sortDropdown');
-            drop.style.display = drop.style.display === "block" ? "none" : "block";
+        function urutkanWarna(tipe) {
+            const container = document.getElementById('product-container');
+            const cards = Array.from(container.getElementsByClassName('product-card'));
+
+            cards.sort((a, b) => {
+                const toneA = a.getAttribute('data-tone');
+                const toneB = b.getAttribute('data-tone');
+                if (tipe === 'terang') return toneA === 'terang' ? -1 : 1;
+                if (tipe === 'gelap') return toneA === 'gelap' ? -1 : 1;
+                return 0;
+            });
+
+            container.innerHTML = '';
+            cards.forEach(card => container.appendChild(card));
+            document.getElementById('sort-dropdown').style.display = 'none';
         }
 
-        // FUNGSI EKSEKUSI SORTIR INSTAN (KLIK LANGSUNG)
-        function eksekusiSortir(tipe) {
-            const cards = document.getElementsByClassName('product-card');
-            for (let card of cards) {
-                if (tipe === 'all') {
-                    card.style.display = "";
-                } else {
-                    card.style.display = card.getAttribute('data-tone') === tipe ? "" : "none";
-                }
-            }
-            document.getElementById('sortDropdown').style.display = "none";
-        }
-
-        function ubahJumlah(tombol, value, stokMaksimal) {
+        function ubahJumlah(tombol, value) {
             const wadahInput = tombol.parentElement.querySelector('.qty-input');
-            let angkaSekarang = parseInt(wadahInput.value);
-            angkaSekarang += value;
+            let angkaSekarang = parseInt(wadahInput.value) + value;
             if (angkaSekarang < 1) angkaSekarang = 1;
-            if (angkaSekarang > stokMaksimal) {
-                angkaSekarang = stokMaksimal;
-                alert('Stok mencapai batas maksimal sisa produk! 🙏');
-            }
             wadahInput.value = angkaSekarang;
         }
 
@@ -868,21 +860,17 @@
             document.getElementById('sidebar-cart').classList.toggle('show');
         }
 
-        function masukKeranjang(namaProduk, hargaProduk, tombol, stokMaksimal) {
+        function masukKeranjang(namaProduk, hargaProduk, tombol) {
             const infoCard = tombol.parentElement;
             const inputQty = infoCard.querySelector('.qty-input');
             const totalBeli = parseInt(inputQty.value);
 
             const barangAda = dataKeranjang.find(item => item.nama === namaProduk);
-            let totalBaru = (barangAda ? barangAda.jumlah : 0) + totalBeli;
-
-            if (totalBaru > stokMaksimal) {
-                alert('Gagal! Jumlah melampaui sisa stok.');
-                return;
+            if (barangAda) {
+                barangAda.jumlah += totalBeli;
+            } else {
+                dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, jumlah: totalBeli });
             }
-
-            if (barangAda) barangAda.jumlah = totalBaru;
-            else dataKeranjang.push({ nama: namaProduk, harga: hargaProduk, jumlah: totalBeli });
 
             inputQty.value = 1;
             perbaruiTampilanKeranjang();
@@ -896,85 +884,72 @@
 
         function perbaruiTampilanKeranjang() {
             const badgeTotal = document.getElementById('total-cart');
-            const listWadah = document.getElementById('sidebar-items-list');
-            const formArea = document.getElementById('checkout-form-area');
-            const invoiceBox = document.getElementById('success-invoice');
-            const footerBtn = document.getElementById('sidebar-footer-btn');
+            const bodiSidebar = document.getElementById('sidebar-body');
+            const paymentBox = document.getElementById('payment-section-box');
 
             let hitungTotalItem = dataKeranjang.reduce((total, item) => total + item.jumlah, 0);
             badgeTotal.innerText = hitungTotalItem;
 
-            invoiceBox.style.display = 'none'; 
-
             if (dataKeranjang.length === 0) {
-                listWadah.innerHTML = '<p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>';
-                formArea.style.display = 'none';
-                footerBtn.style.display = 'none';
+                bodiSidebar.innerHTML = '<p class="empty-cart-text">Keranjang masih kosong, nih Sis. ✨</p>';
+                paymentBox.style.display = 'none';
             } else {
-                formArea.style.display = 'block';
-                footerBtn.style.display = 'block';
-                listWadah.innerHTML = dataKeranjang.map((item, index) => `
+                paymentBox.style.display = 'block';
+                bodiSidebar.innerHTML = dataKeranjang.map((item, index) => `
                     <div class="cart-item-row">
-                        <div class="cart-item-detail">
-                            <h5>${item.nama}</h5>
-                            <p>${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
+                        <div>
+                            <h5 style="font-size:0.85rem; font-weight:600;">${item.nama}</h5>
+                            <p style="font-size:0.75rem; color:#757575;">${item.jumlah} x Rp ${item.harga.toLocaleString('id-ID')}</p>
                         </div>
-                        <div class="cart-item-action-area">
-                            <div class="cart-item-price">Rp ${(item.harga * item.jumlah).toLocaleString('id-ID')}</div>
-                            <button class="cart-item-delete-btn" onclick="hapusDariKeranjang(${index})"><i class="fa-solid fa-trash"></i></button>
-                        </div>
+                        <button onclick="hapusDariKeranjang(${index})" style="background:none; border:none; color:#ee4d2d; cursor:pointer;">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
                 `).join('');
             }
         }
 
         function handlePaymentChange() {
-            const method = document.getElementById('payment-method').value;
-            document.getElementById('bank-selection-box').style.display = method === 'Transfer Bank' ? 'block' : 'none';
+            const isBank = document.getElementById('pay-bank').checked;
+            document.getElementById('bank-selection').style.display = isBank ? 'block' : 'none';
         }
 
-        // FUNGSI CHECKOUT MANDIRI (TANPA DIALIKHAN KE WA)
-        function eksekusiCheckoutMandiri() {
-            const nama = document.getElementById('cust-name').value.trim();
-            const alamat = document.getElementById('cust-address').value.trim();
-            const metode = document.getElementById('payment-method').value;
-            const bank = document.getElementById('bank-name').value;
-
-            if (!nama || !alamat || !metode) {
-                alert('Mohon isi Nama, Alamat, dan Metode Pembayaran dulu ya Sis! 😊');
+        function prosesCheckoutLangsung() {
+            if (dataKeranjang.length === 0) {
+                alert('Keranjang belanja kamu masih kosong, Sis! ✨');
                 return;
             }
 
-            let bayarDetail = metode === 'Transfer Bank' ? `Transfer via ${bank}` : 'COD (Bayar di Tempat)';
-            let totalBayar = 0;
-            let itemTeks = '';
+            let metodeSelected = document.querySelector('input[name="payment_method"]:checked').value;
+            if (metodeSelected === 'Transfer Bank') {
+                const bankNama = document.getElementById('select-bank').value;
+                metodeSelected += ` (${bankNama})`;
+            }
 
-            dataKeranjang.forEach((item) => {
-                totalBayar += item.harga * item.jumlah;
-                itemTeks += `• ${item.nama} (${item.jumlah} pcs)<br>`;
-            });
+            let totalBayar = dataKeranjang.reduce((total, item) => total + (item.harga * item.jumlah), 0);
 
-            // Set isi invoice visual
-            const detailBox = document.getElementById('invoice-detail');
-            detailBox.innerHTML = `
-                <strong>Nama Pelanggan:</strong> ${nama}<br>
-                <strong>Alamat:</strong> ${alamat}<br>
-                <strong>Metode Pembayaran:</strong> ${bayarDetail}<br>
-                <strong>Daftar Barang:</strong><br>${itemTeks}
-                <strong>Total Pembayaran:</strong> Rp ${totalBayar.toLocaleString('id-ID')}
+            // Set Data ke Ringkasan Popup
+            const ringkasanHTML = `
+                <strong>Metode:</strong> ${metodeSelected}<br>
+                <strong>Total Tagihan:</strong> Rp ${totalBayar.toLocaleString('id-ID')}<br>
+                <strong>Item:</strong> ${dataKeranjang.map(i => `${i.nama} (${i.jumlah}x)`).join(', ')}
             `;
-
-            // Atur Visibilitas Selesai
-            document.getElementById('sidebar-items-list').innerHTML = '';
-            document.getElementById('checkout-form-area').style.display = 'none';
-            document.getElementById('sidebar-footer-btn').style.display = 'none';
-            document.getElementById('success-invoice').style.display = 'block';
-
-            // Reset status keranjang aplikasi
-            dataKeranjang = [];
-            document.getElementById('total-cart').innerText = 0;
             
-            alert('Sukses! Pesanan telah masuk ke sistem dan akan segera diproses! 🎉');
+            document.getElementById('order-summary-text').innerHTML = ringkasanHTML;
+
+            // Tampilkan Popup Sukses
+            document.getElementById('sidebar-cart').classList.remove('show');
+            document.getElementById('overlay-bg').style.display = 'block';
+            document.getElementById('success-card').style.display = 'block';
+
+            // Reset Keranjang Belanja
+            dataKeranjang = [];
+            perbaruiTampilanKeranjang();
+        }
+
+        function tutupPopupSukses() {
+            document.getElementById('overlay-bg').style.display = 'none';
+            document.getElementById('success-card').style.display = 'none';
         }
 
         function cariProduk() {
@@ -983,16 +958,6 @@
             for (let i = 0; i < cards.length; i++) {
                 let judul = cards[i].querySelector('.product-title').textContent.toLowerCase();
                 cards[i].style.display = judul.includes(input) ? "" : "none";
-            }
-        }
-
-        // Menutup menu sortir kalau klik di luar area menu
-        window.onclick = function(event) {
-            if (!event.target.matches('.fa-bars')) {
-                const drop = document.getElementById('sortDropdown');
-                if (drop && drop.style.display === "block") {
-                    drop.style.display = "none";
-                }
             }
         }
     </script>
